@@ -1,0 +1,286 @@
+[ {
+  "id" : 1158,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 21:31:30",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3955,
+  "error_code" : null,
+  "data_source" : "seek",
+  "updated_at" : "2026-03-26 21:31:30",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the  users",
+    "explanation" : "This query retrieves all the information available for every user in the \"users\" database table. There are no filters or conditions applied, so it includes every user without exception. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all users, which could be useful for understanding the entire user base or for further analysis.",
+    "llmResponse" : "SELECT * FROM users;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1157,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 21:30:45",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5634,
+  "error_code" : null,
+  "data_source" : "saga_banking",
+  "updated_at" : "2026-03-26 21:30:45",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the transactions",
+    "explanation" : "This query retrieves all the data from the \"transactions\" table without applying any filters or conditions, meaning it will show every record available in that table. There is no specific ordering or grouping applied to the results, so the data will appear in the default order of the table. The purpose of this query is likely to provide a complete overview of all transactions, which could be useful for a general review or audit of transaction records.",
+    "llmResponse" : "SELECT * FROM transactions;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1156,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 21:29:59",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4840,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-26 21:29:59",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the products which is heavier than 1 kg",
+    "explanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1 kilogram. The data is filtered to only include products with this weight characteristic. This query is likely used to identify and analyze products that are heavier than 1 kg, which could be useful for inventory management, shipping considerations, or marketing strategies focused on heavier products.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND CAST(pav.valuedecimal AS numeric) > 1 AND a.unit ILIKE 'kg';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1155,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 21:28:18",
+  "status" : "FAILURE",
+  "remarks" : "The selected database schema does not contain tables or columns matching your question. Please rephrase or check available tables.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "LLM_PROSE_RESPONSE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-26 21:28:18",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the student name and the courses they have enrolled",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The selected database schema does not contain tables or columns matching your question. Please rephrase or check available tables.",
+    "retry" : false
+  }
+}, {
+  "id" : 1154,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 21:26:39",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.7343,
+  "error_code" : null,
+  "data_source" : "eduschoo",
+  "updated_at" : "2026-03-26 21:26:39",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the student name and the courses they have enrolled",
+    "explanation" : "This query retrieves the first and last names of students along with the IDs of the courses they are enrolled in. It combines information from three different tables: Students, Enrollments, and Classes, by matching student and class identifiers. There are no specific filters or conditions applied, and the results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a list of students and the courses they are taking, which could be useful for administrative or reporting purposes in an educational setting.",
+    "llmResponse" : "SELECT \n    s.first_name, \n    s.last_name, \n    c.course_id\nFROM \n    Students s\nJOIN \n    Enrollments e ON s.student_id = e.student_id\nJOIN \n    Classes c ON e.class_id = c.class_id;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1153,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 21:17:10",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3451,
+  "error_code" : null,
+  "data_source" : "eduschoo",
+  "updated_at" : "2026-03-26 21:17:10",
+  "transcriptDetails" : {
+    "userPrompt" : "get me all table names",
+    "explanation" : "This query is retrieving a list of all table names from a specific database schema called 'eduschoo'. It only includes tables that are part of this particular schema, filtering out any others. The results are not ordered or grouped in any specific way. The likely business purpose of this query is to help someone understand what tables exist within the 'eduschoo' schema, possibly for the purpose of managing or analyzing the data stored in those tables.",
+    "llmResponse" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'eduschoo';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1152,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 20:54:53",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3451,
+  "error_code" : null,
+  "data_source" : "eduschoo",
+  "updated_at" : "2026-03-26 20:54:53",
+  "transcriptDetails" : {
+    "userPrompt" : "get me all table names",
+    "explanation" : "This query retrieves a list of all table names from a database. It specifically looks for tables that are part of the 'public' schema, which is a common area where database tables are stored. There are no additional filters, conditions, or specific ordering applied to the results. The purpose of this query is likely to help someone understand what tables are available in the public section of the database, which can be useful for database management or analysis tasks.",
+    "llmResponse" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1151,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 20:54:12",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3239,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-26 20:54:12",
+  "transcriptDetails" : {
+    "userPrompt" : "get me all table names",
+    "explanation" : "This query retrieves a list of all table names from a database. It specifically looks for tables that are part of the 'public' schema, which is a common area where database tables are stored. There are no additional filters, conditions, or specific ordering applied to the results. The purpose of this query is likely to help someone understand what tables are available in the public section of the database, which can be useful for database management or analysis tasks.",
+    "llmResponse" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1150,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 20:53:30",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3239,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-26 20:53:30",
+  "transcriptDetails" : {
+    "userPrompt" : "get me all table names",
+    "explanation" : "This query retrieves a list of all table names from a database. It specifically looks for tables that are part of the 'public' schema, which is a common area where database tables are stored. There are no additional filters, conditions, or specific ordering applied to the results. The purpose of this query is likely to help someone understand what tables are available in the public section of the database, which can be useful for managing or analyzing data.",
+    "llmResponse" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1149,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 18:19:31",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "saga_banking",
+  "updated_at" : "2026-03-26 18:19:31",
+  "transcriptDetails" : {
+    "userPrompt" : "get me all table names",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1148,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 18:18:41",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "saga_banking",
+  "updated_at" : "2026-03-26 18:18:41",
+  "transcriptDetails" : {
+    "userPrompt" : "get me all table names",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1147,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 18:15:54",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3788,
+  "error_code" : null,
+  "data_source" : "seek",
+  "updated_at" : "2026-03-26 18:15:54",
+  "transcriptDetails" : {
+    "userPrompt" : "get me the list of users",
+    "explanation" : "This query retrieves all the information available for every user in the \"users\" database table. There are no filters or conditions applied, so it includes every user without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all users, which could be useful for understanding the entire user base or for further analysis.",
+    "llmResponse" : "SELECT * FROM users;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1146,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 18:13:08",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5123,
+  "error_code" : null,
+  "data_source" : "eduschoo",
+  "updated_at" : "2026-03-26 18:13:08",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the students name",
+    "explanation" : "This query retrieves the first and last names of all students from the Students database. There are no filters or conditions applied, so it includes every student in the database. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a list of student names, which could be used for administrative tasks or reporting.",
+    "llmResponse" : "SELECT first_name, last_name FROM Students;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1145,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 18:07:25",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4430,
+  "error_code" : null,
+  "data_source" : "eduschoo",
+  "updated_at" : "2026-03-26 18:07:25",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the students name and the courses they enrolled",
+    "explanation" : "This query retrieves the names of customers along with their corresponding order IDs. It combines information from two sources: the customer details and their orders, by matching the customer ID in both datasets. There are no specific filters or conditions applied, and the results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a list of customers and their associated orders, which could be useful for understanding customer purchasing behavior or for customer service purposes.",
+    "llmResponse" : "SELECT customers.name, orders.orderid\nFROM customers\nJOIN orders ON customers.customerid = orders.customerid;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1144,
+  "user_id" : 1052,
+  "created_at" : "2026-03-26 17:45:20",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "eduschoo",
+  "updated_at" : "2026-03-26 17:45:20",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the students name and the courses they enrolled",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+} ]

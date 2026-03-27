@@ -1,0 +1,124 @@
+[ {
+  "timestamp" : "2026-03-24T18:14:47",
+  "request" : {
+    "userPrompt" : "get the students details and which department they are associated with",
+    "databaseName" : "Dummy123School",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'students'. Available tables are: customers, suppliers, orderdetails.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-24T18:26:11",
+  "request" : {
+    "userPrompt" : "List the students name and their department name and school name",
+    "databaseName" : "Dummy123School",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'school name'. Available tables are: Departments, Students, Schools.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-24T18:39:01",
+  "request" : {
+    "userPrompt" : "get all the students name and their department name and school name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'students'. Available tables are: customers, suppliers.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-24T18:47:36",
+  "request" : {
+    "userPrompt" : "get the students details and which department they are associated with",
+    "databaseName" : "Dummy123School",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT Students.first_name, Students.last_name, Students.email, Students.enrollment_date, Departments.department_name\nFROM Students\nJOIN Departments ON Students.department_id = Departments.department_id;",
+    "sqlValid" : true,
+    "confidenceLabel" : "MEDIUM",
+    "confidenceScore" : 0.5423357302223243,
+    "confidenceDetails" : "semantic=0.356(×0.40) | coverage=0.333(×0.20) | validity=1.0(×0.20) | tableMatch=0.667(×0.20) | → total=0.542 [MEDIUM]",
+    "englishExplanation" : "This query retrieves a list of students, including their first and last names, email addresses, enrollment dates, and the names of the departments they belong to. It combines information from two sources: the student records and the department details, ensuring that each student is matched with their respective department. There are no specific filters or conditions applied to limit the data, and the results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a comprehensive overview of students along with their departmental affiliations, which could be useful for administrative reporting or academic planning.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "Students", "Departments", "Schools" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-24T22:56:33",
+  "request" : {
+    "userPrompt" : "get all the products",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT * FROM products;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.36316926050926357,
+    "confidenceDetails" : "semantic=0.241(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.333(×0.20) | → total=0.363 [LOW]",
+    "englishExplanation" : "This query retrieves all the information available for each product in the products database table. There are no filters or conditions applied, so it will return every product record without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all products, which could be useful for inventory review or general product management.",
+    "validationErrors" : [ "SELECT * used – consider selecting specific columns for clarity." ],
+    "relevantTables" : [ "products", "orderdetails", "categories" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+} ]

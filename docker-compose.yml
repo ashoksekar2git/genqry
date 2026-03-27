@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  nl2sql-api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      PINECONE_API_KEY: ${PINECONE_API_KEY}
+      PINECONE_ENVIRONMENT: ${PINECONE_ENVIRONMENT}
+      PINECONE_INDEX_NAME: ${PINECONE_INDEX_NAME:-rag-nl2sql}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+    depends_on:
+      - h2-console
+    networks:
+      - nl2sql-network
+
+  h2-console:
+    image: oscarfonts/h2:latest
+    ports:
+      - "8082:8082"
+    networks:
+      - nl2sql-network
+
+networks:
+  nl2sql-network:
+    driver: bridge
+
+# Usage:
+# docker-compose build
+# OPENAI_API_KEY=sk-... PINECONE_API_KEY=... PINECONE_ENVIRONMENT=gcp-starter docker-compose up
+

@@ -1,0 +1,249 @@
+{
+  "database_name" : "DummySchool",
+  "database_type" : "SQL_FILE",
+  "schema_version" : "1.0.0",
+  "source_file" : "school.sql",
+  "extracted_at" : "2026-03-24T22:20:33.954016Z",
+  "total_tables" : 6,
+  "tables" : [ {
+    "table_name" : "Schools",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ ],
+    "columns" : [ {
+      "column_name" : "school_name",
+      "data_type" : "VARCHAR(255)",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "address",
+      "data_type" : "TEXT",
+      "column_comment" : "",
+      "nullable" : true,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  }, {
+    "table_name" : "Departments",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ ],
+    "columns" : [ {
+      "column_name" : "department_name",
+      "data_type" : "VARCHAR(255)",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "school_id",
+      "data_type" : "INT",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : "Schools.school_id",
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  }, {
+    "table_name" : "Students",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ ],
+    "columns" : [ {
+      "column_name" : "first_name",
+      "data_type" : "VARCHAR(255)",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "last_name",
+      "data_type" : "VARCHAR(255)",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "email",
+      "data_type" : "VARCHAR(255)",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "enrollment_date",
+      "data_type" : "DATE",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : "CURRENT_DATE",
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "department_id",
+      "data_type" : "INT",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : "Departments.department_id",
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  }, {
+    "table_name" : "Courses",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ ],
+    "columns" : [ {
+      "column_name" : "course_name",
+      "data_type" : "VARCHAR(255)",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "credits",
+      "data_type" : "INT",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "department_id",
+      "data_type" : "INT",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : "Departments.department_id",
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  }, {
+    "table_name" : "Student_Courses",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ "student_id", "course_id" ],
+    "columns" : [ {
+      "column_name" : "student_id",
+      "data_type" : "INT",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : true,
+      "foreign_key" : "Students.student_id",
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "course_id",
+      "data_type" : "INT",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : true,
+      "foreign_key" : "Courses.course_id",
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "grade",
+      "data_type" : "VARCHAR(2)",
+      "column_comment" : "",
+      "nullable" : true,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  }, {
+    "table_name" : "Student_Attributes",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ ],
+    "columns" : [ {
+      "column_name" : "student_id",
+      "data_type" : "INT",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : "Students.student_id",
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "attribute_name",
+      "data_type" : "VARCHAR(100)",
+      "column_comment" : "",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "attribute_value",
+      "data_type" : "TEXT",
+      "column_comment" : "",
+      "nullable" : true,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : true
+  } ]
+}

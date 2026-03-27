@@ -1,0 +1,37 @@
+{
+  "databaseName" : "ecommerce",
+  "tableName" : "employees",
+  "description" : "This table is used for saving employee details like first name, last name, department name, Salary in amount, manager id,  email id , employee date of joining , or Start date or employment date, or hired date",
+  "savedAt" : "2026-03-01T05:35:44.767462Z",
+  "columns" : [ {
+    "columnName" : "id",
+    "description" : "employee id"
+  }, {
+    "columnName" : "first_name",
+    "description" : "employee first name"
+  }, {
+    "columnName" : "last_name",
+    "description" : "employee last name"
+  }, {
+    "columnName" : "email",
+    "description" : "employee email id"
+  }, {
+    "columnName" : "department",
+    "description" : "employee department name"
+  }, {
+    "columnName" : "salary",
+    "description" : "employee salary in amount"
+  }, {
+    "columnName" : "hire_date",
+    "description" : "Date of Joining or start date"
+  }, {
+    "columnName" : "manager_id",
+    "description" : "employee's manager i d"
+  }, {
+    "columnName" : "status",
+    "description" : "Status of employment Active or Terminated"
+  }, {
+    "columnName" : "created_at",
+    "description" : "The date this record is inserted"
+  } ]
+}

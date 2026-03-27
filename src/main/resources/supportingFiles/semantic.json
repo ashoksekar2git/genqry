@@ -1,0 +1,90 @@
+{
+  "_description" : "Semantic alias groups used by AbbreviationExpanderService to broaden embedding coverage. When an expanded table/column name contains a key word (e.g. 'employee'), all listed aliases are injected into the embedding text so queries using synonyms (e.g. 'workers', 'staff', 'headcount') still match the correct schema chunks. Keys are the canonical English word; values are arrays of synonyms.",
+  "alias_groups" : {
+    "employee" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'employee'",
+      "synonyms" : [ "staff", "worker", "personnel", "team member", "workforce", "human resources", "HR record", "headcount" ]
+    },
+    "customer" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'customer'",
+      "synonyms" : [ "client", "buyer", "consumer", "account holder", "end user" ]
+    },
+    "order" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'order'",
+      "synonyms" : [ "purchase", "transaction", "sale", "booking", "request" ]
+    },
+    "product" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'product'",
+      "synonyms" : [ "item", "goods", "merchandise", "SKU", "inventory item" ]
+    },
+    "department" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'department'",
+      "synonyms" : [ "division", "team", "unit", "group", "business unit" ]
+    },
+    "invoice" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'invoice'",
+      "synonyms" : [ "bill", "receipt", "statement", "charge" ]
+    },
+    "payment" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'payment'",
+      "synonyms" : [ "remittance", "settlement", "charge", "fee", "disbursement" ]
+    },
+    "salary" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'salary'",
+      "synonyms" : [ "compensation", "pay", "wage", "remuneration", "earnings" ]
+    },
+    "address" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'address'",
+      "synonyms" : [ "location", "mailing address", "shipping address", "residence" ]
+    },
+    "account" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'account'",
+      "synonyms" : [ "profile", "user account", "login", "access credentials" ]
+    },
+    "vendor" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'vendor'",
+      "synonyms" : [ "supplier", "provider", "contractor", "partner" ]
+    },
+    "category" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'category'",
+      "synonyms" : [ "group", "classification", "type", "segment" ]
+    },
+    "transaction" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'transaction'",
+      "synonyms" : [ "trade", "exchange", "operation", "activity" ]
+    },
+    "revenue" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'transaction'",
+      "synonyms" : [ "income", "sales", "earnings", "turnover" ]
+    },
+    "headcount" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'headcount'",
+      "synonyms" : [ "employee count", "staff count", "workforce size", "number of employees" ]
+    },
+    "recent orders" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'recent orders'",
+      "synonyms" : [ "latest orders", "new orders", "last orders", "recent purchases" ]
+    },
+    "inventory" : {
+      "addedBy" : "admin",
+      "_comment" : "Matches tables/columns whose expanded name contains 'inventory'",
+      "synonyms" : [ "stock", "warehouse", "supply", "goods on hand" ]
+    }
+  }
+}

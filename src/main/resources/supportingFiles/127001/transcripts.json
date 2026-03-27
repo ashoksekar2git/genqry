@@ -1,0 +1,134 @@
+[ {
+  "id" : 1085,
+  "user_id" : 1078,
+  "created_at" : "2026-03-24 22:56:33",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3632,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-24 22:56:33",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the products",
+    "explanation" : "This query retrieves all the information available for each product in the products database table. There are no filters or conditions applied, so it will return every product record without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all products, which could be useful for inventory review or general product management.",
+    "llmResponse" : "SELECT * FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1084,
+  "user_id" : 1078,
+  "created_at" : "2026-03-24 18:53:17",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4644,
+  "error_code" : null,
+  "data_source" : "2025 W2.pdf",
+  "updated_at" : "2026-03-24 18:53:17",
+  "transcriptDetails" : {
+    "userPrompt" : "get me the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4644) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number are 8797 [Excerpt 2] (file: 2025 W2.pdf).",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1083,
+  "user_id" : 1078,
+  "created_at" : "2026-03-24 18:52:20",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.2796,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2025 W2.pdf",
+  "updated_at" : "2026-03-24 18:52:20",
+  "transcriptDetails" : {
+    "userPrompt" : "find the total gain or loss",
+    "explanation" : "Doc RAG | confidence=LOW (0.2796) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1082,
+  "user_id" : 1078,
+  "created_at" : "2026-03-24 18:47:36",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5423,
+  "error_code" : null,
+  "data_source" : "Dummy123School",
+  "updated_at" : "2026-03-24 18:47:36",
+  "transcriptDetails" : {
+    "userPrompt" : "get the students details and which department they are associated with",
+    "explanation" : "This query retrieves a list of students, including their first and last names, email addresses, enrollment dates, and the names of the departments they belong to. It combines information from two sources: the student records and the department details, ensuring that each student is matched with their respective department. There are no specific filters or conditions applied to limit the data, and the results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a comprehensive overview of students along with their departmental affiliations, which could be useful for administrative reporting or academic planning.",
+    "llmResponse" : "SELECT Students.first_name, Students.last_name, Students.email, Students.enrollment_date, Departments.department_name\nFROM Students\nJOIN Departments ON Students.department_id = Departments.department_id;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1081,
+  "user_id" : 1078,
+  "created_at" : "2026-03-24 18:39:01",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'students'. Available tables are: customers, suppliers.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-24 18:39:01",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the students name and their department name and school name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'students'. Available tables are: customers, suppliers.",
+    "retry" : false
+  }
+}, {
+  "id" : 1080,
+  "user_id" : 1078,
+  "created_at" : "2026-03-24 18:26:11",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'school name'. Available tables are: Departments, Students, Schools.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "Dummy123School",
+  "updated_at" : "2026-03-24 18:26:11",
+  "transcriptDetails" : {
+    "userPrompt" : "List the students name and their department name and school name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'school name'. Available tables are: Departments, Students, Schools.",
+    "retry" : false
+  }
+}, {
+  "id" : 1079,
+  "user_id" : 1078,
+  "created_at" : "2026-03-24 18:14:47",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'students'. Available tables are: customers, suppliers, orderdetails.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "Dummy123School",
+  "updated_at" : "2026-03-24 18:14:47",
+  "transcriptDetails" : {
+    "userPrompt" : "get the students details and which department they are associated with",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'students'. Available tables are: customers, suppliers, orderdetails.",
+    "retry" : false
+  }
+} ]

@@ -1,0 +1,2148 @@
+[ {
+  "id" : 1143,
+  "user_id" : 1000,
+  "created_at" : "2026-03-26 09:17:14",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3423,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-26 09:17:14",
+  "transcriptDetails" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "explanation" : "Doc RAG | confidence=LOW (0.3423) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1142,
+  "user_id" : 1000,
+  "created_at" : "2026-03-26 09:15:01",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3423,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-26 09:15:01",
+  "transcriptDetails" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "explanation" : "Doc RAG | confidence=LOW (0.3423) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1141,
+  "user_id" : 1000,
+  "created_at" : "2026-03-26 09:14:13",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4806,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-26 09:14:13",
+  "transcriptDetails" : {
+    "userPrompt" : "find the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4806) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number (SSN) are 8797 [Excerpt 3] (file: AshokW2.pdf).",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1140,
+  "user_id" : 1000,
+  "created_at" : "2026-03-26 09:06:39",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4806,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-26 09:06:39",
+  "transcriptDetails" : {
+    "userPrompt" : "find the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4806) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number (SSN) are 8797 [Excerpt 3] (file: AshokW2.pdf).",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1139,
+  "user_id" : 1000,
+  "created_at" : "2026-03-26 09:01:38",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4806,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-26 09:01:38",
+  "transcriptDetails" : {
+    "userPrompt" : "find the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4806) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number are 8797 [Excerpt 3] (file: AshokW2.pdf).",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1138,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 23:40:28",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4806,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-25 23:40:28",
+  "transcriptDetails" : {
+    "userPrompt" : "find the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4806) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number are 8797. [Excerpt 3] (file: AshokW2.pdf)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1137,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 23:31:47",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4806,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-25 23:31:47",
+  "transcriptDetails" : {
+    "userPrompt" : "find the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4806) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number (SSN) are 8797. This information is found in Excerpt 3.",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1136,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 23:30:43",
+  "status" : "FAILURE",
+  "remarks" : "The selected database schema does not contain tables or columns matching your question. Please rephrase or check available tables.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "LLM_PROSE_RESPONSE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 23:30:43",
+  "transcriptDetails" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The selected database schema does not contain tables or columns matching your question. Please rephrase or check available tables.",
+    "retry" : false
+  }
+}, {
+  "id" : 1135,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 23:26:12",
+  "status" : "FAILURE",
+  "remarks" : "The selected database schema does not contain tables or columns matching your question. Please rephrase or check available tables.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "LLM_PROSE_RESPONSE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 23:26:12",
+  "transcriptDetails" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The selected database schema does not contain tables or columns matching your question. Please rephrase or check available tables.",
+    "retry" : false
+  }
+}, {
+  "id" : 1134,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 23:24:17",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4148,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 23:24:17",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is  white color",
+    "explanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a color attribute with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Color' AND pav.value ILIKE 'white';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1133,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 23:23:45",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4942,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 23:23:45",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, SKU, active status, and creation and update dates. It specifically looks for products that have a weight attribute greater than 1 kilogram. The purpose of this query is likely to identify and analyze products that are relatively heavy, possibly for inventory management or marketing strategies.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku, p.isactive, p.createdat, p.updatedat\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1 AND a.unit ILIKE 'kg';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1132,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 23:15:06",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.1553,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 23:15:06",
+  "transcriptDetails" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "explanation" : "Explanation skipped — generated SQL did not pass validation.",
+    "llmResponse" : "The schema provided does not include tables or columns related to \"students\" or \"department name.\" Therefore, it is not possible to generate an SQL query for the given natural-language question based on the provided schema.",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1131,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 23:13:14",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4942,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 23:13:14",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1 kilogram. The purpose of this query is likely to identify and analyze products that are relatively heavy, which could be useful for inventory management, shipping considerations, or marketing strategies.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1 AND a.unit ILIKE 'kg';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1130,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 23:12:08",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4148,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 23:12:08",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is  white color",
+    "explanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a color attribute with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'color' AND pav.value ILIKE 'white';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1129,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 22:59:46",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.1553,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 22:59:46",
+  "transcriptDetails" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "explanation" : "Explanation skipped — generated SQL did not pass validation.",
+    "llmResponse" : "The schema provided does not include tables or columns related to \"students\" or \"departments.\" Therefore, it is not possible to generate an SQL query for the given natural-language question based on the provided schema. Please provide the relevant schema details or adjust the question to fit the available schema.",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1128,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 22:57:42",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4148,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 22:57:42",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is  white color",
+    "explanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a color attribute with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Color' AND pav.value ILIKE 'white';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1127,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 22:55:45",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4942,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 22:55:45",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1 kilogram. The purpose of this query is likely to identify and analyze products that are relatively heavier, which could be useful for inventory management, shipping considerations, or marketing strategies focused on larger items.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1 AND a.unit ILIKE 'kg';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1126,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 22:31:58",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4926,
+  "error_code" : null,
+  "data_source" : "Myschool",
+  "updated_at" : "2026-03-25 22:31:58",
+  "transcriptDetails" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "explanation" : "This query retrieves a list of students, including their ID, first name, last name, and the name of the department they belong to. It combines information from two sources: the student records and the department details, ensuring that each student is matched with their respective department. There are no specific filters or conditions applied, meaning it includes all students and their departments. The purpose of this query is likely to provide a comprehensive overview of students along with their associated departments, which could be useful for administrative reporting or academic planning.",
+    "llmResponse" : "SELECT s.student_id, s.first_name, s.last_name, d.department_name\nFROM Students s\nJOIN Departments d ON s.department_id = d.department_id;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1125,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 22:29:23",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 22:29:23",
+  "transcriptDetails" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1124,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 22:20:39",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4942,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 22:20:39",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1 kilogram. The purpose of this query is likely to identify and analyze products that are relatively heavier, which could be useful for inventory management, shipping considerations, or marketing strategies.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1 AND a.unit ILIKE 'kg';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1123,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 22:18:32",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4149,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 22:18:32",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is  white color",
+    "explanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have an attribute labeled \"color\" with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'color' AND pav.value ILIKE 'white';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1122,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 22:00:22",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0866,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 22:00:22",
+  "transcriptDetails" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "explanation" : "Explanation skipped — generated SQL did not pass validation.",
+    "llmResponse" : "The schema provided does not include tables related to students or departments. Therefore, it is not possible to generate an SQL query for the given natural-language question based on the provided schema.",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1121,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 21:57:54",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3839,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 21:57:54",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "This query retrieves information about products, specifically their IDs, names, and weights. It focuses on products that have a weight attribute greater than 1.0. The data is filtered to only include products with a weight attribute, ensuring that the weight is a numeric value above the specified threshold. This query is likely used to identify and analyze products that are heavier than a certain weight, which could be useful for inventory management, shipping considerations, or product categorization.",
+    "llmResponse" : "SELECT p.productid, p.name, pav.value AS weight\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1.0;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1120,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 21:54:34",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4683,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 21:54:34",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is  white color",
+    "explanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a color attribute with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Color' AND pav.value ILIKE 'white';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1119,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 21:48:57",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4683,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 21:48:57",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is  white color",
+    "explanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, SKU, active status, and creation and update dates. It specifically looks for products that have a color attribute with the value 'white'. The results are not ordered or grouped in any particular way. This query is likely used to identify and list all products available in white, which could help in inventory management or marketing strategies focused on promoting white-colored products.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku, p.isactive, p.createdat, p.updatedat\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Color' AND pav.value = 'white';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1118,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 21:45:31",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3907,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 21:45:31",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "This query retrieves information about products, specifically their IDs, names, and weights. It focuses on products that have a weight attribute greater than 1.0. The data is filtered to only include products with a weight attribute, ensuring that only relevant products are considered. This query is likely used to identify and analyze products that are heavier than a certain threshold, which could be useful for inventory management, shipping considerations, or product categorization.",
+    "llmResponse" : "SELECT p.productid, p.name, pav.valuedecimal AS weight\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Weight' AND pav.valuedecimal > 1.0;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1117,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 21:40:16",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, productsuppliers, suppliers, products, productattributevalues, attributes, orders, categories.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 21:40:16",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, productsuppliers, suppliers, products, productattributevalues, attributes, orders, categories.",
+    "retry" : false
+  }
+}, {
+  "id" : 1116,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 21:37:33",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, productsuppliers, suppliers, products, productattributevalues, attributes, orders, categories.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 21:37:33",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, productsuppliers, suppliers, products, productattributevalues, attributes, orders, categories.",
+    "retry" : false
+  }
+}, {
+  "id" : 1115,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 18:00:54",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.1157,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 18:00:54",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "Explanation skipped — generated SQL did not pass validation.",
+    "llmResponse" : "DATA_NOT_AVAILABLE",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1114,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 17:55:01",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, productsuppliers, suppliers, products, productattributevalues, attributes, orders, categories.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 17:55:01",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, productsuppliers, suppliers, products, productattributevalues, attributes, orders, categories.",
+    "retry" : false
+  }
+}, {
+  "id" : 1113,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 17:39:27",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, products, productsuppliers, attributes, orders, categories.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 17:39:27",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, products, productsuppliers, attributes, orders, categories.",
+    "retry" : false
+  }
+}, {
+  "id" : 1112,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 17:37:24",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, products, productsuppliers, attributes, orders, categories, suppliers.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 17:37:24",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, products, productsuppliers, attributes, orders, categories, suppliers.",
+    "retry" : false
+  }
+}, {
+  "id" : 1111,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 17:35:23",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'students' or 'departments'. Available tables are: customers, products, suppliers, orders.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 17:35:23",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the students and their departments",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'students' or 'departments'. Available tables are: customers, products, suppliers, orders.",
+    "retry" : false
+  }
+}, {
+  "id" : 1110,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 16:59:33",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'students' or 'departments'. Available tables are: customers, products, suppliers, orders.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 16:59:33",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the students and their departments",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'students' or 'departments'. Available tables are: customers, products, suppliers, orders.",
+    "retry" : false
+  }
+}, {
+  "id" : 1109,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 16:33:13",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3323,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 16:33:13",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the students and their departments",
+    "explanation" : "This query retrieves a list of customers from the database, including their customer ID, name, email, and address. There are no filters or conditions applied, so it pulls information for all customers in the database. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a comprehensive list of customer contact details, which could be used for marketing, customer service, or record-keeping purposes.",
+    "llmResponse" : "SELECT customerid, name, email, address FROM customers;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1108,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 14:28:37",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.6639,
+  "error_code" : null,
+  "data_source" : "Myschool",
+  "updated_at" : "2026-03-25 14:28:37",
+  "transcriptDetails" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "explanation" : "This query retrieves a list of students, including their first and last names, along with the names of the departments and schools they are associated with. It combines information from three different tables: Students, Departments, and Schools, by matching department and school identifiers. There are no specific filters or conditions applied to limit the data, and the results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a comprehensive view of students and their affiliations with specific departments and schools, which could be useful for administrative reporting or academic planning.",
+    "llmResponse" : "SELECT \n    s.student_id, \n    s.first_name, \n    s.last_name, \n    d.department_name, \n    sc.school_name\nFROM \n    Students s\nJOIN \n    Departments d ON s.department_id = d.department_id\nJOIN \n    Schools sc ON d.school_id = sc.school_id;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1107,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 14:25:19",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "MySchool",
+  "updated_at" : "2026-03-25 14:25:19",
+  "transcriptDetails" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1106,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 14:24:34",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 14:24:34",
+  "transcriptDetails" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1105,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 14:23:25",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "MySchool",
+  "updated_at" : "2026-03-25 14:23:25",
+  "transcriptDetails" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1104,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 14:23:06",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 14:23:06",
+  "transcriptDetails" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1103,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 14:22:47",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "MySchool",
+  "updated_at" : "2026-03-25 14:22:47",
+  "transcriptDetails" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1102,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 14:01:46",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "MySchool",
+  "updated_at" : "2026-03-25 14:01:46",
+  "transcriptDetails" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1101,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 13:59:42",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "MySchool",
+  "updated_at" : "2026-03-25 13:59:42",
+  "transcriptDetails" : {
+    "userPrompt" : "List students and associated departments",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1100,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 11:22:31",
+  "status" : "SUCCESS",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 1.0000,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 11:22:31",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "This query retrieves information about products that have a weight attribute greater than 1. It specifically looks for products by joining them with their associated attributes and values. The filter applied ensures that only products with a weight attribute value over 1 are included. This query is likely used to identify and analyze products that are heavier, which could be important for inventory management, shipping considerations, or product categorization.",
+    "llmResponse" : "SELECT p.* \nFROM products p\nJOIN productattributevalues pav ON pav.productid = p.productid\nJOIN attributes a ON a.attributeid = pav.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.valuedecimal AS numeric) > 1;",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1099,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 11:21:58",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4777,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 11:21:58",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is of while color",
+    "explanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have an attribute labeled \"Color\" with a value of \"white,\" regardless of case sensitivity. The results are not ordered or grouped in any particular way. The likely business purpose of this query is to identify and analyze all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Color' AND pav.value ILIKE 'white';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1098,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 10:39:29",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4770,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 10:39:29",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is of while color",
+    "explanation" : "This query retrieves information about products, specifically their ID, name, description, price, stock quantity, and SKU. It focuses on products that have a specific attribute: they must be white in color. The data is filtered to only include products with this color attribute, but it is not ordered or grouped in any particular way. The likely business purpose of this query is to identify and analyze all white-colored products in the inventory, which could be useful for inventory management, marketing, or sales analysis.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Color' AND pav.value = 'white';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1097,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 10:38:22",
+  "status" : "SUCCESS",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 1.0000,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 10:38:22",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "This query retrieves information about products that have a weight attribute greater than one. It specifically looks for products with a weight value over one by joining product details with their associated attributes. The results are not ordered or grouped in any specific way. The likely business purpose of this query is to identify and analyze products that are heavier, which could be useful for inventory management, shipping considerations, or marketing strategies targeting products with substantial weight.",
+    "llmResponse" : "SELECT p.* \nFROM products p\nJOIN productattributevalues pav ON pav.productid = p.productid\nJOIN attributes a ON a.attributeid = pav.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.valuedecimal AS numeric) > 1;",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1096,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 09:56:50",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4478,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 09:56:50",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1. The data is filtered to only include products with this weight condition. The likely business purpose of this query is to identify and analyze products that are heavier, which could be useful for inventory management, shipping considerations, or marketing strategies.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.attributeid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.value AS numeric) > 1;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1095,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 09:44:09",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3066,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 09:44:09",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "I'm sorry, but I can't provide an explanation of the SQL query since the query itself is not available. If you can provide the SQL query, I'd be happy to help explain it in simple terms.",
+    "llmResponse" : "DATA_NOT_AVAILABLE",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1094,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 09:42:35",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3066,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 09:42:35",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the SQL query, I'd be happy to help explain it in simple terms.",
+    "llmResponse" : "DATA_NOT_AVAILABLE",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1093,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 09:26:17",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3066,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 09:26:17",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the query, I'd be happy to help explain it in simple terms.",
+    "llmResponse" : "DATA_NOT_AVAILABLE",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1092,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 09:21:45",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.6419,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 09:21:45",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "This query retrieves a list of unique attribute IDs from a database, specifically focusing on product attributes related to weight. It filters the data to include only those products where the weight is greater than 1. The results are not ordered or grouped but are distinct, meaning each attribute ID appears only once. This query likely helps the business identify products that are heavier than a certain threshold, which could be useful for inventory management or shipping logistics.",
+    "llmResponse" : "SELECT DISTINCT pav.attributeid\nFROM productattributevalues pav\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.value AS DECIMAL) > 1;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1091,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 08:51:44",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3066,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 08:51:44",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the query, I'd be happy to help explain it in simple terms.",
+    "llmResponse" : "DATA_NOT_AVAILABLE",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1090,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 08:51:21",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3066,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 08:51:21",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "explanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the query, I'd be happy to help explain it in simple terms.",
+    "llmResponse" : "DATA_NOT_AVAILABLE",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1089,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 08:50:14",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3086,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 08:50:14",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the query, I'd be happy to help explain it in simple terms.",
+    "llmResponse" : "DATA_NOT_AVAILABLE",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1088,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 08:39:52",
+  "status" : "FAILURE",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3086,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 08:39:52",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "I'm sorry, but I can't provide an explanation of the SQL query since the query itself is not available. If you can provide the SQL query, I'd be happy to help explain it in simple terms.",
+    "llmResponse" : "DATA_NOT_AVAILABLE",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1087,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 08:35:59",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'heavier than 1 kg'. Available tables are: orderdetails, products, productsuppliers, orders, categories, suppliers, attributes, productattributevalues, customers.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 08:35:59",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'heavier than 1 kg'. Available tables are: orderdetails, products, productsuppliers, orders, categories, suppliers, attributes, productattributevalues, customers.",
+    "retry" : false
+  }
+}, {
+  "id" : 1086,
+  "user_id" : 1000,
+  "created_at" : "2026-03-25 08:12:27",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'products'. Available tables are: attributes, productattributevalues, orderdetails.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-25 08:12:27",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'products'. Available tables are: attributes, productattributevalues, orderdetails.",
+    "retry" : false
+  }
+}, {
+  "id" : 1073,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 21:26:47",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'stock options'. Available tables are: products, categories.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 21:26:47",
+  "transcriptDetails" : {
+    "userPrompt" : "List the stock options that i have",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'stock options'. Available tables are: products, categories.",
+    "retry" : false
+  }
+}, {
+  "id" : 1072,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 17:05:06",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4272,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 17:05:06",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products",
+    "explanation" : "This query retrieves all the information available for each product in the products database table. There are no filters or conditions applied, so it includes every product without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all products, which could be useful for inventory review or general product management.",
+    "llmResponse" : "SELECT * FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1071,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 17:03:07",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'SSN'. Available tables are: orderdetails, suppliers, customers.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 17:03:07",
+  "transcriptDetails" : {
+    "userPrompt" : "show last 4 digit of SSN",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'SSN'. Available tables are: orderdetails, suppliers, customers.",
+    "retry" : false
+  }
+}, {
+  "id" : 1070,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 17:01:53",
+  "status" : "FAILURE",
+  "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'portfolio'. Available tables are: products, productattributevalues, categories.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "DATA_NOT_AVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 17:01:53",
+  "transcriptDetails" : {
+    "userPrompt" : "show my portfolio",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'portfolio'. Available tables are: products, productattributevalues, categories.",
+    "retry" : false
+  }
+}, {
+  "id" : 1069,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 16:51:09",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3728,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 16:51:09",
+  "transcriptDetails" : {
+    "userPrompt" : "show my portfolio",
+    "explanation" : "This query retrieves information about active products from a database, including their ID, name, description, price, stock quantity, and the name of their category. It only includes products that are currently marked as active, ensuring that inactive products are not shown. The results are not specifically ordered or grouped. The purpose of this query is likely to provide a list of active products along with their details and category names, which can be useful for inventory management or sales analysis.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, c.name AS category_name\nFROM products p\nJOIN categories c ON p.categoryid = c.categoryid\nWHERE p.isactive = TRUE;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1068,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 16:39:33",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3166,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 16:39:33",
+  "transcriptDetails" : {
+    "userPrompt" : "Show my portfolio",
+    "explanation" : "This query retrieves all the information available for each product in the products database table. There are no filters or conditions applied, so it includes every product without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all products, which could be useful for inventory review or general product management.",
+    "llmResponse" : "SELECT * FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1067,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 13:24:45",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4636,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-23 13:24:45",
+  "transcriptDetails" : {
+    "userPrompt" : "Find last 4 digit of Social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4636) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the Social Security Number (SSN) are 8797. [Excerpt 3] (file: AshokW2.pdf)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1066,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 13:23:16",
+  "status" : "SUCCESS",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.8667,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 13:23:16",
+  "transcriptDetails" : {
+    "userPrompt" : "Find the last 4 digit of Social",
+    "explanation" : "This query retrieves the last four digits of the SKU (Stock Keeping Unit) numbers from the product list. There are no filters or conditions applied, meaning it processes all products in the database. The results are not ordered or grouped in any specific way. This query is likely used to simplify SKU numbers for easier reference or reporting, focusing on the most distinctive part of the SKU.",
+    "llmResponse" : "SELECT RIGHT(sku, 4) AS last_four_digits FROM products;",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1065,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 13:21:58",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4879,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-23 13:21:58",
+  "transcriptDetails" : {
+    "userPrompt" : "Find the last 4 digit of Social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4879) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the Social Security Number (SSN) are 8797. [Excerpt 3] (file: AshokW2.pdf)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1064,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 13:18:25",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4284,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-23 13:18:25",
+  "transcriptDetails" : {
+    "userPrompt" : "Find all last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=LOW (0.4284) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number (SSN) are \"8797\" as shown in [Excerpt 2] (file: AshokW2.pdf).",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1063,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 13:15:21",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4823,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-23 13:15:21",
+  "transcriptDetails" : {
+    "userPrompt" : "Find the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4823) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number (SSN) are 8797. [Excerpt 3] (file: AshokW2.pdf)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1062,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 13:14:10",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4636,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-23 13:14:10",
+  "transcriptDetails" : {
+    "userPrompt" : "Find the last 4 digit of SSN",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4636) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "\"I could not find relevant information in the provided document.\"",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1061,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 13:12:20",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3434,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 13:12:20",
+  "transcriptDetails" : {
+    "userPrompt" : "Get the last 4 digit of social",
+    "explanation" : "This query retrieves the last four digits of phone numbers from a list of suppliers. There are no filters or conditions applied, meaning it includes all suppliers in the database. The results are not ordered or grouped in any specific way. The likely business purpose of this query is to quickly identify or verify suppliers by the last four digits of their phone numbers, which can be useful for customer service or record-keeping purposes.",
+    "llmResponse" : "SELECT RIGHT(phone, 4) AS last_four_digits FROM suppliers;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1060,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 13:05:58",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4755,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-23 13:05:58",
+  "transcriptDetails" : {
+    "userPrompt" : "Get the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4755) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number (SSN) are 8797. [Excerpt 3] (file: AshokW2.pdf)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1059,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 12:49:05",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3632,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 12:49:05",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the products",
+    "explanation" : "This query retrieves all the information available for every product in the database. There are no filters or conditions applied, so it includes every product without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a comprehensive view of all products, which could be useful for inventory review or a general audit of the product catalog.",
+    "llmResponse" : "SELECT * FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1058,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 12:37:33",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5117,
+  "error_code" : null,
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-23 12:37:33",
+  "transcriptDetails" : {
+    "userPrompt" : "get the total gain or loss",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5117) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The total net gain or loss is 37,523.44. [Excerpt 1] (file: 2023.pdf, chunk 11)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1057,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 12:35:32",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.6425,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 12:35:32",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products which is heavier than 1KG in decimal",
+    "explanation" : "This query is retrieving a list of unique attribute IDs from a database that are associated with the \"Weight\" attribute. It specifically looks for products where the weight value is greater than 1. The results are not ordered or grouped, but they are distinct, meaning each attribute ID will appear only once. The likely business purpose of this query is to identify products that have a weight attribute greater than 1, which could be useful for inventory management, shipping calculations, or product categorization.",
+    "llmResponse" : "SELECT DISTINCT pav.attributeid\nFROM productattributevalues pav\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.value AS DECIMAL) > 1;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1056,
+  "user_id" : 1000,
+  "created_at" : "2026-03-23 12:30:58",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4272,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-23 12:30:58",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products",
+    "explanation" : "This query retrieves all the information available for each product in the products database table. There are no filters or conditions applied, so it includes every product without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all products, which could be useful for inventory review or general product management.",
+    "llmResponse" : "SELECT * FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1055,
+  "user_id" : 1000,
+  "created_at" : "2026-03-22 22:07:22",
+  "status" : "SUCCESS",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 1.0000,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-22 22:07:22",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the products which is heavier than 1 kg value in decimal",
+    "explanation" : "This query retrieves information about products that have a weight attribute greater than 1. It specifically looks for products by joining them with their associated attributes and filters for those where the attribute name is \"Weight\" and the weight value is more than 1. The results are not ordered or grouped in any specific way. The likely business purpose of this query is to identify and analyze products that are heavier than a certain threshold, which could be useful for inventory management, shipping considerations, or product categorization.",
+    "llmResponse" : "SELECT p.* \nFROM products p\nJOIN productattributevalues pav ON pav.productid = p.productid\nJOIN attributes a ON a.attributeid = pav.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.value AS DECIMAL) > 1;",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
+  "id" : 1054,
+  "user_id" : 1000,
+  "created_at" : "2026-03-22 22:03:33",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3736,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-22 22:03:33",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the products",
+    "explanation" : "This query retrieves all the information available for each product in the products database table. There are no filters or conditions applied, so it includes every product without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all products, which could be useful for inventory review or general product management.",
+    "llmResponse" : "SELECT * FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1053,
+  "user_id" : 1000,
+  "created_at" : "2026-03-22 21:57:47",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4685,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-22 21:57:47",
+  "transcriptDetails" : {
+    "userPrompt" : "find my last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4685) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of your social security number (SSN) are 8797, as shown in [Excerpt 3] (file: AshokW2.pdf).",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1051,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 22:51:56",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4753,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 22:51:56",
+  "transcriptDetails" : {
+    "userPrompt" : "get the last 4 digit of SSN",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4753) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1050,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 22:51:43",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4936,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 22:51:43",
+  "transcriptDetails" : {
+    "userPrompt" : "get the last 4 digit of Social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4936) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the Social Security number are 8797 [Excerpt 3] (file: AshokW2.pdf).",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1049,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 22:51:25",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4753,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 22:51:25",
+  "transcriptDetails" : {
+    "userPrompt" : "get the last 4 digit of SSN",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4753) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1048,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 22:40:54",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4851,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 22:40:54",
+  "transcriptDetails" : {
+    "userPrompt" : "get the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4851) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the social security number (SSN) are 8797 [Excerpt 3] (file: AshokW2.pdf).",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1047,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 22:39:37",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3991,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 22:39:37",
+  "transcriptDetails" : {
+    "userPrompt" : "get the last 4 digit of social",
+    "explanation" : "Doc RAG | confidence=LOW (0.3991) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1046,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 22:11:09",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5189,
+  "error_code" : null,
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 22:11:09",
+  "transcriptDetails" : {
+    "userPrompt" : "get me the total gain or loss",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5189) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The total net gain or loss is $37,523.44. [Excerpt 1] (file: 2023.pdf, chunk 11)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1045,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 19:46:52",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5117,
+  "error_code" : null,
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 19:46:52",
+  "transcriptDetails" : {
+    "userPrompt" : "get the total gain or loss",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5117) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The total net gain or loss is $37,523.44. [Excerpt 1] (file: 2023.pdf, chunk 11)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1044,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 14:59:14",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5614,
+  "error_code" : null,
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 14:59:14",
+  "transcriptDetails" : {
+    "userPrompt" : "show me the total gain or loss",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5614) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The total net gain or loss is $37,523.44. [Excerpt 1] (file: 2023.pdf, chunk 11)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1043,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 14:58:53",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3283,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 14:58:53",
+  "transcriptDetails" : {
+    "userPrompt" : "show me the total gain or loss",
+    "explanation" : "Doc RAG | confidence=LOW (0.3283) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1042,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 12:08:02",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5226,
+  "error_code" : null,
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 12:08:02",
+  "transcriptDetails" : {
+    "userPrompt" : "how much total gain or loss",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5226) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The total net gain or loss is $37,523.44. This is found in both [Excerpt 1] and [Excerpt 2] from the file \"2023.pdf\".",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1041,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 12:07:43",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.2927,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 12:07:43",
+  "transcriptDetails" : {
+    "userPrompt" : "how much total gain or loss",
+    "explanation" : "Doc RAG | confidence=LOW (0.2927) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1040,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 11:41:07",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5226,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 11:41:07",
+  "transcriptDetails" : {
+    "userPrompt" : "how much total gain or loss",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5226) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1039,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 11:27:01",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5226,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 11:27:01",
+  "transcriptDetails" : {
+    "userPrompt" : "how much total gain or loss",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5226) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1038,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 11:26:34",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.2927,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 11:26:34",
+  "transcriptDetails" : {
+    "userPrompt" : "how much total gain or loss",
+    "explanation" : "Doc RAG | confidence=LOW (0.2927) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1037,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 11:18:34",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5226,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 11:18:34",
+  "transcriptDetails" : {
+    "userPrompt" : "how much total gain or loss",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5226) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1036,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 11:17:40",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5371,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 11:17:40",
+  "transcriptDetails" : {
+    "userPrompt" : "how much was withheld for federal",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5371) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The amount withheld for federal income tax is $12,399.49. This information is found in Excerpt 2 from the file \"AshokW2.pdf\", where it states: \"2 | Federal | income | tax | withheld | 140065.55 | 12399.49 |\".",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1035,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 11:05:55",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5565,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 11:05:55",
+  "transcriptDetails" : {
+    "userPrompt" : "how much was withheld for federal",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5565) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1034,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:51:13",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4885,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 10:51:13",
+  "transcriptDetails" : {
+    "userPrompt" : "how much was withheld for federal",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4885) | chunks=10 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1033,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:50:28",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5049,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 10:50:28",
+  "transcriptDetails" : {
+    "userPrompt" : "how much was withheld for federal",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5049) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1032,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:46:48",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5048,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 10:46:48",
+  "transcriptDetails" : {
+    "userPrompt" : "how much was withheld for federal",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5048) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1031,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:45:52",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4468,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 10:45:52",
+  "transcriptDetails" : {
+    "userPrompt" : "How much was medicare wages",
+    "explanation" : "Doc RAG | confidence=LOW (0.4468) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The Medicare wages were $140,065.55. This information is found in Excerpt 2, which states: \"5 | Medicare | wages | and | tips | 140065.55\". (file: AshokW2.pdf, page 2)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1030,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:44:59",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5043,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 10:44:59",
+  "transcriptDetails" : {
+    "userPrompt" : "how much was withheld foo Medicare tax",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5043) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1029,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:44:49",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4969,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 10:44:49",
+  "transcriptDetails" : {
+    "userPrompt" : "how much was withheld foo Medicare",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4969) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1028,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:44:29",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5019,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 10:44:29",
+  "transcriptDetails" : {
+    "userPrompt" : "how much was withheld foo federal",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5019) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1027,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:43:37",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3884,
+  "error_code" : null,
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 10:43:37",
+  "transcriptDetails" : {
+    "userPrompt" : "what is the last 4 of Social",
+    "explanation" : "Doc RAG | confidence=LOW (0.3884) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The last four digits of the Social Security Number (SSN) are \"8797\" as shown in the excerpt from the document. \n\nSource: (file: AshokW2.pdf, page 2, section: \"6523.00\")",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1026,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:39:24",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5341,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokW2.pdf",
+  "updated_at" : "2026-03-21 10:39:24",
+  "transcriptDetails" : {
+    "userPrompt" : "how much is the taxable income for 2025",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5341) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1025,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:35:22",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4966,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 10:35:22",
+  "transcriptDetails" : {
+    "userPrompt" : "how much is the total proceeds",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.4966) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1024,
+  "user_id" : 1000,
+  "created_at" : "2026-03-21 10:34:14",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.5101,
+  "error_code" : null,
+  "data_source" : "2023.pdf",
+  "updated_at" : "2026-03-21 10:34:14",
+  "transcriptDetails" : {
+    "userPrompt" : "how much is Total Gain or Loss",
+    "explanation" : "Doc RAG | confidence=MEDIUM (0.5101) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The Total Net Gain or Loss is -10,049.81. This information is found in both Excerpt 1 and Excerpt 3 from the file \"2023.pdf\".",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1023,
+  "user_id" : 1000,
+  "created_at" : "2026-03-20 23:55:01",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : "accurate",
+  "feedback_type" : "POSITIVE",
+  "confidence_score" : 0.6394,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-20 23:55:24",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the products which is heavier than 1 kg",
+    "explanation" : "This query retrieves the IDs of products that have a weight attribute greater than 1 kilogram. It filters the data to include only those products where the weight is specified in kilograms and exceeds 1 kg. The results are not ordered or grouped in any specific way. The likely business purpose of this query is to identify products that are relatively heavy, possibly for inventory management, shipping considerations, or marketing purposes.",
+    "llmResponse" : "SELECT p.productid\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.value AS numeric) > 1 AND a.unit = 'kg';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1011,
+  "user_id" : 1000,
+  "created_at" : "2026-03-20 11:28:39",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.1384,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokkumarSeka.docx",
+  "updated_at" : "2026-03-20 11:28:39",
+  "transcriptDetails" : {
+    "userPrompt" : "All products heavier than 1kg",
+    "explanation" : "Doc RAG | confidence=LOW (0.1384) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1010,
+  "user_id" : 1000,
+  "created_at" : "2026-03-20 11:28:18",
+  "status" : "HALLUCINATION",
+  "remarks" : "Answer not grounded in retrieved excerpts",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.1384,
+  "error_code" : "HALLUCINATION",
+  "data_source" : "AshokkumarSeka.docx",
+  "updated_at" : "2026-03-20 11:28:18",
+  "transcriptDetails" : {
+    "userPrompt" : "All products heavier than 1kg",
+    "explanation" : "Doc RAG | confidence=LOW (0.1384) | chunks=3 | hallucinated=true | cached=false",
+    "llmResponse" : "I could not find relevant information in the provided document.",
+    "remarks" : "Answer not grounded in retrieved excerpts",
+    "retry" : false
+  }
+}, {
+  "id" : 1009,
+  "user_id" : 1000,
+  "created_at" : "2026-03-20 11:27:16",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.1941,
+  "error_code" : null,
+  "data_source" : "AshokkumarSeka.docx",
+  "updated_at" : "2026-03-20 11:27:16",
+  "transcriptDetails" : {
+    "userPrompt" : "which year this candidate graduated",
+    "explanation" : "Doc RAG | confidence=LOW (0.1941) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "The candidate graduated with a Bachelor of Technology in Information Technology from the University of Madras, India. However, the specific year of graduation is not mentioned in the provided excerpts. \n\nSource: (file: AshokkumarSeka.docx, chunk 3)",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1008,
+  "user_id" : 1000,
+  "created_at" : "2026-03-20 11:24:50",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3736,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-20 11:24:50",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the products",
+    "explanation" : "This query retrieves all the information available for each product in the products database table. There are no filters or conditions applied, meaning it will return every product record without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all products, which could be useful for inventory review or general product management.",
+    "llmResponse" : "SELECT * FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1007,
+  "user_id" : 1000,
+  "created_at" : "2026-03-20 11:23:44",
+  "status" : "FAILURE",
+  "remarks" : "LLM unavailable (no OPENAI_API_KEY?). Set the environment variable and restart.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "LLM_UNAVAILABLE",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-20 11:23:44",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the products",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "LLM unavailable (no OPENAI_API_KEY?). Set the environment variable and restart.",
+    "retry" : false
+  }
+} ]

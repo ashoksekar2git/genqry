@@ -1,0 +1,403 @@
+{
+  "database_name" : "eduschoo",
+  "database_type" : "MySQL",
+  "host" : "localhost",
+  "port" : 3306,
+  "schema_version" : "1.0.0",
+  "jdbc_product_name" : "MySQL",
+  "jdbc_product_version" : "9.6.0",
+  "extracted_at" : "2026-03-26T23:10:39.070980Z",
+  "total_tables" : 7,
+  "schema_name" : null,
+  "tables" : [ {
+    "table_name" : "Classes",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ "class_id" ],
+    "columns" : [ {
+      "column_name" : "class_id",
+      "data_type" : "INT",
+      "column_comment" : "class_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : true,
+      "primary_key" : true,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "course_id",
+      "data_type" : "INT",
+      "column_comment" : "course_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : "Courses.course_id",
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "teacher_id",
+      "data_type" : "INT",
+      "column_comment" : "teacher_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : "Teachers.teacher_id",
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "academic_year",
+      "data_type" : "YEAR",
+      "column_comment" : "academic_year field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "semester",
+      "data_type" : "character varying",
+      "column_comment" : "semester field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  }, {
+    "table_name" : "Courses",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ "course_id" ],
+    "columns" : [ {
+      "column_name" : "course_id",
+      "data_type" : "INT",
+      "column_comment" : "course_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : true,
+      "primary_key" : true,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "course_name",
+      "data_type" : "character varying",
+      "column_comment" : "course_name field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "course_code",
+      "data_type" : "character varying",
+      "column_comment" : "course_code field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "credits",
+      "data_type" : "INT",
+      "column_comment" : "credits field",
+      "nullable" : true,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  }, {
+    "table_name" : "EAV_Attributes",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ "attribute_id" ],
+    "columns" : [ {
+      "column_name" : "attribute_id",
+      "data_type" : "INT",
+      "column_comment" : "attribute_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : true,
+      "primary_key" : true,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "attribute_name",
+      "data_type" : "character varying",
+      "column_comment" : "attribute_name field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "description",
+      "data_type" : "TEXT",
+      "column_comment" : "description field",
+      "nullable" : true,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "applied_to_entity",
+      "data_type" : "character varying",
+      "column_comment" : "applied_to_entity field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : true
+  }, {
+    "table_name" : "EAV_Values",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ "value_id" ],
+    "columns" : [ {
+      "column_name" : "value_id",
+      "data_type" : "INT",
+      "column_comment" : "value_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : true,
+      "primary_key" : true,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "entity_id",
+      "data_type" : "INT",
+      "column_comment" : "entity_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "attribute_id",
+      "data_type" : "INT",
+      "column_comment" : "attribute_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : "EAV_Attributes.attribute_id",
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "value",
+      "data_type" : "TEXT",
+      "column_comment" : "value field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "created_at",
+      "data_type" : "TIMESTAMP",
+      "column_comment" : "created_at field",
+      "nullable" : true,
+      "default_value" : "CURRENT_TIMESTAMP",
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : true
+  }, {
+    "table_name" : "Enrollments",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ "enrollment_id" ],
+    "columns" : [ {
+      "column_name" : "enrollment_id",
+      "data_type" : "INT",
+      "column_comment" : "enrollment_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : true,
+      "primary_key" : true,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "student_id",
+      "data_type" : "INT",
+      "column_comment" : "student_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : "Students.student_id",
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "class_id",
+      "data_type" : "INT",
+      "column_comment" : "class_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : "Classes.class_id",
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "grade",
+      "data_type" : "character varying",
+      "column_comment" : "grade field",
+      "nullable" : true,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  }, {
+    "table_name" : "Students",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ "student_id" ],
+    "columns" : [ {
+      "column_name" : "student_id",
+      "data_type" : "INT",
+      "column_comment" : "student_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : true,
+      "primary_key" : true,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "first_name",
+      "data_type" : "character varying",
+      "column_comment" : "first_name field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "last_name",
+      "data_type" : "character varying",
+      "column_comment" : "last_name field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "date_of_birth",
+      "data_type" : "DATE",
+      "column_comment" : "date_of_birth field",
+      "nullable" : true,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "enrollment_date",
+      "data_type" : "DATE",
+      "column_comment" : "enrollment_date field",
+      "nullable" : true,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  }, {
+    "table_name" : "Teachers",
+    "description" : "",
+    "business_context" : "",
+    "primary_key" : [ "teacher_id" ],
+    "columns" : [ {
+      "column_name" : "teacher_id",
+      "data_type" : "INT",
+      "column_comment" : "teacher_id field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : true,
+      "primary_key" : true,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "first_name",
+      "data_type" : "character varying",
+      "column_comment" : "first_name field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "last_name",
+      "data_type" : "character varying",
+      "column_comment" : "last_name field",
+      "nullable" : false,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    }, {
+      "column_name" : "email",
+      "data_type" : "character varying",
+      "column_comment" : "email field",
+      "nullable" : true,
+      "default_value" : null,
+      "auto_increment" : false,
+      "primary_key" : false,
+      "foreign_key" : null,
+      "description" : "",
+      "values" : [ ]
+    } ],
+    "is_eav_table" : false
+  } ]
+}

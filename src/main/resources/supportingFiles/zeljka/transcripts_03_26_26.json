@@ -1,0 +1,362 @@
+[ {
+  "timestamp" : "2026-03-26T17:45:20",
+  "request" : {
+    "userPrompt" : "get all the students name and the courses they enrolled",
+    "databaseName" : "eduschoo",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Unknown table 'enrollments' referenced in SQL — not found in schema. LLM may have hallucinated this table name.", "Unknown table 'courses' referenced in SQL — not found in schema. LLM may have hallucinated this table name." ],
+    "relevantTables" : [ "users", "user_activity_logs", "transcript_details" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, may be we did not understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the selected database seek Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-26T18:07:25",
+  "request" : {
+    "userPrompt" : "get all the students name and the courses they enrolled",
+    "databaseName" : "eduschoo",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT customers.name, orders.orderid\nFROM customers\nJOIN orders ON customers.customerid = orders.customerid;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4429640141433121,
+    "confidenceDetails" : "semantic=0.274(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.667(×0.20) | → total=0.443 [LOW]",
+    "englishExplanation" : "This query retrieves the names of customers along with their corresponding order IDs. It combines information from two sources: the customer details and their orders, by matching the customer ID in both datasets. There are no specific filters or conditions applied, and the results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a list of customers and their associated orders, which could be useful for understanding customer purchasing behavior or for customer service purposes.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "customers", "orders", "products" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T18:13:08",
+  "request" : {
+    "userPrompt" : "get all the students name",
+    "databaseName" : "eduschoo",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT first_name, last_name FROM Students;",
+    "sqlValid" : true,
+    "confidenceLabel" : "MEDIUM",
+    "confidenceScore" : 0.5123223922389359,
+    "confidenceDetails" : "semantic=0.447(×0.40) | coverage=0.333(×0.20) | validity=1.0(×0.20) | tableMatch=0.333(×0.20) | → total=0.512 [MEDIUM]",
+    "englishExplanation" : "This query retrieves the first and last names of all students from the Students database. There are no filters or conditions applied, so it includes every student in the database. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a list of student names, which could be used for administrative tasks or reporting.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "Students", "Enrollments", "Teachers" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T18:15:54",
+  "request" : {
+    "userPrompt" : "get me the list of users",
+    "databaseName" : "seek",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "SELECT * FROM users;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.37880367313876445,
+    "confidenceDetails" : "semantic=0.322(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.250(×0.20) | → total=0.379 [LOW]",
+    "englishExplanation" : "This query retrieves all the information available for every user in the \"users\" database table. There are no filters or conditions applied, so it includes every user without any restrictions. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all users, which could be useful for understanding the entire user base or for further analysis.",
+    "validationErrors" : [ "SELECT * used – consider selecting specific columns for clarity." ],
+    "relevantTables" : [ "users", "user_activity_logs", "webauthn_credentials", "transcript_details" ],
+    "relevantColumns" : [ "user_id" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T18:18:41",
+  "request" : {
+    "userPrompt" : "get me all table names",
+    "databaseName" : "saga_banking",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Unknown table 'tables' referenced in SQL — not found in schema. LLM may have hallucinated this table name.", "Hallucinated alias 'information_schema' used in SQL ('information_schema.tables') but never defined in any FROM or JOIN clause. LLM invented this alias." ],
+    "relevantTables" : [ "transactions", "accounts" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, may be we did not understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the selected database saga_banking Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-26T18:19:31",
+  "request" : {
+    "userPrompt" : "get me all table names",
+    "databaseName" : "saga_banking",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Unknown table 'tables' referenced in SQL — not found in schema. LLM may have hallucinated this table name.", "Hallucinated alias 'information_schema' used in SQL ('information_schema.tables') but never defined in any FROM or JOIN clause. LLM invented this alias." ],
+    "relevantTables" : [ "transactions", "accounts" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, may be we did not understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the selected database saga_banking Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-26T20:53:30",
+  "request" : {
+    "userPrompt" : "get me all table names",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.32388657335934934,
+    "confidenceDetails" : "semantic=0.310(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.324 [LOW]",
+    "englishExplanation" : "This query retrieves a list of all table names from a database. It specifically looks for tables that are part of the 'public' schema, which is a common area where database tables are stored. There are no additional filters, conditions, or specific ordering applied to the results. The purpose of this query is likely to help someone understand what tables are available in the public section of the database, which can be useful for managing or analyzing data.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "customers", "products", "productsuppliers" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T20:54:12",
+  "request" : {
+    "userPrompt" : "get me all table names",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.32388657335934934,
+    "confidenceDetails" : "semantic=0.310(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.324 [LOW]",
+    "englishExplanation" : "This query retrieves a list of all table names from a database. It specifically looks for tables that are part of the 'public' schema, which is a common area where database tables are stored. There are no additional filters, conditions, or specific ordering applied to the results. The purpose of this query is likely to help someone understand what tables are available in the public section of the database, which can be useful for database management or analysis tasks.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "customers", "products", "productsuppliers" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T20:54:53",
+  "request" : {
+    "userPrompt" : "get me all table names",
+    "databaseName" : "eduschoo",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.34509741815523076,
+    "confidenceDetails" : "semantic=0.363(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.345 [LOW]",
+    "englishExplanation" : "This query retrieves a list of all table names from a database. It specifically looks for tables that are part of the 'public' schema, which is a common area where database tables are stored. There are no additional filters, conditions, or specific ordering applied to the results. The purpose of this query is likely to help someone understand what tables are available in the public section of the database, which can be useful for database management or analysis tasks.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "Teachers", "Students", "Courses" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T21:17:10",
+  "request" : {
+    "userPrompt" : "get me all table names",
+    "databaseName" : "eduschoo",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'eduschoo';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.34509741815523076,
+    "confidenceDetails" : "semantic=0.363(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.345 [LOW]",
+    "englishExplanation" : "This query is retrieving a list of all table names from a specific database schema called 'eduschoo'. It only includes tables that are part of this particular schema, filtering out any others. The results are not ordered or grouped in any specific way. The likely business purpose of this query is to help someone understand what tables exist within the 'eduschoo' schema, possibly for the purpose of managing or analyzing the data stored in those tables.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "Teachers", "Students", "Courses" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T21:26:39",
+  "request" : {
+    "userPrompt" : "list all the student name and the courses they have enrolled",
+    "databaseName" : "eduschoo",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT \n    s.first_name, \n    s.last_name, \n    c.course_id\nFROM \n    Students s\nJOIN \n    Enrollments e ON s.student_id = e.student_id\nJOIN \n    Classes c ON e.class_id = c.class_id;",
+    "sqlValid" : true,
+    "confidenceLabel" : "MEDIUM",
+    "confidenceScore" : 0.7343186013184295,
+    "confidenceDetails" : "semantic=0.502(×0.40) | coverage=0.667(×0.20) | validity=1.0(×0.20) | tableMatch=1.000(×0.20) | → total=0.734 [MEDIUM]",
+    "englishExplanation" : "This query retrieves the first and last names of students along with the IDs of the courses they are enrolled in. It combines information from three different tables: Students, Enrollments, and Classes, by matching student and class identifiers. There are no specific filters or conditions applied, and the results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a list of students and the courses they are taking, which could be useful for administrative or reporting purposes in an educational setting.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "Enrollments", "Students", "Classes" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T21:28:18",
+  "request" : {
+    "userPrompt" : "list all the student name and the courses they have enrolled",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The selected database schema does not contain tables or columns matching your question. Please rephrase or check available tables.",
+    "status" : "FAILURE",
+    "errorCode" : "LLM_PROSE_RESPONSE"
+  }
+}, {
+  "timestamp" : "2026-03-26T21:29:59",
+  "request" : {
+    "userPrompt" : "list all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND CAST(pav.valuedecimal AS numeric) > 1 AND a.unit ILIKE 'kg';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4840340717674897,
+    "confidenceDetails" : "semantic=0.310(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.600(×0.20) | → total=0.484 [LOW]",
+    "englishExplanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1 kilogram. The data is filtered to only include products with this weight characteristic. This query is likely used to identify and analyze products that are heavier than 1 kg, which could be useful for inventory management, shipping considerations, or marketing strategies focused on heavier products.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "attributes", "orderdetails", "products", "productattributevalues", "suppliers" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T21:30:45",
+  "request" : {
+    "userPrompt" : "list all the transactions",
+    "databaseName" : "saga_banking",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT * FROM transactions;",
+    "sqlValid" : true,
+    "confidenceLabel" : "MEDIUM",
+    "confidenceScore" : 0.5634257882282403,
+    "confidenceDetails" : "semantic=0.409(×0.40) | coverage=0.500(×0.20) | validity=1.0(×0.20) | tableMatch=0.500(×0.20) | → total=0.563 [MEDIUM]",
+    "englishExplanation" : "This query retrieves all the data from the \"transactions\" table without applying any filters or conditions, meaning it will show every record available in that table. There is no specific ordering or grouping applied to the results, so the data will appear in the default order of the table. The purpose of this query is likely to provide a complete overview of all transactions, which could be useful for a general review or audit of transaction records.",
+    "validationErrors" : [ "SELECT * used – consider selecting specific columns for clarity." ],
+    "relevantTables" : [ "transactions", "accounts" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-26T21:31:30",
+  "request" : {
+    "userPrompt" : "list all the  users",
+    "databaseName" : "seek",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT * FROM users;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.39553104219904106,
+    "confidenceDetails" : "semantic=0.322(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.333(×0.20) | → total=0.396 [LOW]",
+    "englishExplanation" : "This query retrieves all the information available for every user in the \"users\" database table. There are no filters or conditions applied, so it includes every user without exception. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete overview of all users, which could be useful for understanding the entire user base or for further analysis.",
+    "validationErrors" : [ "SELECT * used – consider selecting specific columns for clarity." ],
+    "relevantTables" : [ "users", "user_activity_logs", "transcript_details" ],
+    "relevantColumns" : [ "user_id" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+} ]

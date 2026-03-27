@@ -1,0 +1,80 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### macOS ###
+.DS_Store
+**/.DS_Store
+
+### Secrets — NEVER commit these ###
+.env
+*.env
+application-local.properties
+application-secret.properties
+**/secret*
+**/*secret*
+
+### Zip archives ###
+*.zip
+
+### Logs ###
+*.log
+
+### Ad-hoc test/scratch files at project root ###
+test_*.json
+test_*.sh
+test_*.html
+
+### One-off scripts and standalone SQL (Flyway handles migrations) ###
+setup_*.sh
+deploy.sh
+create_*.sql
+
+### Backup source files ###
+**/*_bkp.*
+**/*_Bkp.*
+**/*_BKP.*
+**/*_backup.*
+*.bak
+
+### Notes/txt files that are not application resources ###
+# (rules.txt under src/main/resources is needed; root-level txt is not)
+/*.txt
+
+### seek-ui (Next.js frontend) ###
+seek-ui/node_modules/
+seek-ui/.next/
+seek-ui/next-env.d.ts
+seek-ui/.idea/
+
+

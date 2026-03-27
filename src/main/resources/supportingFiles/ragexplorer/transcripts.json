@@ -1,0 +1,20 @@
+[ {
+  "id" : 1012,
+  "user_id" : 1001,
+  "created_at" : "2026-03-20 11:32:51",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-20 11:32:51",
+  "transcriptDetails" : {
+    "userPrompt" : "All products heavier than 1kg",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+} ]

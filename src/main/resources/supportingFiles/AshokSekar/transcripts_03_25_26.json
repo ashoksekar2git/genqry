@@ -1,0 +1,1236 @@
+[ {
+  "timestamp" : "2026-03-25T08:12:27",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'products'. Available tables are: attributes, productattributevalues, orderdetails.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-25T08:35:59",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'heavier than 1 kg'. Available tables are: orderdetails, products, productsuppliers, orders, categories, suppliers, attributes, productattributevalues, customers.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-25T08:39:52",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "DATA_NOT_AVAILABLE",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.30856986846203605,
+    "confidenceDetails" : "semantic=0.438(×0.40) | coverage=0.667(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.309 [LOW]",
+    "englishExplanation" : "I'm sorry, but I can't provide an explanation of the SQL query since the query itself is not available. If you can provide the SQL query, I'd be happy to help explain it in simple terms.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "attributes", "productattributevalues", "orderdetails" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T08:50:14",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "DATA_NOT_AVAILABLE",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.30856604233841944,
+    "confidenceDetails" : "semantic=0.438(×0.40) | coverage=0.667(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.309 [LOW]",
+    "englishExplanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the query, I'd be happy to help explain it in simple terms.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "attributes", "productattributevalues", "orderdetails" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T08:51:21",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "DATA_NOT_AVAILABLE",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.30657893980198203,
+    "confidenceDetails" : "semantic=0.433(×0.40) | coverage=0.667(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.307 [LOW]",
+    "englishExplanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the query, I'd be happy to help explain it in simple terms.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "attributes", "productattributevalues", "orderdetails" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T08:51:44",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "DATA_NOT_AVAILABLE",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.30657240353336673,
+    "confidenceDetails" : "semantic=0.433(×0.40) | coverage=0.667(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.307 [LOW]",
+    "englishExplanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the query, I'd be happy to help explain it in simple terms.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "attributes", "productattributevalues", "orderdetails" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T09:21:45",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT DISTINCT pav.attributeid\nFROM productattributevalues pav\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.value AS DECIMAL) > 1;",
+    "sqlValid" : true,
+    "confidenceLabel" : "MEDIUM",
+    "confidenceScore" : 0.6418993756717528,
+    "confidenceDetails" : "semantic=0.438(×0.40) | coverage=0.667(×0.20) | validity=1.0(×0.20) | tableMatch=0.667(×0.20) | → total=0.642 [MEDIUM]",
+    "englishExplanation" : "This query retrieves a list of unique attribute IDs from a database, specifically focusing on product attributes related to weight. It filters the data to include only those products where the weight is greater than 1. The results are not ordered or grouped but are distinct, meaning each attribute ID appears only once. This query likely helps the business identify products that are heavier than a certain threshold, which could be useful for inventory management or shipping logistics.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "attributes", "productattributevalues", "orderdetails" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T09:26:17",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "DATA_NOT_AVAILABLE",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.3065773449367757,
+    "confidenceDetails" : "semantic=0.433(×0.40) | coverage=0.667(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.307 [LOW]",
+    "englishExplanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the query, I'd be happy to help explain it in simple terms.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "attributes", "productattributevalues", "orderdetails" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T09:42:35",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "DATA_NOT_AVAILABLE",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.30657240353336673,
+    "confidenceDetails" : "semantic=0.433(×0.40) | coverage=0.667(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.307 [LOW]",
+    "englishExplanation" : "I'm sorry, but I can't provide an explanation without the SQL query. If you can provide the SQL query, I'd be happy to help explain it in simple terms.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "attributes", "productattributevalues", "orderdetails" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T09:44:09",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "DATA_NOT_AVAILABLE",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.3065773449367757,
+    "confidenceDetails" : "semantic=0.433(×0.40) | coverage=0.667(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.307 [LOW]",
+    "englishExplanation" : "I'm sorry, but I can't provide an explanation of the SQL query since the query itself is not available. If you can provide the SQL query, I'd be happy to help explain it in simple terms.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "attributes", "productattributevalues", "orderdetails" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T09:56:50",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.attributeid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.value AS numeric) > 1;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.44782125883666024,
+    "confidenceDetails" : "semantic=0.262(×0.40) | coverage=0.286(×0.20) | validity=1.0(×0.20) | tableMatch=0.429(×0.20) | → total=0.448 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1. The data is filtered to only include products with this weight condition. The likely business purpose of this query is to identify and analyze products that are heavier, which could be useful for inventory management, shipping considerations, or marketing strategies.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "orderdetails", "products", "productsuppliers", "attributes", "productattributevalues", "orders", "categories" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T10:38:22",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.* \nFROM products p\nJOIN productattributevalues pav ON pav.productid = p.productid\nJOIN attributes a ON a.attributeid = pav.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.valuedecimal AS numeric) > 1;",
+    "sqlValid" : true,
+    "confidenceLabel" : "HIGH",
+    "confidenceScore" : 1.0,
+    "confidenceDetails" : "semantic=1.000(×0.40) | coverage=1.000(×0.20) | validity=1.0(×0.20) | tableMatch=1.000(×0.20) | → total=1.000 [HIGH]",
+    "englishExplanation" : "This query retrieves information about products that have a weight attribute greater than one. It specifically looks for products with a weight value over one by joining product details with their associated attributes. The results are not ordered or grouped in any specific way. The likely business purpose of this query is to identify and analyze products that are heavier, which could be useful for inventory management, shipping considerations, or marketing strategies targeting products with substantial weight.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "attributes", "productattributevalues", "products" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T10:39:29",
+  "request" : {
+    "userPrompt" : "List all the products which is of while color",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Color' AND pav.value = 'white';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4769849900866997,
+    "confidenceDetails" : "semantic=0.292(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.600(×0.20) | → total=0.477 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, specifically their ID, name, description, price, stock quantity, and SKU. It focuses on products that have a specific attribute: they must be white in color. The data is filtered to only include products with this color attribute, but it is not ordered or grouped in any particular way. The likely business purpose of this query is to identify and analyze all white-colored products in the inventory, which could be useful for inventory management, marketing, or sales analysis.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "products", "categories", "productattributevalues", "attributes", "orders" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T11:21:58",
+  "request" : {
+    "userPrompt" : "List all the products which is of while color",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Color' AND pav.value ILIKE 'white';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.47771603199602786,
+    "confidenceDetails" : "semantic=0.294(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.600(×0.20) | → total=0.478 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have an attribute labeled \"Color\" with a value of \"white,\" regardless of case sensitivity. The results are not ordered or grouped in any particular way. The likely business purpose of this query is to identify and analyze all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "products", "categories", "productattributevalues", "attributes", "orders" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T11:22:31",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.* \nFROM products p\nJOIN productattributevalues pav ON pav.productid = p.productid\nJOIN attributes a ON a.attributeid = pav.attributeid\nWHERE a.name = 'Weight' AND CAST(pav.valuedecimal AS numeric) > 1;",
+    "sqlValid" : true,
+    "confidenceLabel" : "HIGH",
+    "confidenceScore" : 1.0,
+    "confidenceDetails" : "semantic=1.000(×0.40) | coverage=1.000(×0.20) | validity=1.0(×0.20) | tableMatch=1.000(×0.20) | → total=1.000 [HIGH]",
+    "englishExplanation" : "This query retrieves information about products that have a weight attribute greater than 1. It specifically looks for products by joining them with their associated attributes and values. The filter applied ensures that only products with a weight attribute value over 1 are included. This query is likely used to identify and analyze products that are heavier, which could be important for inventory management, shipping considerations, or product categorization.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "attributes", "productattributevalues", "products" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T13:59:42",
+  "request" : {
+    "userPrompt" : "List students and associated departments",
+    "databaseName" : "MySchool",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Hallucinated column: 'd.department_id' — column 'department_id' does not exist in table 'Departments'. Known columns: department_name, school_id, school_identifier" ],
+    "relevantTables" : [ "Departments", "Students", "Courses", "Schools" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, May be we didnt understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the available data in MySchool Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T14:01:46",
+  "request" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "databaseName" : "MySchool",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Hallucinated column: 'd.department_id' — column 'department_id' does not exist in table 'Departments'. Known columns: department_name, school_id, school_identifier", "Hallucinated column: 'sc.school_id' — column 'school_id' does not exist in table 'Schools'. Known columns: address, school_name" ],
+    "relevantTables" : [ "Departments", "Students", "Schools" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, May be we didnt understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the available data in MySchool Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T14:22:47",
+  "request" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "databaseName" : "MySchool",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Hallucinated column: 'd.department_id' — column 'department_id' does not exist in table 'Departments'. Known columns: department_name, school_id, school_identifier", "Hallucinated column: 'sc.school_id' — column 'school_id' does not exist in table 'Schools'. Known columns: address, school_name" ],
+    "relevantTables" : [ "Departments", "Students", "Schools" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, May be we didnt understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the available data in MySchool Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T14:23:06",
+  "request" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Unknown table 'students' referenced in SQL — not found in schema. LLM may have hallucinated this table name.", "Unknown table 'schools' referenced in SQL — not found in schema. LLM may have hallucinated this table name.", "Hallucinated alias 'students' used in SQL ('students.studentid') but never defined in any FROM or JOIN clause. LLM invented this alias.", "Hallucinated alias 'departments' used in SQL ('departments.name') but never defined in any FROM or JOIN clause. LLM invented this alias.", "Hallucinated alias 'schools' used in SQL ('schools.name') but never defined in any FROM or JOIN clause. LLM invented this alias." ],
+    "relevantTables" : [ "customers", "suppliers", "products", "categories", "orders" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, May be we didnt understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the available data in ecommerce Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T14:23:25",
+  "request" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "databaseName" : "MySchool",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Hallucinated column: 'd.department_id' — column 'department_id' does not exist in table 'Departments'. Known columns: department_name, school_id, school_identifier", "Hallucinated column: 'sc.school_id' — column 'school_id' does not exist in table 'Schools'. Known columns: address, school_name" ],
+    "relevantTables" : [ "Departments", "Students", "Schools" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, May be we didnt understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the available data in MySchool Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T14:24:34",
+  "request" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Unknown table 'students' referenced in SQL — not found in schema. LLM may have hallucinated this table name.", "Unknown table 'schools' referenced in SQL — not found in schema. LLM may have hallucinated this table name.", "Hallucinated alias 'students' used in SQL ('students.studentid') but never defined in any FROM or JOIN clause. LLM invented this alias.", "Hallucinated alias 'departments' used in SQL ('departments.name') but never defined in any FROM or JOIN clause. LLM invented this alias.", "Hallucinated alias 'schools' used in SQL ('schools.name') but never defined in any FROM or JOIN clause. LLM invented this alias." ],
+    "relevantTables" : [ "customers", "suppliers", "products", "categories", "orders" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, May be we didnt understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the available data in ecommerce Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T14:25:19",
+  "request" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "databaseName" : "MySchool",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Hallucinated column: 'd.department_id' — column 'department_id' does not exist in table 'Departments'. Known columns: department_name, school_id, school_identifier", "Hallucinated column: 'sc.school_id' — column 'school_id' does not exist in table 'Schools'. Known columns: address, school_name" ],
+    "relevantTables" : [ "Departments", "Students", "Schools" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, May be we didnt understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the available data in MySchool Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T14:28:37",
+  "request" : {
+    "userPrompt" : "List students and associated departments along with the school name",
+    "databaseName" : "Myschool",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT \n    s.student_id, \n    s.first_name, \n    s.last_name, \n    d.department_name, \n    sc.school_name\nFROM \n    Students s\nJOIN \n    Departments d ON s.department_id = d.department_id\nJOIN \n    Schools sc ON d.school_id = sc.school_id;",
+    "sqlValid" : true,
+    "confidenceLabel" : "MEDIUM",
+    "confidenceScore" : 0.6639446833636622,
+    "confidenceDetails" : "semantic=0.493(×0.40) | coverage=0.333(×0.20) | validity=1.0(×0.20) | tableMatch=1.000(×0.20) | → total=0.664 [MEDIUM]",
+    "englishExplanation" : "This query retrieves a list of students, including their first and last names, along with the names of the departments and schools they are associated with. It combines information from three different tables: Students, Departments, and Schools, by matching department and school identifiers. There are no specific filters or conditions applied to limit the data, and the results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a comprehensive view of students and their affiliations with specific departments and schools, which could be useful for administrative reporting or academic planning.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "Departments", "Students", "Schools" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T16:33:13",
+  "request" : {
+    "userPrompt" : "List all the students and their departments",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT customerid, name, email, address FROM customers;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.33234315514962093,
+    "confidenceDetails" : "semantic=0.206(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.250(×0.20) | → total=0.332 [LOW]",
+    "englishExplanation" : "This query retrieves a list of customers from the database, including their customer ID, name, email, and address. There are no filters or conditions applied, so it pulls information for all customers in the database. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a comprehensive list of customer contact details, which could be used for marketing, customer service, or record-keeping purposes.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "customers", "products", "suppliers", "orders" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T16:59:33",
+  "request" : {
+    "userPrompt" : "List all the students and their departments",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the database schema. The database schema does not contain a table or concept matching 'students' or 'departments'. Available tables are: customers, products, suppliers, orders.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-25T17:35:23",
+  "request" : {
+    "userPrompt" : "List all the students and their departments",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'students' or 'departments'. Available tables are: customers, products, suppliers, orders.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-25T17:37:24",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, products, productsuppliers, attributes, orders, categories, suppliers.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-25T17:39:27",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, products, productsuppliers, attributes, orders, categories.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-25T17:55:01",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, productsuppliers, suppliers, products, productattributevalues, attributes, orders, categories.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-25T18:00:54",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "DATA_NOT_AVAILABLE",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.11573501751695944,
+    "confidenceDetails" : "semantic=0.227(×0.40) | coverage=0.125(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.116 [LOW]",
+    "englishExplanation" : "Explanation skipped — generated SQL did not pass validation.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "orderdetails", "productsuppliers", "suppliers", "products", "productattributevalues", "attributes", "orders", "categories" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T21:37:33",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, productsuppliers, suppliers, products, productattributevalues, attributes, orders, categories.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-25T21:40:16",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The requested data is not available in the selected ecommerce database schema. The database schema does not contain a table or concept matching 'weight'. Available tables are: orderdetails, productsuppliers, suppliers, products, productattributevalues, attributes, orders, categories.",
+    "status" : "FAILURE",
+    "errorCode" : "DATA_NOT_AVAILABLE"
+  }
+}, {
+  "timestamp" : "2026-03-25T21:45:31",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, pav.valuedecimal AS weight\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Weight' AND pav.valuedecimal > 1.0;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.3907480735972491,
+    "confidenceDetails" : "semantic=0.227(×0.40) | coverage=0.125(×0.20) | validity=1.0(×0.20) | tableMatch=0.375(×0.20) | → total=0.391 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, specifically their IDs, names, and weights. It focuses on products that have a weight attribute greater than 1.0. The data is filtered to only include products with a weight attribute, ensuring that only relevant products are considered. This query is likely used to identify and analyze products that are heavier than a certain threshold, which could be useful for inventory management, shipping considerations, or product categorization.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "orderdetails", "productsuppliers", "suppliers", "products", "productattributevalues", "attributes", "orders", "categories" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T21:48:57",
+  "request" : {
+    "userPrompt" : "List all the products which is  white color",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku, p.isactive, p.createdat, p.updatedat\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name = 'Color' AND pav.value = 'white';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.46826815939513955,
+    "confidenceDetails" : "semantic=0.314(×0.40) | coverage=0.286(×0.20) | validity=1.0(×0.20) | tableMatch=0.429(×0.20) | → total=0.468 [LOW]",
+    "englishExplanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, SKU, active status, and creation and update dates. It specifically looks for products that have a color attribute with the value 'white'. The results are not ordered or grouped in any particular way. This query is likely used to identify and list all products available in white, which could help in inventory management or marketing strategies focused on promoting white-colored products.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "orderdetails", "categories", "suppliers", "products", "attributes", "productattributevalues", "orders" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T21:54:34",
+  "request" : {
+    "userPrompt" : "List all the products which is  white color",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Color' AND pav.value ILIKE 'white';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.46826067967924434,
+    "confidenceDetails" : "semantic=0.314(×0.40) | coverage=0.286(×0.20) | validity=1.0(×0.20) | tableMatch=0.429(×0.20) | → total=0.468 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a color attribute with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "orderdetails", "categories", "suppliers", "products", "attributes", "productattributevalues", "orders" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T21:57:54",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, pav.value AS weight\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1.0;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.38386419192262944,
+    "confidenceDetails" : "semantic=0.210(×0.40) | coverage=0.125(×0.20) | validity=1.0(×0.20) | tableMatch=0.375(×0.20) | → total=0.384 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, specifically their IDs, names, and weights. It focuses on products that have a weight attribute greater than 1.0. The data is filtered to only include products with a weight attribute, ensuring that the weight is a numeric value above the specified threshold. This query is likely used to identify and analyze products that are heavier than a certain weight, which could be useful for inventory management, shipping considerations, or product categorization.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "orderdetails", "products", "productsuppliers", "productattributevalues", "attributes", "orders", "categories", "suppliers" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T22:00:21",
+  "request" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "The schema provided does not include tables related to students or departments. Therefore, it is not possible to generate an SQL query for the given natural-language question based on the provided schema.",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.08664463099201851,
+    "confidenceDetails" : "semantic=0.217(×0.40) | coverage=0.000(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.087 [LOW]",
+    "englishExplanation" : "Explanation skipped — generated SQL did not pass validation.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "customers", "suppliers", "products", "attributes", "categories" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T22:18:32",
+  "request" : {
+    "userPrompt" : "List all the products which is  white color",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'color' AND pav.value ILIKE 'white';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4148537628524551,
+    "confidenceDetails" : "semantic=0.287(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.500(×0.20) | → total=0.415 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have an attribute labeled \"color\" with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "products", "orderdetails", "categories", "suppliers", "productattributevalues", "attributes" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T22:20:39",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1 AND a.unit ILIKE 'kg';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4941701061290855,
+    "confidenceDetails" : "semantic=0.335(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.600(×0.20) | → total=0.494 [LOW]",
+    "englishExplanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1 kilogram. The purpose of this query is likely to identify and analyze products that are relatively heavier, which could be useful for inventory management, shipping considerations, or marketing strategies.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "attributes", "orderdetails", "products", "productsuppliers", "productattributevalues" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T22:29:23",
+  "request" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Unknown table 'students' referenced in SQL — not found in schema. LLM may have hallucinated this table name.", "Hallucinated alias 'students' used in SQL ('students.studentid') but never defined in any FROM or JOIN clause. LLM invented this alias.", "Hallucinated alias 'departments' used in SQL ('departments.name') but never defined in any FROM or JOIN clause. LLM invented this alias." ],
+    "relevantTables" : [ "productattributevalues", "customers", "attributes", "suppliers", "products", "categories" ],
+    "relevantColumns" : [ "name" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, may be we did not understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the available data in ecommerce Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T22:31:58",
+  "request" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "databaseName" : "Myschool",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT s.student_id, s.first_name, s.last_name, d.department_name\nFROM Students s\nJOIN Departments d ON s.department_id = d.department_id;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4925701259335464,
+    "confidenceDetails" : "semantic=0.431(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.400(×0.20) | → total=0.493 [LOW]",
+    "englishExplanation" : "This query retrieves a list of students, including their ID, first name, last name, and the name of the department they belong to. It combines information from two sources: the student records and the department details, ensuring that each student is matched with their respective department. There are no specific filters or conditions applied, meaning it includes all students and their departments. The purpose of this query is likely to provide a comprehensive overview of students along with their associated departments, which could be useful for administrative reporting or academic planning.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "Students", "Departments", "Courses", "Student_Attributes", "Student_Courses" ],
+    "relevantColumns" : [ "department_id" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T22:55:45",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1 AND a.unit ILIKE 'kg';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4941724018032555,
+    "confidenceDetails" : "semantic=0.335(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.600(×0.20) | → total=0.494 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1 kilogram. The purpose of this query is likely to identify and analyze products that are relatively heavier, which could be useful for inventory management, shipping considerations, or marketing strategies focused on larger items.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "attributes", "orderdetails", "products", "productsuppliers", "productattributevalues" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T22:57:42",
+  "request" : {
+    "userPrompt" : "List all the products which is  white color",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Color' AND pav.value ILIKE 'white';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.41482775272914263,
+    "confidenceDetails" : "semantic=0.287(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.500(×0.20) | → total=0.415 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a color attribute with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "products", "orderdetails", "categories", "suppliers", "productattributevalues", "attributes" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T22:59:46",
+  "request" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "The schema provided does not include tables or columns related to \"students\" or \"departments.\" Therefore, it is not possible to generate an SQL query for the given natural-language question based on the provided schema. Please provide the relevant schema details or adjust the question to fit the available schema.",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.15526467947382327,
+    "confidenceDetails" : "semantic=0.305(×0.40) | coverage=0.167(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.155 [LOW]",
+    "englishExplanation" : "Explanation skipped — generated SQL did not pass validation.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "productattributevalues", "customers", "attributes", "suppliers", "products", "categories" ],
+    "relevantColumns" : [ "name" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T23:12:08",
+  "request" : {
+    "userPrompt" : "List all the products which is  white color",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'color' AND pav.value ILIKE 'white';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4148314626814593,
+    "confidenceDetails" : "semantic=0.287(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.500(×0.20) | → total=0.415 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a color attribute with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "products", "orderdetails", "categories", "suppliers", "productattributevalues", "attributes" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T23:13:14",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1 AND a.unit ILIKE 'kg';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4941800483540735,
+    "confidenceDetails" : "semantic=0.335(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.600(×0.20) | → total=0.494 [LOW]",
+    "englishExplanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a weight attribute greater than 1 kilogram. The purpose of this query is likely to identify and analyze products that are relatively heavy, which could be useful for inventory management, shipping considerations, or marketing strategies.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "attributes", "orderdetails", "products", "productsuppliers", "productattributevalues" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T23:15:06",
+  "request" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "The schema provided does not include tables or columns related to \"students\" or \"department name.\" Therefore, it is not possible to generate an SQL query for the given natural-language question based on the provided schema.",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.1553189062410135,
+    "confidenceDetails" : "semantic=0.305(×0.40) | coverage=0.167(×0.20) | validity=0.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.155 [LOW]",
+    "englishExplanation" : "Explanation skipped — generated SQL did not pass validation.",
+    "validationErrors" : [ "SQL does not start with a recognised keyword (SELECT/INSERT/UPDATE/DELETE/WITH).", "SQL does not end with a semicolon." ],
+    "relevantTables" : [ "productattributevalues", "customers", "attributes", "suppliers", "products", "categories" ],
+    "relevantColumns" : [ "name" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-03-25T23:23:45",
+  "request" : {
+    "userPrompt" : "List all the products which is heavier than 1 kg in decimal",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku, p.isactive, p.createdat, p.updatedat\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND pav.value::numeric > 1 AND a.unit ILIKE 'kg';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.494165430829952,
+    "confidenceDetails" : "semantic=0.335(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.600(×0.20) | → total=0.494 [LOW]",
+    "englishExplanation" : "The query retrieves information about products, including their ID, name, description, price, stock quantity, SKU, active status, and creation and update dates. It specifically looks for products that have a weight attribute greater than 1 kilogram. The purpose of this query is likely to identify and analyze products that are relatively heavy, possibly for inventory management or marketing strategies.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "attributes", "orderdetails", "products", "productsuppliers", "productattributevalues" ],
+    "relevantColumns" : [ "productid" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T23:24:17",
+  "request" : {
+    "userPrompt" : "List all the products which is  white color",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Color' AND pav.value ILIKE 'white';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4148269129868052,
+    "confidenceDetails" : "semantic=0.287(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.500(×0.20) | → total=0.415 [LOW]",
+    "englishExplanation" : "This query retrieves information about products, including their ID, name, description, price, stock quantity, and SKU. It specifically looks for products that have a color attribute with the value \"white.\" The query does not specify any particular order or grouping for the results. The likely business purpose of this query is to identify and list all products available in white, which could be useful for inventory management, marketing, or sales analysis.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "products", "orderdetails", "categories", "suppliers", "productattributevalues", "attributes" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-25T23:26:12",
+  "request" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : true
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The selected database schema does not contain tables or columns matching your question. Please rephrase or check available tables.",
+    "status" : "FAILURE",
+    "errorCode" : "LLM_PROSE_RESPONSE"
+  }
+}, {
+  "timestamp" : "2026-03-25T23:30:43",
+  "request" : {
+    "userPrompt" : "fetch all the students and their department name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "The selected database schema does not contain tables or columns matching your question. Please rephrase or check available tables.",
+    "status" : "FAILURE",
+    "errorCode" : "LLM_PROSE_RESPONSE"
+  }
+} ]
