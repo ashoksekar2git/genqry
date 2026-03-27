@@ -14,19 +14,41 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 
 /**
- * Dual DataSource configuration — two PostgreSQL databases.
+ * Fixed DataSource configuration — two PostgreSQL databases managed as Spring Beans.
  *
- * PRIMARY   → seek DB      (spring.datasource.primary.*)   — user/auth data, RAG metadata
- * SECONDARY → ecommerce DB (spring.datasource.secondary.*) — query target for NL2SQL / Explore
+ * <h3>4-DataSource Architecture</h3>
+ * <pre>
+ * ┌───────────────────────────────────────────────────────────────────────────┐
+ * │ #  SLOT            LIFECYCLE   PURPOSE                   MANAGED BY      │
+ * ├───────────────────────────────────────────────────────────────────────────┤
+ * │ 1  PRIMARY         Fixed       seek DB — user/auth/RAG   THIS CLASS      │
+ * │                    (startup)   metadata, business rules  (Spring Bean)   │
+ * │                                                                          │
+ * │ 2  SECONDARY       Fixed       ecommerce DB — default    THIS CLASS      │
+ * │                    (startup)   NL2SQL / Explore target   (Spring Bean)   │
+ * │                                                                          │
+ * │ 3  ADHOC_PG        Dynamic     User-connected PostgreSQL  DynamicData-   │
+ * │                    (on /connect) databases               SourceRegistry  │
+ * │                                                          (HikariCP pool) │
+ * │                                                                          │
+ * │ 4  ADHOC_MYSQL     Dynamic     User-connected MySQL       DynamicData-   │
+ * │                    (on /connect) databases               SourceRegistry  │
+ * │                                                          (HikariCP pool) │
+ * └───────────────────────────────────────────────────────────────────────────┘
+ * </pre>
  *
- * Inject anywhere via:
- *   @Qualifier("primaryDataSource")    DataSource
- *   @Qualifier("routingDataSource")    DataSource   ← preferred alias for primary
- *   @Qualifier("primaryJdbcTemplate")  JdbcTemplate
- *   @Qualifier("routingJdbcTemplate")  JdbcTemplate ← preferred alias for primary
+ * <p><strong>This class</strong> manages slots 1 &amp; 2 only (fixed, Spring-managed beans).
+ * Slots 3 &amp; 4 are managed by {@link com.nlp.rag.seek.service.DynamicDataSourceRegistry}
+ * which creates/destroys HikariCP pools on demand when users connect adhoc databases.</p>
  *
- *   @Qualifier("secondaryDataSource")  DataSource
- *   @Qualifier("secondaryJdbcTemplate") JdbcTemplate ← use for Explore / ecommerce queries
+ * <h4>Inject via qualifiers:</h4>
+ * <ul>
+ *   <li>{@code @Qualifier("primaryDataSource")} or {@code @Qualifier("routingDataSource")} — seek DB</li>
+ *   <li>{@code @Qualifier("primaryJdbcTemplate")} or {@code @Qualifier("routingJdbcTemplate")} — seek DB</li>
+ *   <li>{@code @Qualifier("secondaryDataSource")} — ecommerce DB</li>
+ *   <li>{@code @Qualifier("secondaryJdbcTemplate")} — ecommerce DB</li>
+ *   <li>{@code DynamicDataSourceRegistry.getJdbcTemplate(dbName)} — adhoc PG or MySQL</li>
+ * </ul>
  */
 @Configuration
 public class DataSourceConfig {

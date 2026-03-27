@@ -1,0 +1,97 @@
+[ {
+  "timestamp" : "2026-03-27T10:07:35",
+  "request" : {
+    "userPrompt" : "list all the products which is heavier than 1 kg",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND CAST(pav.valuedecimal AS numeric) > 1 AND a.unit ILIKE 'kg';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4840311797628728,
+    "confidenceDetails" : "semantic=0.310(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.600(×0.20) | → total=0.484 [LOW]",
+    "englishExplanation" : "This query retrieves data from the 'products', 'productattributevalues', 'attributes' table(s), applying filter conditions.",
+    "validationErrors" : [ "EAV table 'productattributevalues' is referenced, but the attribute name column 'attribute_name' does not appear in the SQL. Did the LLM use an attribute key as a column name? Expected pattern: WHERE attribute_name = '<key>'" ],
+    "relevantTables" : [ "attributes", "orderdetails", "products", "productattributevalues", "suppliers" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-27T10:09:23",
+  "request" : {
+    "userPrompt" : "list all the students and their departments",
+    "databaseName" : "eduschoo",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT s.student_id, s.first_name, s.last_name\nFROM Students s;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.4203433312257037,
+    "confidenceDetails" : "semantic=0.384(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.333(×0.20) | → total=0.420 [LOW]",
+    "englishExplanation" : "This query retrieves a list of student IDs along with their first and last names from the student database. There are no filters or conditions applied, so it includes all students in the database. The results are not specifically ordered or grouped. The purpose of this query is likely to provide a complete list of students, which could be used for general record-keeping or administrative purposes.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "Students", "Enrollments", "Teachers" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-27T10:10:41",
+  "request" : {
+    "userPrompt" : "list all the tables",
+    "databaseName" : "saga_banking",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.3200771347815059,
+    "confidenceDetails" : "semantic=0.300(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.000(×0.20) | → total=0.320 [LOW]",
+    "englishExplanation" : "This query is retrieving a list of all the table names that exist within the public section of a database. There are no additional filters or conditions applied beyond specifying that the tables must be in the public schema. The results are not ordered or grouped in any specific way. The likely business purpose of this query is to provide an overview or inventory of all the tables available in the public part of the database, which can help in understanding the structure of the database or in planning data management tasks.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "transactions", "accounts" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-03-27T10:11:17",
+  "request" : {
+    "userPrompt" : "list all the  activity",
+    "databaseName" : "seek",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT * FROM user_activity_logs;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.37837413364630296,
+    "confidenceDetails" : "semantic=0.279(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.333(×0.20) | → total=0.378 [LOW]",
+    "englishExplanation" : "This query retrieves all the data from the user activity logs, which likely includes information about user actions or interactions within a system. There are no filters or conditions applied, meaning it pulls every record available in the logs. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a comprehensive view of all user activities, which could be useful for monitoring user behavior, auditing, or analyzing trends over time.",
+    "validationErrors" : [ "SELECT * used – consider selecting specific columns for clarity." ],
+    "relevantTables" : [ "user_activity_logs", "users", "webauthn_credentials" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+} ]

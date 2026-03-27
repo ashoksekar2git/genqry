@@ -1,4 +1,80 @@
 [ {
+  "id" : 1162,
+  "user_id" : 1052,
+  "created_at" : "2026-03-27 10:11:17",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3784,
+  "error_code" : null,
+  "data_source" : "seek",
+  "updated_at" : "2026-03-27 10:11:17",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the  activity",
+    "explanation" : "This query retrieves all the data from the user activity logs, which likely includes information about user actions or interactions within a system. There are no filters or conditions applied, meaning it pulls every record available in the logs. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a comprehensive view of all user activities, which could be useful for monitoring user behavior, auditing, or analyzing trends over time.",
+    "llmResponse" : "SELECT * FROM user_activity_logs;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1161,
+  "user_id" : 1052,
+  "created_at" : "2026-03-27 10:10:41",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3201,
+  "error_code" : null,
+  "data_source" : "saga_banking",
+  "updated_at" : "2026-03-27 10:10:41",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the tables",
+    "explanation" : "This query is retrieving a list of all the table names that exist within the public section of a database. There are no additional filters or conditions applied beyond specifying that the tables must be in the public schema. The results are not ordered or grouped in any specific way. The likely business purpose of this query is to provide an overview or inventory of all the tables available in the public part of the database, which can help in understanding the structure of the database or in planning data management tasks.",
+    "llmResponse" : "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1160,
+  "user_id" : 1052,
+  "created_at" : "2026-03-27 10:09:23",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4203,
+  "error_code" : null,
+  "data_source" : "eduschoo",
+  "updated_at" : "2026-03-27 10:09:23",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the students and their departments",
+    "explanation" : "This query retrieves a list of student IDs along with their first and last names from the student database. There are no filters or conditions applied, so it includes all students in the database. The results are not specifically ordered or grouped. The purpose of this query is likely to provide a complete list of students, which could be used for general record-keeping or administrative purposes.",
+    "llmResponse" : "SELECT s.student_id, s.first_name, s.last_name\nFROM Students s;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1159,
+  "user_id" : 1052,
+  "created_at" : "2026-03-27 10:07:35",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4840,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-27 10:07:35",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the products which is heavier than 1 kg",
+    "explanation" : "This query retrieves data from the 'products', 'productattributevalues', 'attributes' table(s), applying filter conditions.",
+    "llmResponse" : "SELECT p.productid, p.name, p.description, p.price, p.stockqty, p.sku\nFROM products p\nJOIN productattributevalues pav ON p.productid = pav.productid\nJOIN attributes a ON pav.attributeid = a.attributeid\nWHERE a.name ILIKE 'Weight' AND CAST(pav.valuedecimal AS numeric) > 1 AND a.unit ILIKE 'kg';",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
   "id" : 1158,
   "user_id" : 1052,
   "created_at" : "2026-03-26 21:31:30",
