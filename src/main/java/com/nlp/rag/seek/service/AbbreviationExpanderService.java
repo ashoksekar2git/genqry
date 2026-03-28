@@ -133,7 +133,7 @@ public class AbbreviationExpanderService {
 
                 ALIAS_GROUPS.put(canonicalWord.toLowerCase(), synonyms);
                 count++;
-                log.debug("  Alias group '{}' → {} synonym(s)", canonicalWord, synonyms.size());
+               // log.debug("  Alias group '{}' → {} synonym(s)", canonicalWord, synonyms.size());
             }
 
             log.info("Semantic alias groups loaded from {} — {} groups",

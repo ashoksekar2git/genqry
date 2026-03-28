@@ -1,4 +1,23 @@
 [ {
+  "id" : 1163,
+  "user_id" : 1078,
+  "created_at" : "2026-03-27 19:06:11",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3605,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-27 19:06:11",
+  "transcriptDetails" : {
+    "userPrompt" : "List all the products",
+    "explanation" : "This query retrieves a list of all products from the database, including details such as the product ID, name, description, category ID, price, stock quantity, SKU, whether the product is active, and the dates it was created and last updated. There are no specific filters or conditions applied, meaning it pulls information for every product available in the database. The results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a comprehensive overview of the entire product catalog, which could be useful for inventory management, product analysis, or updating product information.",
+    "llmResponse" : "SELECT productid, name, description, categoryid, price, stockqty, sku, isactive, createdat, updatedat FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
   "id" : 1085,
   "user_id" : 1078,
   "created_at" : "2026-03-24 22:56:33",

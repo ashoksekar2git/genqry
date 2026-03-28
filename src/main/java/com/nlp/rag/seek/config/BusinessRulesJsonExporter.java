@@ -61,6 +61,9 @@ public class BusinessRulesJsonExporter implements ApplicationRunner {
     @Autowired(required = false)
     private DocumentRagService documentRagService;
 
+    @Autowired
+    private SecretStore secretStore;
+
     @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
@@ -68,11 +71,12 @@ public class BusinessRulesJsonExporter implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
+        if (secretStore.isCloudMode() && !secretStore.isInitialized()) {
+            log.info("BusinessRulesJsonExporter deferred — cloud mode, waiting for bootstrap");
+            return;
+        }
         try {
             exportRulesToJson();
-            // After writing the JSON, tell every pipeline service to reload.
-            // Their @PostConstruct fired before this runner, so the file didn't
-            // exist yet — they fell back to hardcoded defaults.  Now we fix that.
             notifyServices();
         } catch (Exception e) {
             log.warn("BusinessRulesJsonExporter failed (non-fatal): {}", e.getMessage());

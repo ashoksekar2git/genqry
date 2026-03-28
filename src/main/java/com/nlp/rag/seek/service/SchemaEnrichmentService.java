@@ -175,7 +175,7 @@ public class SchemaEnrichmentService {
         String expanded = expander.expand(original);
         List<String> aliases = expander.aliases(expanded);
 
-        log.debug("  Column enrichment: '{}.{}' → '{}'", table.getTableName(), original, expanded);
+        //log.debug("  Column enrichment: '{}.{}' → '{}'", table.getTableName(), original, expanded);
 
         // Set humanReadableName
         col.setHumanReadableName(expanded);

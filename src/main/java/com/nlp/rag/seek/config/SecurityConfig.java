@@ -69,6 +69,9 @@ public class SecurityConfig {
                     "/api/v1/auth/token"
                 ).permitAll()
 
+                // ── Hidden bootstrap endpoints (no JWT needed) ───────────
+                .requestMatchers("/api/v1/bootstrap/**").permitAll()
+
                 // ── All other API endpoints require authentication ───────
                 .requestMatchers("/api/v1/**").authenticated()
 

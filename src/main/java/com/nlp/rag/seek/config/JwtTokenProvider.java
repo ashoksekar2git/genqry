@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
+import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.Date;
 
@@ -20,21 +21,47 @@ import java.util.Date;
  *   userType = Root | Admin | Registered | Temp | Passkey
  *   iat      = issued-at timestamp
  *   exp      = expiration timestamp
+ *
+ * <p>In <b>cloud mode</b>, the secret may be blank at startup. A temporary
+ * random key is generated so the bean can be created. Call
+ * {@link #reinitialize(String)} during bootstrap to replace it with the
+ * real key. Any tokens issued with the temporary key will be invalid after
+ * reinit (which is fine — no users can call protected endpoints before
+ * bootstrap).</p>
  */
 @Component
 public class JwtTokenProvider {
 
     private static final Logger log = LoggerFactory.getLogger(JwtTokenProvider.class);
 
-    private final SecretKey signingKey;
+    private volatile SecretKey signingKey;
     private final long expirationMs;
 
     public JwtTokenProvider(
-            @Value("${seek.jwt.secret}") String base64Secret,
-            @Value("${seek.jwt.expiration-ms}") long expirationMs) {
-        this.signingKey   = Keys.hmacShaKeyFor(Base64.getDecoder().decode(base64Secret));
+            @Value("${seek.jwt.secret:}") String base64Secret,
+            @Value("${seek.jwt.expiration-ms:86400000}") long expirationMs) {
         this.expirationMs = expirationMs;
-        log.info("JwtTokenProvider initialised — expiration={}ms", expirationMs);
+
+        if (base64Secret != null && !base64Secret.isBlank()) {
+            this.signingKey = Keys.hmacShaKeyFor(Base64.getDecoder().decode(base64Secret));
+            log.info("JwtTokenProvider initialised — expiration={}ms", expirationMs);
+        } else {
+            // Cloud mode: generate a temporary random key so the bean can be created
+            byte[] tempKey = new byte[32];
+            new SecureRandom().nextBytes(tempKey);
+            this.signingKey = Keys.hmacShaKeyFor(tempKey);
+            log.warn("JwtTokenProvider initialised with TEMPORARY key (cloud mode) — " +
+                     "call reinitialize() during bootstrap to set the real key");
+        }
+    }
+
+    /**
+     * Re-initialise the signing key from a Base64-encoded secret.
+     * Called by the bootstrap service after secrets are loaded.
+     */
+    public void reinitialize(String base64Secret) {
+        this.signingKey = Keys.hmacShaKeyFor(Base64.getDecoder().decode(base64Secret));
+        log.info("JwtTokenProvider re-initialised with bootstrapped secret");
     }
 
     /**
