@@ -234,17 +234,24 @@ public class SQLGenerationService {
         // ── Step 0b: Redis semantic cache lookup ──────────────────────────────
         // Before hitting the vector store or LLM, check if a semantically
         // similar query has already been answered and is cached in Redis.
-        Optional<SQLGenerationResponse> cached =
-                semanticCacheService.lookup(sanitizedQuery, databaseName);
-        if (cached.isPresent()) {
-            SQLGenerationResponse hit = cached.get();
-            // Restore PII values into the cached SQL too
-            hit.setGeneratedSQL(piiSanitizationService.restore(hit.getGeneratedSQL(), piiTokens));
-            hit.setNaturalLanguageQuery(nlQuery);          // restore original unmasked query
-            hit.setPiiTokensFound(piiSanitizationService.summarize(piiTokens));
-            log.info("◀ Cache HIT — returning cached response (similarity={}, hits={})",
-                    String.format("%.4f", hit.getCacheSimilarityScore()), hit.getCacheHitCount());
-            return hit;
+        // Skip cache entirely when the client explicitly sets cacheEnabled=false.
+        boolean cacheEnabled = request.isCacheEnabled();
+        if (!cacheEnabled) {
+            log.info("⏭ Cache SKIP — client requested cacheEnabled=false, forcing fresh LLM call");
+        }
+        if (cacheEnabled) {
+            Optional<SQLGenerationResponse> cached =
+                    semanticCacheService.lookup(sanitizedQuery, databaseName);
+            if (cached.isPresent()) {
+                SQLGenerationResponse hit = cached.get();
+                // Restore PII values into the cached SQL too
+                hit.setGeneratedSQL(piiSanitizationService.restore(hit.getGeneratedSQL(), piiTokens));
+                hit.setNaturalLanguageQuery(nlQuery);          // restore original unmasked query
+                hit.setPiiTokensFound(piiSanitizationService.summarize(piiTokens));
+                log.info("◀ Cache HIT — returning cached response (similarity={}, hits={})",
+                        String.format("%.4f", hit.getCacheSimilarityScore()), hit.getCacheHitCount());
+                return hit;
+            }
         }
 
         // ── Step 0c: ensure correct vector index is loaded for the requested DB ─
@@ -610,9 +617,11 @@ public class SQLGenerationService {
         int transcriptId = transcriptService.append(request, response);
         response.setTranscriptId(transcriptId);
 
-        // ── Step 9b: store in Redis semantic cache (only if SQL is valid) ────
-        if (validation.valid()) {
+        // ── Step 9b: store in Redis semantic cache (only if SQL is valid and cache not bypassed) ─
+        if (validation.valid() && cacheEnabled) {
             semanticCacheService.store(sanitizedQuery, response, databaseName);
+        } else if (validation.valid() && !cacheEnabled) {
+            log.info("⏭ Cache STORE skipped — client requested cacheEnabled=false");
         }
 
         return response;

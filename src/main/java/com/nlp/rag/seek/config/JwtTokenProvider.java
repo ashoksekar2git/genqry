@@ -22,7 +22,7 @@ import java.util.Date;
  *   iat      = issued-at timestamp
  *   exp      = expiration timestamp
  *
- * <p>In <b>cloud mode</b>, the secret may be blank at startup. A temporary
+ * <p>In <b>secretsfree mode</b>, the secret may be blank at startup. A temporary
  * random key is generated so the bean can be created. Call
  * {@link #reinitialize(String)} during bootstrap to replace it with the
  * real key. Any tokens issued with the temporary key will be invalid after
@@ -46,11 +46,11 @@ public class JwtTokenProvider {
             this.signingKey = Keys.hmacShaKeyFor(Base64.getDecoder().decode(base64Secret));
             log.info("JwtTokenProvider initialised — expiration={}ms", expirationMs);
         } else {
-            // Cloud mode: generate a temporary random key so the bean can be created
+            // Secretsfree mode: generate a temporary random key so the bean can be created
             byte[] tempKey = new byte[32];
             new SecureRandom().nextBytes(tempKey);
             this.signingKey = Keys.hmacShaKeyFor(tempKey);
-            log.warn("JwtTokenProvider initialised with TEMPORARY key (cloud mode) — " +
+            log.warn("JwtTokenProvider initialised with TEMPORARY key (secretsfree mode) — " +
                      "call reinitialize() during bootstrap to set the real key");
         }
     }

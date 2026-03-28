@@ -71,8 +71,8 @@ public class BusinessRulesJsonExporter implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        if (secretStore.isCloudMode() && !secretStore.isInitialized()) {
-            log.info("BusinessRulesJsonExporter deferred — cloud mode, waiting for bootstrap");
+        if (secretStore.isSecretsFreeMode() && !secretStore.isInitialized()) {
+            log.info("BusinessRulesJsonExporter deferred — secretsfree mode, waiting for bootstrap");
             return;
         }
         try {

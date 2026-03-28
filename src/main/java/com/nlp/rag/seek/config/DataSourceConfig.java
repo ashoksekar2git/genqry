@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 /**
  * DataSource configuration using {@link LazySecretDataSource} — supports both
- * <b>local</b> (credentials from properties) and <b>cloud</b> (credentials
+ * <b>local</b> (credentials from properties) and <b>secretsfree</b> (credentials
  * from bootstrap) modes.
  *
  * <h3>4-DataSource Architecture</h3>
@@ -39,11 +39,11 @@ import javax.sql.DataSource;
  * └───────────────────────────────────────────────────────────────────────────┘
  * </pre>
  *
- * <p>In <b>local mode</b> the password comes from {@code application.properties}
+ * <p>In <b>local mode</b> the password comes from {@code application-local.properties}
  * and the pool is created on the first {@code getConnection()} call (typically
  * during {@code DatabaseMigrationRunner}).</p>
  *
- * <p>In <b>cloud mode</b> the password field in properties is empty; the pool
+ * <p>In <b>secretsfree mode</b> the password field in properties is empty; the pool
  * stays dormant until the admin uploads secrets via the bootstrap page and
  * calls {@link LazySecretDataSource#reinitialize(String)}.</p>
  */
@@ -69,6 +69,8 @@ public class DataSourceConfig {
                 "PRIMARY (seek)", url, username, driver,
                 () -> resolvePassword(secretStore, SecretStore.DB_PRIMARY_PASSWORD, propertyPassword)
         );
+        // In secretsfree mode the property username is "NOT_SET" — resolve from SecretStore at pool creation time
+        ds.setUsernameSupplier(() -> resolveUsername(secretStore, SecretStore.PRIMARY_DB_USERNAME, username));
         log.info("DataSource bean → PRIMARY (seek) [lazy] url={}", url);
         return ds;
     }
@@ -96,6 +98,8 @@ public class DataSourceConfig {
                 "SECONDARY (ecommerce)", url, username, driver,
                 () -> resolvePassword(secretStore, SecretStore.DB_SECONDARY_PASSWORD, propertyPassword)
         );
+        // In secretsfree mode the property username is "NOT_SET" — resolve from SecretStore at pool creation time
+        ds.setUsernameSupplier(() -> resolveUsername(secretStore, SecretStore.SECONDARY_DB_USERNAME, username));
         log.info("DataSource bean → SECONDARY (ecommerce) [lazy] url={}", url);
         return ds;
     }
@@ -126,16 +130,38 @@ public class DataSourceConfig {
 
     /**
      * Resolves the password to use.
-     * Cloud mode: reads from SecretStore (populated during bootstrap).
-     * Local mode: uses the value from application.properties.
+     * Secretsfree mode: reads from SecretStore (populated during bootstrap).
+     * Local mode: uses the value from application-local.properties.
      */
     private String resolvePassword(SecretStore store, String secretKey, String propertyPassword) {
-        // SecretStore value takes priority (set during bootstrap in cloud mode)
+        // SecretStore value takes priority (set during bootstrap in secretsfree mode)
         String fromStore = store.get(secretKey);
         if (fromStore != null && !fromStore.isBlank()) {
             return fromStore;
         }
-        // Fall back to application.properties value (local/dev mode)
+        // Fall back to profile properties value (local mode)
         return propertyPassword;
+    }
+
+    /**
+     * Resolves the username to use.
+     * Priority: SecretStore value → property value → "postgres" (default).
+     * In secretsfree mode the property value is typically "NOT_SET".
+     */
+    private String resolveUsername(SecretStore store, String secretKey, String propertyUsername) {
+        // 1. Try SecretStore (populated from thiravucoal.json during bootstrap)
+        String fromStore = store.get(secretKey);
+        if (fromStore != null && !fromStore.isBlank()
+                && !"NOT_SET".equalsIgnoreCase(fromStore)) {
+            return fromStore;
+        }
+        // 2. Try the property value (from application-local.properties in local mode)
+        if (propertyUsername != null && !propertyUsername.isBlank()
+                && !"NOT_SET".equalsIgnoreCase(propertyUsername)) {
+            return propertyUsername;
+        }
+        // 3. Sensible default for PostgreSQL
+        log.warn("Username not available from SecretStore or properties — defaulting to 'postgres'");
+        return "postgres";
     }
 }

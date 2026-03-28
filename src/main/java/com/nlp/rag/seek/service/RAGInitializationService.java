@@ -90,10 +90,10 @@ public class RAGInitializationService {
     public void onStartup() {
         log.info("═══ RAG pipeline startup ═══");
 
-        // In cloud mode, defer RAG init until bootstrap provides DB credentials
-        if (secretStore.isCloudMode() && !secretStore.isInitialized()) {
-            log.info("RAG init deferred — cloud mode, waiting for bootstrap");
-            log.info("═══ RAG pipeline standby (cloud) ═══");
+        // In secretsfree mode, defer RAG init until bootstrap provides DB credentials
+        if (secretStore.isSecretsFreeMode() && !secretStore.isInitialized()) {
+            log.info("RAG init deferred — secretsfree mode, waiting for bootstrap");
+            log.info("═══ RAG pipeline standby (secretsfree) ═══");
             return;
         }
 

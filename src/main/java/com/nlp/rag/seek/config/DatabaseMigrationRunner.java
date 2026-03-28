@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * Runs DDL migrations against the seek database at startup (order=1, first thing).
  * Uses IF NOT EXISTS / IF NOT EXISTS so it is fully idempotent.
  *
- * <p>In <b>cloud mode</b> (when {@link SecretStore} is not yet initialized),
+ * <p>In <b>secretsfree mode</b> (when {@link SecretStore} is not yet initialized),
  * the automatic startup run is skipped. Call {@link #runMigrations()} manually
  * from the bootstrap flow after DB credentials become available.</p>
  */
@@ -34,8 +34,8 @@ public class DatabaseMigrationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        if (secretStore.isCloudMode() && !secretStore.isInitialized()) {
-            log.info("DB migrations deferred — cloud mode, waiting for bootstrap");
+        if (secretStore.isSecretsFreeMode() && !secretStore.isInitialized()) {
+            log.info("DB migrations deferred — secretsfree mode, waiting for bootstrap");
             return;
         }
         runMigrations();

@@ -1,4 +1,156 @@
 [ {
+  "id" : 1171,
+  "user_id" : 1078,
+  "created_at" : "2026-03-28 17:01:56",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3645,
+  "error_code" : null,
+  "data_source" : "Dummy123School",
+  "updated_at" : "2026-03-28 17:01:56",
+  "transcriptDetails" : {
+    "userPrompt" : "get me all the school name",
+    "explanation" : "This query retrieves a list of all school names from the database. There are no filters or conditions applied, so it includes every school in the database. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a complete list of schools, which could be useful for generating reports or for reference in decision-making processes.",
+    "llmResponse" : "SELECT school_name FROM Schools;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1170,
+  "user_id" : 1078,
+  "created_at" : "2026-03-28 17:01:08",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4228,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-28 17:01:08",
+  "transcriptDetails" : {
+    "userPrompt" : "get the lowest price product and highest priced product and their price difference in amount and their product name",
+    "explanation" : "This query retrieves information about the products with the lowest and highest prices from a product list. It identifies the name and price of the cheapest product and the name and price of the most expensive product. Additionally, it calculates the difference in price between these two products. The purpose of this query is likely to provide insights into the price range of products, helping the business understand pricing extremes and potential gaps in their product offerings.",
+    "llmResponse" : "SELECT \n    min_product.name AS lowest_price_product,\n    min_product.price AS lowest_price,\n    max_product.name AS highest_price_product,\n    max_product.price AS highest_price,\n    (max_product.price - min_product.price) AS price_difference\nFROM \n    (SELECT name, price FROM products ORDER BY price ASC LIMIT 1) AS min_product\nCROSS JOIN \n    (SELECT name, price FROM products ORDER BY price DESC LIMIT 1) AS max_product;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1169,
+  "user_id" : 1078,
+  "created_at" : "2026-03-28 17:00:33",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3958,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-28 17:00:33",
+  "transcriptDetails" : {
+    "userPrompt" : "get the lowest price product and highest priced product and their price difference in amount",
+    "explanation" : "This query is retrieving information about product prices from a database. It specifically looks for the lowest and highest prices among all products and calculates the difference between these two prices. There are no specific filters or conditions applied, meaning it considers all products in the database. The purpose of this query is likely to understand the range of product prices, which can help in pricing strategy or market analysis.",
+    "llmResponse" : "SELECT \n    MIN(price) AS lowest_price, \n    MAX(price) AS highest_price, \n    MAX(price) - MIN(price) AS price_difference\nFROM \n    products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1168,
+  "user_id" : 1078,
+  "created_at" : "2026-03-28 16:14:54",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4373,
+  "error_code" : null,
+  "data_source" : "Dummy123School",
+  "updated_at" : "2026-03-28 16:14:54",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the students name",
+    "explanation" : "This query retrieves the first and last names of all students from the Students database. There are no filters or conditions applied, so it includes every student in the database. The results are not ordered or grouped in any specific way. The purpose of this query is likely to provide a list of all students' names, which could be used for general record-keeping or communication purposes.",
+    "llmResponse" : "SELECT first_name, last_name FROM Students;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1167,
+  "user_id" : 1078,
+  "created_at" : "2026-03-28 16:10:55",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4058,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-28 16:10:55",
+  "transcriptDetails" : {
+    "userPrompt" : "Get the highest price product and second highest price product  and the difference in amount",
+    "explanation" : "This query retrieves information about the two most expensive products in a product list. It identifies the product with the highest price and the product with the second highest price, along with their respective prices and the difference between these prices. The data is filtered to ensure only the top two priced products are considered. This query likely serves the business purpose of understanding pricing dynamics and identifying the top-tier products in terms of cost, which can be useful for pricing strategy or inventory management.",
+    "llmResponse" : "SELECT \n    p1.name AS highest_price_product,\n    p1.price AS highest_price,\n    p2.name AS second_highest_price_product,\n    p2.price AS second_highest_price,\n    (p1.price - p2.price) AS price_difference\nFROM \n    products p1\nJOIN \n    products p2 ON p1.price > p2.price\nWHERE \n    p1.price = (SELECT MAX(price) FROM products)\n    AND p2.price = (SELECT MAX(price) FROM products WHERE price < (SELECT MAX(price) FROM products));",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1166,
+  "user_id" : 1078,
+  "created_at" : "2026-03-28 15:57:45",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4032,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-28 15:57:45",
+  "transcriptDetails" : {
+    "userPrompt" : "Get the second highest price product and second highest price product  and the difference in amount",
+    "explanation" : "This query retrieves information about the product with the second highest price from a list of products. It specifically identifies the product's name, its price, and the difference in price between this product and the highest-priced product. The query is likely used to understand pricing strategies or to identify significant price gaps between top-tier products.",
+    "llmResponse" : "SELECT \n    p1.name AS second_highest_price_product,\n    p1.price AS second_highest_price,\n    (p1.price - p2.price) AS price_difference\nFROM \n    products p1\nJOIN \n    (SELECT DISTINCT price \n     FROM products \n     ORDER BY price DESC \n     LIMIT 1 OFFSET 1) p2\nON \n    p1.price = p2.price;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1165,
+  "user_id" : 1078,
+  "created_at" : "2026-03-28 15:43:22",
+  "status" : "FAILURE",
+  "remarks" : "SQL validation failed. Hallucinated alias 'p2' used in SQL ('p2.price') but never defined in any FROM or JOIN clause. LLM invented this alias.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_FAILED",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-28 15:43:22",
+  "transcriptDetails" : {
+    "userPrompt" : "Get the second highest price product and second highest price product  and the difference in amount",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "SQL validation failed. Hallucinated alias 'p2' used in SQL ('p2.price') but never defined in any FROM or JOIN clause. LLM invented this alias.",
+    "retry" : false
+  }
+}, {
+  "id" : 1164,
+  "user_id" : 1078,
+  "created_at" : "2026-03-28 11:55:40",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3752,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-03-28 11:55:40",
+  "transcriptDetails" : {
+    "userPrompt" : "get the list of products",
+    "explanation" : "This query retrieves a list of all products from the database, including details such as the product ID, name, description, category ID, price, stock quantity, SKU, whether the product is active, and the dates it was created and last updated. There are no filters or conditions applied, meaning it fetches every product available in the database. The results are not specifically ordered or grouped. The purpose of this query is likely to provide a comprehensive overview of the entire product inventory, which can be useful for inventory management, auditing, or reporting purposes.",
+    "llmResponse" : "SELECT productid, name, description, categoryid, price, stockqty, sku, isactive, createdat, updatedat FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
   "id" : 1163,
   "user_id" : 1078,
   "created_at" : "2026-03-27 19:06:11",
