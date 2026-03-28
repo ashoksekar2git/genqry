@@ -54,6 +54,7 @@ application-secret.properties
 test_*.json
 test_*.sh
 test_*.html
+thiravucoal*.json
 
 ### One-off scripts and standalone SQL (Flyway handles migrations) ###
 setup_*.sh
