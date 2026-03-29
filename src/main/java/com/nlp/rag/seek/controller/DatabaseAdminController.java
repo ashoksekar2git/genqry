@@ -76,7 +76,7 @@ public class DatabaseAdminController {
     @Value("${spring.datasource.primary.password:root}")
     private String primaryPassword;
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     // =========================================================================
@@ -287,7 +287,7 @@ public class DatabaseAdminController {
      * Accepts a multipart/form-data request with:
      *   file          — the .sql DDL file
      *   databaseName  — logical name used in the JSON filename  (form param)
-     *   userName      — the logged-in SEEK user name             (form param)
+     *   userName      — the logged-in genQry user name             (form param)
      *
      * Pipeline:
      *  1. Validate the .sql file (extension, size, syntax, balanced parens)
@@ -438,7 +438,7 @@ public class DatabaseAdminController {
      * Request:
      * {
      *   "databaseName": "ecommerce",
-     *   "host":         "db.invinciblebots.com",
+     *   "host":         "db.genqry.com",
      *   "port":         5432,
      *   "username":     "postgres",
      *   "password":     "root",

@@ -12,16 +12,16 @@ import java.util.List;
 /**
  * Global CORS configuration.
  *
- * Allowed origins are driven by the {@code seek.cors.allowed-origins} property,
+ * Allowed origins are driven by the {@code genqry.cors.allowed-origins} property,
  * which is set per Spring profile:
  *
  *   default (no profile) → * (all origins — suitable for local dev)
- *   dev  profile         → https://invinciblebots.dev
- *   prod profile         → https://invinciblebots.com
+ *   dev  profile         → https://dev.genqry.com
+ *   prod profile         → https://genqry.com
  *
  * Activate a profile at startup:
- *   java -jar seek.jar --spring.profiles.active=dev
- *   SPRING_PROFILES_ACTIVE=prod java -jar seek.jar
+ *   java -jar genQry.jar --spring.profiles.active=dev
+ *   SPRING_PROFILES_ACTIVE=prod java -jar genQry.jar
  */
 @Configuration
 public class CorsConfig {
@@ -30,7 +30,7 @@ public class CorsConfig {
      * Comma-separated list of allowed origins.
      * Defaults to "*" so local development works without any extra config.
      */
-    @Value("${seek.cors.allowed-origins:*}")
+    @Value("${genqry.cors.allowed-origins:*}")
     private String allowedOriginsRaw;
 
     @Bean

@@ -202,7 +202,7 @@ public class QueryNormalizerService {
     /**
      * Builds the deterministic Redis cache key for a given query + database.
      *
-     * key = seek:cache:<dbName>:norm:<sha256(normalize(query))>
+     * key = genqry:cache:<dbName>:norm:<sha256(normalize(query))>
      *
      * Both "list active employees" and "show active employees" produce
      * the SAME SHA-256 hash because normalize() returns the same canonical

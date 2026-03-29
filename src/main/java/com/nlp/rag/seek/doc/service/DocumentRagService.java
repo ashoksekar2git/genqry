@@ -51,7 +51,7 @@ public class DocumentRagService {
     /** Sentinel returned by the LLM (and by us) when no relevant content is found. */
     private static final String NOT_FOUND_SENTINEL             = "I could not find relevant information";
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     @Autowired private DocumentTextExtractorService         extractorService;
@@ -284,7 +284,7 @@ public class DocumentRagService {
 
         int k = (topK != null && topK > 0) ? topK : DEFAULT_TOP_K;
 
-        log.info("seekDoc query: user='{}' docId='{}' (filter={}) topK={} question='{}'",
+        log.info("genQryDoc query: user='{}' docId='{}' (filter={}) topK={} question='{}'",
                 userName,
                 docId != null ? docId : "(all docs)",
                 docId != null ? "ON" : "OFF",

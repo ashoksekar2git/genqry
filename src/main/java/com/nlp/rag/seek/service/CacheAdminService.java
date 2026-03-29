@@ -45,7 +45,7 @@ public class CacheAdminService {
     @Autowired private QueryNormalizerService queryNormalizerService;
     @Autowired private SQLGenerationService   sqlGenerationService;
 
-    @Value("${cache.semantic.key-prefix:seek:cache:}")  private String keyPrefix;
+    @Value("${cache.semantic.key-prefix:genqry:cache:}")  private String keyPrefix;
     @Value("${cache.semantic.ttl-seconds:3600}")        private long   defaultTtl;
     @Value("${cache.semantic.max-scan:500}")            private int    maxScan;
 
@@ -85,7 +85,7 @@ public class CacheAdminService {
             Map<String, Long> perDb = new TreeMap<>();
             if (allKeys != null) {
                 for (String k : allKeys) {
-                    // key format: seek:cache:<db>:norm|vec:<hash>
+                    // key format: genqry:cache:<db>:norm|vec:<hash>
                     String[] parts = k.replaceFirst("^" + keyPrefix, "").split(":");
                     if (parts.length >= 1) perDb.merge(parts[0], 1L, Long::sum);
                 }

@@ -43,7 +43,7 @@ public class WorkspaceController {
 
     private static final Logger log = LoggerFactory.getLogger(WorkspaceController.class);
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     @Operation(summary = "Get workspace files", description = "Returns the user's database schemas, documents, and optionally transcript files")
@@ -325,7 +325,7 @@ public class WorkspaceController {
         if (lower.endsWith(".json") && (
                 lower.contains("_gmail_")   || lower.contains("_yahoo_")  ||
                 lower.contains("_outlook_") || lower.contains("_hotmail_") ||
-                lower.contains("_ecommerce_") || lower.contains("_seek_"))) return true;
+                lower.contains("_ecommerce_") || lower.contains("_genqry_"))) return true;
         // Profile JSON pattern: <email>_<mmddyyyy>.json  (8-digit date suffix)
         if (lower.endsWith(".json")) {
             String withoutExt = lower.substring(0, lower.length() - 5);

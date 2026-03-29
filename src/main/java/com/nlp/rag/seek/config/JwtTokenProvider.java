@@ -38,8 +38,8 @@ public class JwtTokenProvider {
     private final long expirationMs;
 
     public JwtTokenProvider(
-            @Value("${seek.jwt.secret:}") String base64Secret,
-            @Value("${seek.jwt.expiration-ms:86400000}") long expirationMs) {
+            @Value("${genqry.jwt.secret:}") String base64Secret,
+            @Value("${genqry.jwt.expiration-ms:86400000}") long expirationMs) {
         this.expirationMs = expirationMs;
 
         if (base64Secret != null && !base64Secret.isBlank()) {

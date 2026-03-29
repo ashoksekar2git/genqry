@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 /**
- * Runs DDL migrations against the seek database at startup (order=1, first thing).
+ * Runs DDL migrations against the genQry database at startup (order=1, first thing).
  * Uses IF NOT EXISTS / IF NOT EXISTS so it is fully idempotent.
  *
  * <p>In <b>secretsfree mode</b> (when {@link SecretStore} is not yet initialized),
@@ -46,10 +46,10 @@ public class DatabaseMigrationRunner implements ApplicationRunner {
      * after the datasource becomes available.
      */
     public void runMigrations() {
-        log.info("Running seek DB migrations…");
+        log.info("Running genQry DB migrations…");
         try {
             runAll();
-            log.info("seek DB migrations complete ✅");
+            log.info("genQry DB migrations complete ✅");
         } catch (Exception e) {
             log.warn("DB migration warning (non-fatal): {}", e.getMessage());
         }

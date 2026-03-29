@@ -21,7 +21,7 @@ import javax.sql.DataSource;
  * ┌───────────────────────────────────────────────────────────────────────────┐
  * │ #  SLOT            LIFECYCLE   PURPOSE                   MANAGED BY      │
  * ├───────────────────────────────────────────────────────────────────────────┤
- * │ 1  PRIMARY         Lazy        seek DB — user/auth/RAG   THIS CLASS      │
+ * │ 1  PRIMARY         Lazy        genQry DB — user/auth/RAG   THIS CLASS      │
  * │                    (on first   metadata, business rules  (LazySecret-    │
  * │                     getConn)                             DataSource)     │
  * │                                                                          │
@@ -53,7 +53,7 @@ public class DataSourceConfig {
     private static final Logger log = LoggerFactory.getLogger(DataSourceConfig.class);
 
     // =========================================================================
-    // PRIMARY – seek DB (user/auth/RAG metadata)
+    // PRIMARY – genQry DB (user/auth/RAG metadata)
     // =========================================================================
 
     @Bean(name = {"primaryDataSource", "routingDataSource"})
@@ -66,12 +66,12 @@ public class DataSourceConfig {
             @Value("${spring.datasource.primary.driver-class-name}") String driver) {
 
         LazySecretDataSource ds = new LazySecretDataSource(
-                "PRIMARY (seek)", url, username, driver,
+                "PRIMARY (genQry)", url, username, driver,
                 () -> resolvePassword(secretStore, SecretStore.DB_PRIMARY_PASSWORD, propertyPassword)
         );
         // In secretsfree mode the property username is "NOT_SET" — resolve from SecretStore at pool creation time
         ds.setUsernameSupplier(() -> resolveUsername(secretStore, SecretStore.PRIMARY_DB_USERNAME, username));
-        log.info("DataSource bean → PRIMARY (seek) [lazy] url={}", url);
+        log.info("DataSource bean → PRIMARY (genQry) [lazy] url={}", url);
         return ds;
     }
 
@@ -116,7 +116,7 @@ public class DataSourceConfig {
 
     @Bean(name = "activeDataSourceName")
     public String activeDataSourceName() {
-        return "PRIMARY (seek)";
+        return "PRIMARY (genQry)";
     }
 
     @Bean(name = "secondaryDataSourceName")

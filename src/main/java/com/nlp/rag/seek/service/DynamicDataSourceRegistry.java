@@ -24,7 +24,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *  │ SLOT             │ LIFECYCLE │ BACKING          │ QUALIFIER / BEAN   │
  *  ├──────────────────┼───────────┼──────────────────┼────────────────────┤
  *  │ 1. PRIMARY       │ Fixed     │ Spring Bean      │ primaryDataSource  │
- *  │    seek DB       │ startup   │ (HikariCP auto)  │ primaryJdbcTemplate│
+ *  │    genQry DB       │ startup   │ (HikariCP auto)  │ primaryJdbcTemplate│
  *  ├──────────────────┼───────────┼──────────────────┼────────────────────┤
  *  │ 2. SECONDARY     │ Fixed     │ Spring Bean      │ secondaryDataSource│
  *  │    ecommerce DB  │ startup   │ (HikariCP auto)  │ secondaryJdbcTmpl  │
@@ -240,7 +240,7 @@ public class DynamicDataSourceRegistry {
         config.setDriverClassName(req.toDriverClassName());
 
         // ── Pool name (for JMX and logging) ──────────────────────────────────
-        config.setPoolName("seek-adhoc-" + slotType.toLowerCase()
+        config.setPoolName("genqry-adhoc-" + slotType.toLowerCase()
                 + "-" + req.getDatabaseName().trim().toLowerCase());
 
         // ── Pool sizing (conservative — adhoc connections are low traffic) ────

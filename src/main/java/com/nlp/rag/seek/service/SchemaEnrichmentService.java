@@ -51,8 +51,8 @@ import java.util.stream.Collectors;
  * ══════════════════════════════════════════════════════════════════════
  *  WHEN IS ENRICHMENT APPLIED?
  * ══════════════════════════════════════════════════════════════════════
- *  Controlled by: seek.schema.enrichment.enabled=true  (default)
- *  Strategy:      seek.schema.enrichment.strategy=AUTO (default)
+ *  Controlled by: genqry.schema.enrichment.enabled=true  (default)
+ *  Strategy:      genqry.schema.enrichment.strategy=AUTO (default)
  *
  *  Strategy options:
  *   AUTO   — only enrich tables/columns that look abbreviated
@@ -75,10 +75,10 @@ public class SchemaEnrichmentService {
     @Autowired
     private AbbreviationExpanderService expander;
 
-    @Value("${seek.schema.enrichment.enabled:true}")
+    @Value("${genqry.schema.enrichment.enabled:true}")
     private boolean enabled;
 
-    @Value("${seek.schema.enrichment.strategy:AUTO}")
+    @Value("${genqry.schema.enrichment.strategy:AUTO}")
     private String strategy;   // AUTO | ALWAYS | NEVER
 
     // =========================================================================

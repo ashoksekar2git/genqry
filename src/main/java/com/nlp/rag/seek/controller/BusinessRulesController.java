@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * REST controller for managing business rules stored in the seek DB.
+ * REST controller for managing business rules stored in the genQry DB.
  *
  * Base path: /api/v1/admin/business-rules
  *
