@@ -46,8 +46,8 @@ public class FernetEncryptionService {
     private static final String AES_ALGORITHM    = "AES/CBC/PKCS5Padding";
     private static final String HMAC_ALGORITHM   = "HmacSHA256";
 
-    private final byte[] signingKey;
-    private final byte[] encryptionKey;
+    private volatile byte[] signingKey;
+    private volatile byte[] encryptionKey;
     private final SecureRandom secureRandom = new SecureRandom();
 
     public FernetEncryptionService(
@@ -77,6 +77,22 @@ public class FernetEncryptionService {
         // First 16 bytes = signing key, last 16 = encryption key  (Fernet spec)
         signingKey    = Arrays.copyOfRange(rawKey, 0, SIGNING_KEY_LEN);
         encryptionKey = Arrays.copyOfRange(rawKey, SIGNING_KEY_LEN, SIGNING_KEY_LEN + ENCRYPTION_KEY_LEN);
+    }
+
+    /**
+     * Re-initialise with a new Fernet key from the bootstrap secrets file.
+     * Called by SecretBootstrapService after loading thiravucoal.json.
+     *
+     * @param fernetKeyBase64  URL-safe Base64 encoding of a 32-byte key
+     */
+    public void reinitialize(String fernetKeyBase64) {
+        byte[] rawKey = Base64.getUrlDecoder().decode(fernetKeyBase64.trim());
+        if (rawKey.length != 32) {
+            throw new IllegalArgumentException("Fernet key must be exactly 32 bytes");
+        }
+        signingKey    = Arrays.copyOfRange(rawKey, 0, SIGNING_KEY_LEN);
+        encryptionKey = Arrays.copyOfRange(rawKey, SIGNING_KEY_LEN, SIGNING_KEY_LEN + ENCRYPTION_KEY_LEN);
+        log.info("Fernet: re-initialised with bootstrapped key");
     }
 
     // =========================================================================

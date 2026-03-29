@@ -53,6 +53,7 @@ public class RAGInitializationService {
     @Autowired private VectorIndexPersistenceService persistenceService;
     @Autowired private DatabaseSchemaExportService schemaExportService;
     @Autowired private MetadataDirectoryResolver   dirResolver;
+    @Autowired private com.nlp.rag.seek.config.SecretStore secretStore;
 
     private final ObjectMapper objectMapper =
             new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
@@ -88,6 +89,13 @@ public class RAGInitializationService {
     @PostConstruct
     public void onStartup() {
         log.info("═══ RAG pipeline startup ═══");
+
+        // In secretsfree mode, defer RAG init until bootstrap provides DB credentials
+        if (secretStore.isSecretsFreeMode() && !secretStore.isInitialized()) {
+            log.info("RAG init deferred — secretsfree mode, waiting for bootstrap");
+            log.info("═══ RAG pipeline standby (secretsfree) ═══");
+            return;
+        }
 
         // ── Step 1: Root ecommerce schema bootstrap ───────────────────────────
         // Check if supportingFiles/root/root_ecommerce_DBSchema.json exists.

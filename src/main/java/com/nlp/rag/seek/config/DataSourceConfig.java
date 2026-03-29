@@ -3,29 +3,31 @@ package com.nlp.rag.seek.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
 
 /**
- * Fixed DataSource configuration — two PostgreSQL databases managed as Spring Beans.
+ * DataSource configuration using {@link LazySecretDataSource} — supports both
+ * <b>local</b> (credentials from properties) and <b>secretsfree</b> (credentials
+ * from bootstrap) modes.
  *
  * <h3>4-DataSource Architecture</h3>
  * <pre>
  * ┌───────────────────────────────────────────────────────────────────────────┐
  * │ #  SLOT            LIFECYCLE   PURPOSE                   MANAGED BY      │
  * ├───────────────────────────────────────────────────────────────────────────┤
- * │ 1  PRIMARY         Fixed       seek DB — user/auth/RAG   THIS CLASS      │
- * │                    (startup)   metadata, business rules  (Spring Bean)   │
+ * │ 1  PRIMARY         Lazy        seek DB — user/auth/RAG   THIS CLASS      │
+ * │                    (on first   metadata, business rules  (LazySecret-    │
+ * │                     getConn)                             DataSource)     │
  * │                                                                          │
- * │ 2  SECONDARY       Fixed       ecommerce DB — default    THIS CLASS      │
- * │                    (startup)   NL2SQL / Explore target   (Spring Bean)   │
+ * │ 2  SECONDARY       Lazy        ecommerce DB — default    THIS CLASS      │
+ * │                    (on first   NL2SQL / Explore target   (LazySecret-    │
+ * │                     getConn)                             DataSource)     │
  * │                                                                          │
  * │ 3  ADHOC_PG        Dynamic     User-connected PostgreSQL  DynamicData-   │
  * │                    (on /connect) databases               SourceRegistry  │
@@ -37,53 +39,39 @@ import java.sql.Connection;
  * └───────────────────────────────────────────────────────────────────────────┘
  * </pre>
  *
- * <p><strong>This class</strong> manages slots 1 &amp; 2 only (fixed, Spring-managed beans).
- * Slots 3 &amp; 4 are managed by {@link com.nlp.rag.seek.service.DynamicDataSourceRegistry}
- * which creates/destroys HikariCP pools on demand when users connect adhoc databases.</p>
+ * <p>In <b>local mode</b> the password comes from {@code application-local.properties}
+ * and the pool is created on the first {@code getConnection()} call (typically
+ * during {@code DatabaseMigrationRunner}).</p>
  *
- * <h4>Inject via qualifiers:</h4>
- * <ul>
- *   <li>{@code @Qualifier("primaryDataSource")} or {@code @Qualifier("routingDataSource")} — seek DB</li>
- *   <li>{@code @Qualifier("primaryJdbcTemplate")} or {@code @Qualifier("routingJdbcTemplate")} — seek DB</li>
- *   <li>{@code @Qualifier("secondaryDataSource")} — ecommerce DB</li>
- *   <li>{@code @Qualifier("secondaryJdbcTemplate")} — ecommerce DB</li>
- *   <li>{@code DynamicDataSourceRegistry.getJdbcTemplate(dbName)} — adhoc PG or MySQL</li>
- * </ul>
+ * <p>In <b>secretsfree mode</b> the password field in properties is empty; the pool
+ * stays dormant until the admin uploads secrets via the bootstrap page and
+ * calls {@link LazySecretDataSource#reinitialize(String)}.</p>
  */
 @Configuration
 public class DataSourceConfig {
 
     private static final Logger log = LoggerFactory.getLogger(DataSourceConfig.class);
-    private static final int VALIDATION_TIMEOUT_SECONDS = 3;
 
     // =========================================================================
     // PRIMARY – seek DB (user/auth/RAG metadata)
     // =========================================================================
 
-    @Bean
-    @Primary
-    @ConfigurationProperties("spring.datasource.primary")
-    public DataSourceProperties primaryDataSourceProperties() {
-        return new DataSourceProperties();
-    }
-
     @Bean(name = {"primaryDataSource", "routingDataSource"})
     @Primary
-    public DataSource primaryDataSource(
-            @Qualifier("primaryDataSourceProperties") DataSourceProperties props) {
-        DataSource ds = props.initializeDataSourceBuilder().build();
-        // Set read-only for RAG operations
-        try (Connection conn = ds.getConnection()) {
-            conn.setReadOnly(true);
-            log.info("✅ DataSource → PRIMARY (seek) set to read-only mode");
-        } catch (Exception ex) {
-            log.warn("Failed to set PRIMARY datasource to read-only: {}", ex.getMessage());
-        }
-        if (isReachable(ds, "PRIMARY / seek")) {
-            log.info("✅ DataSource → PRIMARY (seek) reachable");
-        } else {
-            log.warn("⚠️  PRIMARY (seek) unreachable — queries will fail until it is available");
-        }
+    public LazySecretDataSource primaryDataSource(
+            SecretStore secretStore,
+            @Value("${spring.datasource.primary.url}") String url,
+            @Value("${spring.datasource.primary.username}") String username,
+            @Value("${spring.datasource.primary.password:}") String propertyPassword,
+            @Value("${spring.datasource.primary.driver-class-name}") String driver) {
+
+        LazySecretDataSource ds = new LazySecretDataSource(
+                "PRIMARY (seek)", url, username, driver,
+                () -> resolvePassword(secretStore, SecretStore.DB_PRIMARY_PASSWORD, propertyPassword)
+        );
+        // In secretsfree mode the property username is "NOT_SET" — resolve from SecretStore at pool creation time
+        ds.setUsernameSupplier(() -> resolveUsername(secretStore, SecretStore.PRIMARY_DB_USERNAME, username));
+        log.info("DataSource bean → PRIMARY (seek) [lazy] url={}", url);
         return ds;
     }
 
@@ -98,21 +86,21 @@ public class DataSourceConfig {
     // SECONDARY – ecommerce DB (NL2SQL query target / Explore page)
     // =========================================================================
 
-    @Bean
-    @ConfigurationProperties("spring.datasource.secondary")
-    public DataSourceProperties secondaryDataSourceProperties() {
-        return new DataSourceProperties();
-    }
-
     @Bean(name = "secondaryDataSource")
-    public DataSource secondaryDataSource(
-            @Qualifier("secondaryDataSourceProperties") DataSourceProperties props) {
-        DataSource ds = props.initializeDataSourceBuilder().build();
-        if (isReachable(ds, "SECONDARY / ecommerce")) {
-            log.info("✅ DataSource → SECONDARY (ecommerce) reachable");
-        } else {
-            log.warn("⚠️  SECONDARY (ecommerce) unreachable — Explore queries will fail until it is available");
-        }
+    public LazySecretDataSource secondaryDataSource(
+            SecretStore secretStore,
+            @Value("${spring.datasource.secondary.url}") String url,
+            @Value("${spring.datasource.secondary.username}") String username,
+            @Value("${spring.datasource.secondary.password:}") String propertyPassword,
+            @Value("${spring.datasource.secondary.driver-class-name}") String driver) {
+
+        LazySecretDataSource ds = new LazySecretDataSource(
+                "SECONDARY (ecommerce)", url, username, driver,
+                () -> resolvePassword(secretStore, SecretStore.DB_SECONDARY_PASSWORD, propertyPassword)
+        );
+        // In secretsfree mode the property username is "NOT_SET" — resolve from SecretStore at pool creation time
+        ds.setUsernameSupplier(() -> resolveUsername(secretStore, SecretStore.SECONDARY_DB_USERNAME, username));
+        log.info("DataSource bean → SECONDARY (ecommerce) [lazy] url={}", url);
         return ds;
     }
 
@@ -131,7 +119,6 @@ public class DataSourceConfig {
         return "PRIMARY (seek)";
     }
 
-
     @Bean(name = "secondaryDataSourceName")
     public String secondaryDataSoruceName() {
         return "SECONDARY (ecommerce)";
@@ -141,14 +128,40 @@ public class DataSourceConfig {
     // Helpers
     // =========================================================================
 
-    private boolean isReachable(DataSource ds, String name) {
-        try (Connection conn = ds.getConnection()) {
-            boolean valid = conn.isValid(VALIDATION_TIMEOUT_SECONDS);
-            if (!valid) log.warn("DataSource '{}' isValid() returned false", name);
-            return valid;
-        } catch (Exception ex) {
-            log.warn("DataSource '{}' not reachable: {}", name, ex.getMessage());
-            return false;
+    /**
+     * Resolves the password to use.
+     * Secretsfree mode: reads from SecretStore (populated during bootstrap).
+     * Local mode: uses the value from application-local.properties.
+     */
+    private String resolvePassword(SecretStore store, String secretKey, String propertyPassword) {
+        // SecretStore value takes priority (set during bootstrap in secretsfree mode)
+        String fromStore = store.get(secretKey);
+        if (fromStore != null && !fromStore.isBlank()) {
+            return fromStore;
         }
+        // Fall back to profile properties value (local mode)
+        return propertyPassword;
+    }
+
+    /**
+     * Resolves the username to use.
+     * Priority: SecretStore value → property value → "postgres" (default).
+     * In secretsfree mode the property value is typically "NOT_SET".
+     */
+    private String resolveUsername(SecretStore store, String secretKey, String propertyUsername) {
+        // 1. Try SecretStore (populated from thiravucoal.json during bootstrap)
+        String fromStore = store.get(secretKey);
+        if (fromStore != null && !fromStore.isBlank()
+                && !"NOT_SET".equalsIgnoreCase(fromStore)) {
+            return fromStore;
+        }
+        // 2. Try the property value (from application-local.properties in local mode)
+        if (propertyUsername != null && !propertyUsername.isBlank()
+                && !"NOT_SET".equalsIgnoreCase(propertyUsername)) {
+            return propertyUsername;
+        }
+        // 3. Sensible default for PostgreSQL
+        log.warn("Username not available from SecretStore or properties — defaulting to 'postgres'");
+        return "postgres";
     }
 }

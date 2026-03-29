@@ -1,0 +1,25 @@
+[ {
+  "timestamp" : "2026-03-27T19:06:11",
+  "request" : {
+    "userPrompt" : "List all the products",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT productid, name, description, categoryid, price, stockqty, sku, isactive, createdat, updatedat FROM products;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.3604633361860732,
+    "confidenceDetails" : "semantic=0.318(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.167(×0.20) | → total=0.360 [LOW]",
+    "englishExplanation" : "This query retrieves a list of all products from the database, including details such as the product ID, name, description, category ID, price, stock quantity, SKU, whether the product is active, and the dates it was created and last updated. There are no specific filters or conditions applied, meaning it pulls information for every product available in the database. The results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a comprehensive overview of the entire product catalog, which could be useful for inventory management, product analysis, or updating product information.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "products", "orderdetails", "categories", "productattributevalues", "suppliers", "attributes" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+} ]

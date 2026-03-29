@@ -54,6 +54,14 @@ public class NaturalLanguageQueryRequest {
     @Schema(description = "Max sample rows (1-200, used when showSampleResults=true)", example = "50")
     private int sampleLimit;
 
+    /**
+     * When false, the pipeline skips the Redis semantic cache for both lookup
+     * and storage — the LLM is always called fresh.
+     * Default: true.
+     */
+    @Schema(description = "Whether to use the semantic cache (set false to force fresh LLM call)", example = "true")
+    private boolean cacheEnabled = true;
+
     public NaturalLanguageQueryRequest() {}
 
     public String  getQuery()              { return query; }
@@ -64,6 +72,7 @@ public class NaturalLanguageQueryRequest {
     public String  getSource()             { return source; }
     public boolean isShowSampleResults()   { return showSampleResults; }
     public int     getSampleLimit()        { return sampleLimit; }
+    public boolean isCacheEnabled()        { return cacheEnabled; }
 
     public void setQuery(String query)                   { this.query = query; }
     public void setDatabaseName(String databaseName)     { this.databaseName = databaseName; }
@@ -73,6 +82,7 @@ public class NaturalLanguageQueryRequest {
     public void setSource(String source)                 { this.source = source; }
     public void setShowSampleResults(boolean v)          { this.showSampleResults = v; }
     public void setSampleLimit(int v)                    { this.sampleLimit = v; }
+    public void setCacheEnabled(boolean v)               { this.cacheEnabled = v; }
 
     public static Builder builder() { return new Builder(); }
 
@@ -86,6 +96,7 @@ public class NaturalLanguageQueryRequest {
         public Builder source(String v)             { r.source = v;              return this; }
         public Builder showSampleResults(boolean v) { r.showSampleResults = v;   return this; }
         public Builder sampleLimit(int v)           { r.sampleLimit = v;         return this; }
+        public Builder cacheEnabled(boolean v)      { r.cacheEnabled = v;        return this; }
         public NaturalLanguageQueryRequest build()  { return r; }
     }
 }

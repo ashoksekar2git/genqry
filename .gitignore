@@ -52,6 +52,7 @@ application-secret.properties
 
 ### Ad-hoc test/scratch files at project root ###
 test_*.json
+thiravucoal*.json
 test_*.sh
 test_*.html
 
@@ -76,5 +77,6 @@ seek-ui/node_modules/
 seek-ui/.next/
 seek-ui/next-env.d.ts
 seek-ui/.idea/
+
 
 

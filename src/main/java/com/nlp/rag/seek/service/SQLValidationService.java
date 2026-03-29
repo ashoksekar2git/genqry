@@ -62,6 +62,23 @@ public class SQLValidationService {
             Pattern.CASE_INSENSITIVE);
 
     /**
+     * Captures subquery aliases: FROM (...) alias  or  JOIN (...) AS alias
+     * After a closing parenthesis followed by an optional AS keyword and an alias.
+     * Group 1 = alias name
+     */
+    private static final Pattern SUBQUERY_ALIAS = Pattern.compile(
+            "\\)\\s+(?:AS\\s+)?([A-Za-z_][\\w]*)",
+            Pattern.CASE_INSENSITIVE);
+
+    /**
+     * Captures CTE aliases defined in WITH clauses: WITH cte_name AS (...)
+     * Group 1 = CTE alias name
+     */
+    private static final Pattern CTE_ALIAS = Pattern.compile(
+            "\\bWITH\\s+([A-Za-z_][\\w]*)\\s+AS\\s*\\(",
+            Pattern.CASE_INSENSITIVE);
+
+    /**
      * Qualified column reference: alias.column  or  alias."column"
      */
     private static final Pattern QUALIFIED_COL = Pattern.compile(
@@ -72,7 +89,7 @@ public class SQLValidationService {
      * JOIN ON condition: alias1.col1 = alias2.col2
      */
     private static final Pattern JOIN_ON_CONDITION = Pattern.compile(
-            "\\bON\\s+([A-Za-z_][\\w]*)\\.(\"?[\\w]+\"?)\\s*=\\s*([A-ZaZ_][\\w]*)\\.(\"?[\\w]+\"?)",
+            "\\bON\\s+([A-Za-z_][\\w]*)\\.(\"?[\\w]+\"?)\\s*=\\s*([A-Za-z_][\\w]*)\\.(\"?[\\w]+\"?)",
             Pattern.CASE_INSENSITIVE);
 
     /** SQL keywords that look like table aliases but aren't */
@@ -231,6 +248,21 @@ public class SQLValidationService {
             }
         }
 
+        // ── Extract subquery aliases: JOIN (...) alias  or  FROM (...) alias ──
+        // These are aliases for inline subqueries that FROM_JOIN_ALIAS cannot capture
+        // because the subquery starts with '(' instead of a table name.
+        extractSubqueryAliases(trimmed, aliasToTableName);
+
+        // ── Extract CTE aliases: WITH cte_name AS (...) ──────────────────────
+        Matcher cteMatcher = CTE_ALIAS.matcher(trimmed);
+        while (cteMatcher.find()) {
+            String cteAlias = cteMatcher.group(1).toLowerCase();
+            if (!SQL_KEYWORDS.contains(cteAlias)) {
+                aliasToTableName.putIfAbsent(cteAlias, "__cte__" + cteAlias);
+                log.debug("Registered CTE alias: {}", cteAlias);
+            }
+        }
+
         // 4 ── Unknown table check → ERROR (sqlValid = false)
         for (String ref : referencedTableNames) {
             if (!knownTables.containsKey(ref)) {
@@ -315,6 +347,78 @@ public class SQLValidationService {
                 reported.add(alias);
             }
         }
+    }
+
+    // =========================================================================
+    // Subquery alias extraction
+    // =========================================================================
+
+    /**
+     * Finds aliases for inline subqueries used in FROM / JOIN clauses.
+     *
+     * Strategy: scan for FROM/JOIN followed by '(' — then skip to the matching
+     * closing ')' (respecting nesting) and capture the alias token that follows.
+     *
+     * Examples matched:
+     *   FROM (SELECT ...) p2
+     *   JOIN (SELECT DISTINCT price FROM products ORDER BY price DESC LIMIT 1 OFFSET 1) p2
+     *   JOIN (SELECT ...) AS sub_alias
+     */
+    private void extractSubqueryAliases(String sql, Map<String, String> aliasToTableName) {
+        // Pattern to find FROM/JOIN followed by '('
+        Pattern fromJoinSubquery = Pattern.compile(
+                "(?:FROM|JOIN)\\s*\\(",
+                Pattern.CASE_INSENSITIVE);
+        Matcher m = fromJoinSubquery.matcher(sql);
+
+        while (m.find()) {
+            int openParenPos = m.end() - 1; // position of the '('
+            int closeParenPos = findMatchingCloseParen(sql, openParenPos);
+            if (closeParenPos < 0 || closeParenPos >= sql.length() - 1) continue;
+
+            // After the closing ')' look for optional whitespace + optional AS + alias
+            String remainder = sql.substring(closeParenPos + 1);
+            Matcher aliasMatcher = SUBQUERY_ALIAS.matcher(")" + remainder);
+            if (aliasMatcher.find() && aliasMatcher.start() == 0) {
+                String subAlias = aliasMatcher.group(1).toLowerCase();
+                if (!SQL_KEYWORDS.contains(subAlias)) {
+                    aliasToTableName.putIfAbsent(subAlias, "__subquery__" + subAlias);
+                    log.debug("Registered subquery alias: {}", subAlias);
+                }
+            }
+        }
+    }
+
+    /**
+     * Given the position of an opening '(', returns the position of the matching ')'.
+     * Returns -1 if no matching ')' is found.
+     */
+    private int findMatchingCloseParen(String sql, int openPos) {
+        int depth = 0;
+        boolean inSingleQuote = false;
+        boolean inDoubleQuote = false;
+
+        for (int i = openPos; i < sql.length(); i++) {
+            char ch = sql.charAt(i);
+
+            // Handle string literal boundaries (skip content inside quotes)
+            if (ch == '\'' && !inDoubleQuote) {
+                inSingleQuote = !inSingleQuote;
+                continue;
+            }
+            if (ch == '"' && !inSingleQuote) {
+                inDoubleQuote = !inDoubleQuote;
+                continue;
+            }
+            if (inSingleQuote || inDoubleQuote) continue;
+
+            if (ch == '(') depth++;
+            else if (ch == ')') {
+                depth--;
+                if (depth == 0) return i;
+            }
+        }
+        return -1;
     }
 
     // =========================================================================

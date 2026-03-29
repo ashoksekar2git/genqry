@@ -12,6 +12,10 @@ import org.springframework.stereotype.Component;
 /**
  * Runs DDL migrations against the seek database at startup (order=1, first thing).
  * Uses IF NOT EXISTS / IF NOT EXISTS so it is fully idempotent.
+ *
+ * <p>In <b>secretsfree mode</b> (when {@link SecretStore} is not yet initialized),
+ * the automatic startup run is skipped. Call {@link #runMigrations()} manually
+ * from the bootstrap flow after DB credentials become available.</p>
  */
 @Component
 @Order(1)
@@ -20,13 +24,28 @@ public class DatabaseMigrationRunner implements ApplicationRunner {
     private static final Logger log = LoggerFactory.getLogger(DatabaseMigrationRunner.class);
 
     private final JdbcTemplate jdbc;
+    private final SecretStore secretStore;
 
-    public DatabaseMigrationRunner(@Qualifier("primaryJdbcTemplate") JdbcTemplate jdbc) {
+    public DatabaseMigrationRunner(@Qualifier("primaryJdbcTemplate") JdbcTemplate jdbc,
+                                    SecretStore secretStore) {
         this.jdbc = jdbc;
+        this.secretStore = secretStore;
     }
 
     @Override
     public void run(ApplicationArguments args) {
+        if (secretStore.isSecretsFreeMode() && !secretStore.isInitialized()) {
+            log.info("DB migrations deferred — secretsfree mode, waiting for bootstrap");
+            return;
+        }
+        runMigrations();
+    }
+
+    /**
+     * Public entry point so the bootstrap service can trigger migrations
+     * after the datasource becomes available.
+     */
+    public void runMigrations() {
         log.info("Running seek DB migrations…");
         try {
             runAll();
