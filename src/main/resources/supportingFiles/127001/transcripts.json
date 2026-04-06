@@ -1,4 +1,99 @@
 [ {
+  "id" : 1176,
+  "user_id" : 1078,
+  "created_at" : "2026-04-05 23:19:19",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4582,
+  "error_code" : null,
+  "data_source" : "school",
+  "updated_at" : "2026-04-05 23:19:19",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the staudents full name and their enrolled  courses",
+    "explanation" : "This query retrieves the full names of students along with the names of the courses they are enrolled in. It combines the first and last names of students into a single full name and matches each student with their corresponding course based on department information. There are no specific filters or conditions applied, and the results are not ordered or grouped in any particular way. The likely business purpose of this query is to create a list that shows which students are enrolled in which courses, which could be useful for administrative or reporting purposes.",
+    "llmResponse" : "SELECT stu_dtl.stu_fname || ' ' || stu_dtl.stu_lname AS full_name, dept_dtl.dept_nm AS course_name\nFROM stu_dtl\nJOIN dept_dtl ON stu_dtl.dept_id = dept_dtl.dept_id;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1175,
+  "user_id" : 1078,
+  "created_at" : "2026-04-05 23:18:37",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4228,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-04-05 23:18:37",
+  "transcriptDetails" : {
+    "userPrompt" : "get the lowest price product and highest priced product and their price difference in amount and their product name",
+    "explanation" : "This query retrieves information about the products with the lowest and highest prices from a product list. It identifies the name and price of the cheapest product and the name and price of the most expensive product. Additionally, it calculates the difference in price between these two products. The purpose of this query is likely to provide insights into the price range of products, helping the business understand pricing extremes and potential gaps in their product offerings.",
+    "llmResponse" : "SELECT \n    min_product.name AS lowest_price_product,\n    min_product.price AS lowest_price,\n    max_product.name AS highest_price_product,\n    max_product.price AS highest_price,\n    (max_product.price - min_product.price) AS price_difference\nFROM \n    (SELECT name, price FROM products ORDER BY price ASC LIMIT 1) AS min_product\nCROSS JOIN \n    (SELECT name, price FROM products ORDER BY price DESC LIMIT 1) AS max_product;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1174,
+  "user_id" : 1078,
+  "created_at" : "2026-04-05 23:03:27",
+  "status" : "FAILURE",
+  "remarks" : "SQL validation failed. Hallucinated alias 'max_product' used in SQL ('max_product.name') but never defined in any FROM or JOIN clause. LLM invented this alias.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_FAILED",
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-04-05 23:03:27",
+  "transcriptDetails" : {
+    "userPrompt" : "get the lowest price product and highest priced product and their price difference in amount and their product name",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "SQL validation failed. Hallucinated alias 'max_product' used in SQL ('max_product.name') but never defined in any FROM or JOIN clause. LLM invented this alias.",
+    "retry" : false
+  }
+}, {
+  "id" : 1173,
+  "user_id" : 1078,
+  "created_at" : "2026-04-05 22:59:20",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4582,
+  "error_code" : null,
+  "data_source" : "school",
+  "updated_at" : "2026-04-05 22:59:20",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the staudents full name and their enrolled  courses",
+    "explanation" : "This query retrieves the full names of students along with the names of courses offered by their respective departments. It combines information from three different tables: student details, department details, and course details. There are no specific filters or conditions applied, meaning it includes all students and their associated courses. The likely business purpose of this query is to provide a comprehensive list of students and the courses available in their departments, which could be useful for academic planning or advising.",
+    "llmResponse" : "SELECT stu_dtl.stu_fname || ' ' || stu_dtl.stu_lname AS full_name, crs_dtl.crs_nm\nFROM stu_dtl\nJOIN dept_dtl ON stu_dtl.dept_id = dept_dtl.dept_id\nJOIN crs_dtl ON dept_dtl.dept_id = crs_dtl.dept_id;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1172,
+  "user_id" : 1078,
+  "created_at" : "2026-04-05 22:22:22",
+  "status" : "FAILURE",
+  "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : "VALIDATION_ERROR",
+  "data_source" : "school",
+  "updated_at" : "2026-04-05 22:22:22",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the staudents full name and their enrolled  courses",
+    "explanation" : "",
+    "llmResponse" : "",
+    "remarks" : "EAV_RETRY: First LLM call hallucinated table/column names. EAV-focused retry succeeded and produced valid SQL.",
+    "retry" : true
+  }
+}, {
   "id" : 1171,
   "user_id" : 1078,
   "created_at" : "2026-03-28 17:01:56",

@@ -67,7 +67,7 @@ create_*.sql
 **/*_BKP.*
 **/*_backup.*
 *.bak
-
+**/src/main/resources/static/*
 ### Notes/txt files that are not application resources ###
 # (rules.txt under src/main/resources is needed; root-level txt is not)
 /*.txt

@@ -1,0 +1,122 @@
+[ {
+  "timestamp" : "2026-04-05T22:22:22",
+  "request" : {
+    "userPrompt" : "get all the staudents full name and their enrolled  courses",
+    "databaseName" : "school",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ "Unknown table 'enrollment_details' referenced in SQL — not found in schema. LLM may have hallucinated this table name.", "Hallucinated column: 'cd.course_name' — column 'course_name' does not exist in table 'crs_dtl'. Known columns: crs_crdt, crs_id, crs_identifier, crs_name, crs_nm, department_identifier, dept_id", "Hallucinated column: 'cd.course_id' — column 'course_id' does not exist in table 'crs_dtl'. Known columns: crs_crdt, crs_id, crs_identifier, crs_name, crs_nm, department_identifier, dept_id" ],
+    "relevantTables" : [ "stu_dtl", "sch_dtl", "dept_dtl" ],
+    "relevantColumns" : [ "sch_nm" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "Its on us, may be we did not understand your request properly Or May be the generated SQL Hallucinated\nPlease explore the selected database school Database and rephrase your question.\n",
+    "status" : "VALIDATION_ERROR"
+  }
+}, {
+  "timestamp" : "2026-04-05T22:59:20",
+  "request" : {
+    "userPrompt" : "get all the staudents full name and their enrolled  courses",
+    "databaseName" : "school",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT stu_dtl.stu_fname || ' ' || stu_dtl.stu_lname AS full_name, crs_dtl.crs_nm\nFROM stu_dtl\nJOIN dept_dtl ON stu_dtl.dept_id = dept_dtl.dept_id\nJOIN crs_dtl ON dept_dtl.dept_id = crs_dtl.dept_id;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.45820318932584925,
+    "confidenceDetails" : "semantic=0.312(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.667(×0.20) | → total=0.458 [LOW]",
+    "englishExplanation" : "This query retrieves the full names of students along with the names of courses offered by their respective departments. It combines information from three different tables: student details, department details, and course details. There are no specific filters or conditions applied, meaning it includes all students and their associated courses. The likely business purpose of this query is to provide a comprehensive list of students and the courses available in their departments, which could be useful for academic planning or advising.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "stu_dtl", "sch_dtl", "dept_dtl" ],
+    "relevantColumns" : [ "sch_nm" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-04-05T23:03:27",
+  "request" : {
+    "userPrompt" : "get the lowest price product and highest priced product and their price difference in amount and their product name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "",
+    "sqlValid" : false,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.0,
+    "confidenceDetails" : "",
+    "englishExplanation" : "",
+    "validationErrors" : [ ],
+    "relevantTables" : [ ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "SQL validation failed. Hallucinated alias 'max_product' used in SQL ('max_product.name') but never defined in any FROM or JOIN clause. LLM invented this alias.",
+    "status" : "FAILURE",
+    "errorCode" : "VALIDATION_FAILED"
+  }
+}, {
+  "timestamp" : "2026-04-05T23:18:37",
+  "request" : {
+    "userPrompt" : "get the lowest price product and highest priced product and their price difference in amount and their product name",
+    "databaseName" : "ecommerce",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT \n    min_product.name AS lowest_price_product,\n    min_product.price AS lowest_price,\n    max_product.name AS highest_price_product,\n    max_product.price AS highest_price,\n    (max_product.price - min_product.price) AS price_difference\nFROM \n    (SELECT name, price FROM products ORDER BY price ASC LIMIT 1) AS min_product\nCROSS JOIN \n    (SELECT name, price FROM products ORDER BY price DESC LIMIT 1) AS max_product;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.42282639296866076,
+    "confidenceDetails" : "semantic=0.357(×0.40) | coverage=0.200(×0.20) | validity=1.0(×0.20) | tableMatch=0.200(×0.20) | → total=0.423 [LOW]",
+    "englishExplanation" : "This query retrieves information about the products with the lowest and highest prices from a product list. It identifies the name and price of the cheapest product and the name and price of the most expensive product. Additionally, it calculates the difference in price between these two products. The purpose of this query is likely to provide insights into the price range of products, helping the business understand pricing extremes and potential gaps in their product offerings.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "attributes", "orderdetails", "products", "productattributevalues", "productsuppliers" ],
+    "relevantColumns" : [ ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+}, {
+  "timestamp" : "2026-04-05T23:19:19",
+  "request" : {
+    "userPrompt" : "get all the staudents full name and their enrolled  courses",
+    "databaseName" : "school",
+    "topK" : 3,
+    "source" : "UI",
+    "showSampleResults" : false
+  },
+  "response" : {
+    "generatedSQL" : "SELECT stu_dtl.stu_fname || ' ' || stu_dtl.stu_lname AS full_name, dept_dtl.dept_nm AS course_name\nFROM stu_dtl\nJOIN dept_dtl ON stu_dtl.dept_id = dept_dtl.dept_id;",
+    "sqlValid" : true,
+    "confidenceLabel" : "LOW",
+    "confidenceScore" : 0.45820318932584925,
+    "confidenceDetails" : "semantic=0.312(×0.40) | coverage=0.000(×0.20) | validity=1.0(×0.20) | tableMatch=0.667(×0.20) | → total=0.458 [LOW]",
+    "englishExplanation" : "This query retrieves the full names of students along with the names of the courses they are enrolled in. It combines the first and last names of students into a single full name and matches each student with their corresponding course based on department information. There are no specific filters or conditions applied, and the results are not ordered or grouped in any particular way. The likely business purpose of this query is to create a list that shows which students are enrolled in which courses, which could be useful for administrative or reporting purposes.",
+    "validationErrors" : [ ],
+    "relevantTables" : [ "stu_dtl", "sch_dtl", "dept_dtl" ],
+    "relevantColumns" : [ "sch_nm" ],
+    "piiTokensFound" : [ ],
+    "cacheHit" : false,
+    "error" : "",
+    "status" : "SUCCESS"
+  }
+} ]
