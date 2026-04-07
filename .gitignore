@@ -77,6 +77,8 @@ seek-ui/node_modules/
 seek-ui/.next/
 seek-ui/next-env.d.ts
 seek-ui/.idea/
+src/main/resources/supportingFiles/*/
+src/main/resources/supportingFiles/vector_index_ecommerce.json
 
 
 

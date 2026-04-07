@@ -1,4 +1,61 @@
 [ {
+  "id" : 1179,
+  "user_id" : 1078,
+  "created_at" : "2026-04-06 22:06:12",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4582,
+  "error_code" : null,
+  "data_source" : "school",
+  "updated_at" : "2026-04-06 22:06:12",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the staudents full name and their enrolled  courses",
+    "explanation" : "This query retrieves the full names of students along with the names of courses offered by their respective departments. It combines information from three different tables: student details, department details, and course details. There are no specific filters or conditions applied, meaning it includes all students and courses from the departments. The likely business purpose of this query is to provide a list of students and the courses available in their departments, which could be useful for academic planning or advising.",
+    "llmResponse" : "SELECT stu_dtl.stu_fname || ' ' || stu_dtl.stu_lname AS full_name, crs_dtl.crs_nm\nFROM stu_dtl\nJOIN dept_dtl ON stu_dtl.dept_id = dept_dtl.dept_id\nJOIN crs_dtl ON dept_dtl.dept_id = crs_dtl.dept_id;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1178,
+  "user_id" : 1078,
+  "created_at" : "2026-04-06 21:51:20",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4582,
+  "error_code" : null,
+  "data_source" : "school",
+  "updated_at" : "2026-04-06 21:51:20",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the staudents full name and their enrolled  courses",
+    "explanation" : "This query retrieves the first and last names of students along with the names of courses. It specifically looks for students and courses that are associated with the same department. The results are not ordered or grouped in any particular way. The likely business purpose of this query is to provide a list of students and the courses they are enrolled in within their respective departments, which could be useful for academic planning or departmental reporting.",
+    "llmResponse" : "SELECT stu_dtl.stu_fname, stu_dtl.stu_lname, crs_dtl.crs_nm\nFROM stu_dtl\nJOIN dept_dtl ON stu_dtl.dept_id = dept_dtl.dept_id\nJOIN crs_dtl ON dept_dtl.dept_id = crs_dtl.dept_id;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1177,
+  "user_id" : 1078,
+  "created_at" : "2026-04-06 21:44:09",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.4582,
+  "error_code" : null,
+  "data_source" : "school",
+  "updated_at" : "2026-04-06 21:44:09",
+  "transcriptDetails" : {
+    "userPrompt" : "get all the staudents full name and their enrolled  courses",
+    "explanation" : "This query retrieves the full names of students along with the names of courses offered by their respective departments. It combines information from three different tables: student details, department details, and course details. There are no specific filters or conditions applied to limit the data, and the results are not ordered or grouped in any particular way. The likely business purpose of this query is to provide a list of students and the courses available in their departments, which could be useful for academic planning or advising.",
+    "llmResponse" : "SELECT stu_dtl.stu_fname || ' ' || stu_dtl.stu_lname AS full_name, crs_dtl.crs_nm\nFROM stu_dtl\nJOIN dept_dtl ON stu_dtl.dept_id = dept_dtl.dept_id\nJOIN crs_dtl ON dept_dtl.dept_id = crs_dtl.dept_id;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
   "id" : 1176,
   "user_id" : 1078,
   "created_at" : "2026-04-05 23:19:19",

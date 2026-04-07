@@ -228,7 +228,8 @@ public class DatabaseSchemaExportService {
      */
     public String buildAndWriteSchemaFromSql(String databaseName,
                                               SqlSchemaResult parseResult,
-                                              String userName) throws IOException {
+                                              String userName,
+                                              String databaseType) throws IOException {
         // ── Resolve + create target directory ─────────────────────────────────
         // Always write to supportingFiles/{user}/ — never to metadata/
         Path targetDir;
@@ -286,7 +287,7 @@ public class DatabaseSchemaExportService {
         // ── Build root payload (same structure as connectExtractAndSave) ───────
         Map<String, Object> payload = new LinkedHashMap<>();
         payload.put("database_name",    databaseName);
-        payload.put("database_type",    "SQL_FILE");
+        payload.put("database_type",    databaseType != null && !databaseType.isBlank() ? databaseType : "SQL_FILE");
         payload.put("schema_version",   "1.0.0");
         payload.put("source_file",      parseResult.getFileName());
         payload.put("extracted_at",     now.toString());

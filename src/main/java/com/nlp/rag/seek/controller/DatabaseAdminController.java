@@ -291,6 +291,7 @@ public class DatabaseAdminController {
      * Accepts a multipart/form-data request with:
      *   file          — the .sql DDL file
      *   databaseName  — logical name used in the JSON filename  (form param)
+     *   databaseType  — database type, e.g. "postgresql", "mysql" (form param, optional, defaults to "SQL_FILE")
      *   userName      — the logged-in SEEK user name             (form param)
      *
      * Pipeline:
@@ -302,16 +303,18 @@ public class DatabaseAdminController {
      * curl -X POST http://localhost:9095/api/v1/admin/database/schema/upload-sql \
      *      -F "file=@schema.sql" \
      *      -F "databaseName=mydb" \
+     *      -F "databaseType=postgresql" \
      *      -F "userName=AshokSekar"
      */
     @PostMapping(value = "/schema/upload-sql", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Map<String, Object>> uploadSql(
             @RequestPart("file")                          MultipartFile file,
             @RequestParam("databaseName")                 String databaseName,
+            @RequestParam(value = "databaseType", required = false, defaultValue = "SQL_FILE") String databaseType,
             @RequestParam(value = "userName", required = false) String userName) {
 
-        log.info("POST /database/schema/upload-sql — file='{}' databaseName='{}' userName='{}'",
-                file.getOriginalFilename(), databaseName,
+        log.info("POST /database/schema/upload-sql — file='{}' databaseName='{}' databaseType='{}' userName='{}'",
+                file.getOriginalFilename(), databaseName, databaseType,
                 userName != null ? userName : "(default)");
 
         // ── Step 1: Read bytes ONCE — MultipartFile InputStream is single-use ─
@@ -338,7 +341,7 @@ public class DatabaseAdminController {
         String savedTo;
         try {
             savedTo = schemaExportService.buildAndWriteSchemaFromSql(
-                    databaseName, parseResult, userName);
+                    databaseName, parseResult, userName, databaseType);
             log.info("Schema JSON written → {}", savedTo);
         } catch (Exception e) {
             log.error("Failed to write schema JSON: {}", e.getMessage(), e);
@@ -353,7 +356,7 @@ public class DatabaseAdminController {
         // zero JDBC, zero live-database connection.
         com.nlp.rag.seek.model.DatabaseSchema schema;
         try {
-            schema = schemaExtractionService.buildSchemaFromSqlResult(databaseName, parseResult);
+            schema = schemaExtractionService.buildSchemaFromSqlResult(databaseName, parseResult, databaseType);
             log.info("DatabaseSchema built from uploaded SQL: '{}' — {} table(s)",
                     databaseName, schema.getTables().size());
         } catch (Exception e) {

@@ -125,7 +125,7 @@ public class SqlSchemaController {
             schema = schemaExtractionService.buildSchemaFromSqlResult(
                     result.getFileName() != null
                             ? result.getFileName().replaceFirst("\\.sql$", "") : "uploaded",
-                    result);
+                    result, null);
             log.info("DatabaseSchema built from SQL — {} table(s)", schema.getTables().size());
         } catch (Exception e) {
             log.error("Schema build from SQL result failed: {}", e.getMessage(), e);
