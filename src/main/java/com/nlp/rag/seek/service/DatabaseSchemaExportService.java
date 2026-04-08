@@ -223,7 +223,7 @@ public class DatabaseSchemaExportService {
      *
      * @param databaseName  logical DB name (used in filename and JSON)
      * @param parseResult   result from SqlFileSchemaExtractorService.extractSchema()
-     * @param userName      the SEEK application userName; null → default metadata dir
+     * @param userName      the genQry application userName; null → default metadata dir
      * @return              absolute path of the written JSON file
      */
     public String buildAndWriteSchemaFromSql(String databaseName,

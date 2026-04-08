@@ -58,7 +58,7 @@ public class RAGInitializationService {
     private final ObjectMapper objectMapper =
             new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     // ── Ecommerce DB connection config (from application.properties) ──────────

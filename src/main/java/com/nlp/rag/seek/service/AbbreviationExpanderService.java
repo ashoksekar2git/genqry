@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
  *   semantic.json       →  ALIAS_GROUPS (canonical word → synonym list)
  *
  * Any entries in application.properties
- *   seek.schema.abbreviations.<abbr>=<expansion>
+ *   genqry.schema.abbreviations.<abbr>=<expansion>
  * are merged in after the JSON load, so they take precedence.
  *
  * No code change is needed to add new abbreviations or synonyms —
@@ -45,8 +45,8 @@ public class AbbreviationExpanderService {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     // Injected from application.properties:
-    // seek.schema.abbreviations.shpmnt=shipment
-    @Value("#{${seek.schema.abbreviations:{}}}")
+    // genqry.schema.abbreviations.shpmnt=shipment
+    @Value("#{${genqry.schema.abbreviations:{}}}")
     private Map<String, String> customAbbreviations = new HashMap<>();
 
     // =========================================================================

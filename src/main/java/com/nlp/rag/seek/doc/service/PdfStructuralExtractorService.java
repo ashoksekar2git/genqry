@@ -74,7 +74,7 @@ public class PdfStructuralExtractorService {
      */
     private static final float COLUMN_GAP_THRESHOLD = 30f;
 
-    @Value("${seek.pdf.max-words-per-chunk:150}")
+    @Value("${genqry.pdf.max-words-per-chunk:150}")
     private int maxWordsPerChunk;
 
     // =========================================================================

@@ -30,7 +30,7 @@ public class DocumentVectorIndexPersistenceService {
     private static final String INDEX_PREFIX = "doc_vector_index_";
     private static final String INDEX_SUFFIX = ".json";
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     private final ObjectMapper objectMapper =

@@ -27,7 +27,7 @@ import java.util.*;
  *                                    SHA-256("get active employee")
  *                                               │
  *                                               ▼
- *                               seek:cache:<db>:norm:<hash>   ← ONE key
+ *                               genqry:cache:<db>:norm:<hash>   ← ONE key
  *
  *  Both queries produce the SAME Redis key → guaranteed HIT on second call.
  *  This tier requires NO embeddings and works even with sk-placeholder.
@@ -40,14 +40,14 @@ import java.util.*;
  *
  *    "how many orders last quarter" vs "order count Q4"
  *
- *  → Embed query → scan seek:cache:<db>:vec:* → cosine ≥ threshold
+ *  → Embed query → scan genqry:cache:<db>:vec:* → cosine ≥ threshold
  *
  * ══════════════════════════════════════════════════════════════════
  *  STORE
  * ══════════════════════════════════════════════════════════════════
  *  Writes TWO keys per cached response:
- *    seek:cache:<db>:norm:<hash>   → deterministic, always written
- *    seek:cache:<db>:vec:<uuid>    → embedding-backed, only with real key
+ *    genqry:cache:<db>:norm:<hash>   → deterministic, always written
+ *    genqry:cache:<db>:vec:<uuid>    → embedding-backed, only with real key
  *  Both carry the same CacheEntry payload with TTL.
  *
  *  Graceful degradation: every Redis call is wrapped in try/catch.
@@ -67,7 +67,7 @@ public class SemanticCacheService {
     @Value("${cache.semantic.enabled:true}")         private boolean enabled;
     @Value("${cache.semantic.similarity-threshold:0.90}") private double similarityThreshold;
     @Value("${cache.semantic.ttl-seconds:3600}")     private long    ttlSeconds;
-    @Value("${cache.semantic.key-prefix:seek:cache:}") private String keyPrefix;
+    @Value("${cache.semantic.key-prefix:genqry:cache:}") private String keyPrefix;
     @Value("${cache.semantic.max-scan:500}")         private int     maxScan;
     @Value("${spring.ai.openai.api-key:NOT_SET}")    private String  openAiApiKey;
 

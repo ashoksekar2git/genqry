@@ -261,7 +261,7 @@ public class AuthController {
      *   "success":   true,
      *   "status":    "guest",
      *   "username":  "127_0_0_1",
-     *   "email":     "guest_127_0_0_1@seek.temp",
+     *   "email":     "guest_127_0_0_1@genqry.temp",
      *   "userType":  "Temp",
      *   "sessionId": "d8578edf8458ce06fbc5bb76a58c5ca4",
      *   "message":   "Continuing as guest. Your session is temporary."

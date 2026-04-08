@@ -1,7 +1,7 @@
 package com.nlp.rag.seek.doc.model;
 
 /**
- * Request payload for POST /api/v1/seekDoc
+ * Request payload for POST /api/v1/genQryDoc
  *
  * Example:
  * {

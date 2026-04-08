@@ -32,10 +32,10 @@ public class DocumentSlidingWindowChunkingService {
 
     private static final Logger log = LoggerFactory.getLogger(DocumentSlidingWindowChunkingService.class);
 
-    @Value("${seek.doc-rag.chunk-size:120}")
+    @Value("${genqry.doc-rag.chunk-size:120}")
     private int chunkSize;
 
-    @Value("${seek.doc-rag.stride:60}")
+    @Value("${genqry.doc-rag.stride:60}")
     private int stride;
 
     /**

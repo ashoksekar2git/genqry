@@ -26,7 +26,7 @@ import java.util.Base64;
  *
  * A Fernet key is itself stored as URL-safe Base64 of the 32 raw bytes.
  *
- * If {@code seek.auth.fernet.key} is not set, a random key is generated at
+ * If {@code genqry.auth.fernet.key} is not set, a random key is generated at
  * startup and logged once (copy it into application.properties for persistence
  * across restarts).
  *
@@ -51,7 +51,7 @@ public class FernetEncryptionService {
     private final SecureRandom secureRandom = new SecureRandom();
 
     public FernetEncryptionService(
-            @Value("${seek.auth.fernet.key:}") String configuredKey) {
+            @Value("${genqry.auth.fernet.key:}") String configuredKey) {
 
         byte[] rawKey;
 
@@ -59,7 +59,7 @@ public class FernetEncryptionService {
             rawKey = Base64.getUrlDecoder().decode(configuredKey.trim());
             if (rawKey.length != 32) {
                 throw new IllegalArgumentException(
-                        "seek.auth.fernet.key must be a URL-safe Base64 encoding of exactly 32 bytes. " +
+                        "genqry.auth.fernet.key must be a URL-safe Base64 encoding of exactly 32 bytes. " +
                         "Generate one with: FernetEncryptionService.generateKeyBase64()");
             }
             log.info("Fernet: loaded key from configuration");
@@ -70,7 +70,7 @@ public class FernetEncryptionService {
             log.warn("╔══════════════════════════════════════════════════════════════╗");
             log.warn("║  Fernet key NOT configured — generated a random key.         ║");
             log.warn("║  Add to application.properties to persist across restarts:   ║");
-            log.warn("║  seek.auth.fernet.key={}  ║", generated);
+            log.warn("║  genqry.auth.fernet.key={}  ║", generated);
             log.warn("╚══════════════════════════════════════════════════════════════╝");
         }
 
@@ -176,7 +176,7 @@ public class FernetEncryptionService {
 
     /**
      * Generates a new random Fernet key and returns it as URL-safe Base64.
-     * Use this to generate the value for {@code seek.auth.fernet.key}.
+     * Use this to generate the value for {@code genqry.auth.fernet.key}.
      */
     public static String generateKeyBase64() {
         byte[] key = new byte[32];

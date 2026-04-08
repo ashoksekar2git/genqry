@@ -61,13 +61,13 @@ public class PasskeyService {
 
     private static final long CHALLENGE_TTL_MS = 15 * 60 * 1000L; // 15 minutes (extended for reliability)
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
-    @Value("${seek.auth.base-url:http://localhost:3000}")
+    @Value("${genqry.auth.base-url:http://localhost:3000}")
     private String appBaseUrl;
 
-    @Value("${seek.auth.passkey.rp-name:SEEK NL2SQL}")
+    @Value("${genqry.auth.passkey.rp-name:genQry NL2SQL}")
     private String rpName;
 
     private final ObjectMapper mapper =
@@ -766,8 +766,8 @@ public class PasskeyService {
      * Derives the WebAuthn RP ID from the base URL (hostname only, no port, no protocol).
      * Domain tiers:
      *   local machine : localhost
-     *   development   : invinciblebots.dev
-     *   production    : invinciblebots.com
+     *   development   : dev.genqry.com
+     *   production    : genqry.com
      */
     private String deriveRpId(String baseUrl) {
         try {
@@ -775,9 +775,9 @@ public class PasskeyService {
             if (!u.contains("://")) u = "https://" + u;
             java.net.URI uri = java.net.URI.create(u);
             String host = uri.getHost();
-            return (host != null && !host.isBlank()) ? host : "invinciblebots.dev";
+            return (host != null && !host.isBlank()) ? host : "dev.genqry.com";
         } catch (Exception e) {
-            return "invinciblebots.dev";
+            return "dev.genqry.com";
         }
     }
 

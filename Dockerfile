@@ -23,5 +23,5 @@ ENV PINECONE_ENVIRONMENT=""
 ENV PINECONE_INDEX_NAME="rag-nl2sql"
 
 # Run application
-CMD ["java", "-jar", "target/seek-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/genQry-0.0.1-SNAPSHOT.jar"]
 

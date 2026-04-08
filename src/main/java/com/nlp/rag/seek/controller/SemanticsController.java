@@ -47,7 +47,7 @@ public class SemanticsController {
     private static final Logger log = LoggerFactory.getLogger(SemanticsController.class);
     private static final String CLASSPATH_JSON = "supportingFiles/semantic.json";
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     private final ObjectMapper objectMapper =

@@ -146,7 +146,7 @@ public class CacheAdminController {
      * Includes the complete cached SQL generation response.
      *
      * Path variable:
-     *   key — URL-encoded Redis key, e.g. seek:cache:ecommerce:norm:a3f8c2b1d4e67890
+     *   key — URL-encoded Redis key, e.g. genqry:cache:ecommerce:norm:a3f8c2b1d4e67890
      */
     @GetMapping("/entries/{key}")
     public ResponseEntity<Map<String, Object>> getEntry(
@@ -329,7 +329,7 @@ public class CacheAdminController {
      * Update TTL on all keys matching a pattern.
      *
      * Request body:
-     * { "pattern": "seek:cache:ecommerce:*", "seconds": 7200 }
+     * { "pattern": "genqry:cache:ecommerce:*", "seconds": 7200 }
      *
      * Set seconds=0 to make entries persistent (no expiry).
      */
@@ -422,7 +422,7 @@ public class CacheAdminController {
      *   "queries": [
      *     { "query": "list all active employees",
      *       "canonical": "get active employee",
-     *       "redisKey": "seek:cache:ecommerce:norm:a3f8c2b1d4e67890",
+     *       "redisKey": "genqry:cache:ecommerce:norm:a3f8c2b1d4e67890",
      *       "cachedInRedis": true },
      *     ...
      *   ],

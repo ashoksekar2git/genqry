@@ -36,7 +36,7 @@ public class QueryHistoryController {
 
     private static final Logger log = LoggerFactory.getLogger(QueryHistoryController.class);
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     private final ObjectMapper objectMapper = new ObjectMapper();

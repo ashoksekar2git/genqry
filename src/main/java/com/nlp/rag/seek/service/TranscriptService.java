@@ -58,7 +58,7 @@ public class TranscriptService {
     private static final String            FILE_PREFIX    = "transcripts_";
     private static final String            FILE_SUFFIX    = ".json";
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     @Autowired(required = false)

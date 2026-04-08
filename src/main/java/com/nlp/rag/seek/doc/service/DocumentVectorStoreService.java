@@ -43,7 +43,7 @@ public class DocumentVectorStoreService {
      * Default 0.6 gives semantic search the majority weight while keyword matching
      * ensures financial/numeric terms (e.g. "federal withheld") are never missed.
      */
-    @Value("${seek.doc-rag.hybrid-alpha:0.6}")
+    @Value("${genqry.doc-rag.hybrid-alpha:0.6}")
     private double hybridAlpha;
 
     /**
