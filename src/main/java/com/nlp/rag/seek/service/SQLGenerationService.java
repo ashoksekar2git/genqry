@@ -62,6 +62,7 @@ public class SQLGenerationService {
     @Autowired private SemanticCacheService     semanticCacheService;
     @Autowired private TranscriptService        transcriptService;
     @Autowired private DynamicDataSourceRegistry dynamicDataSourceRegistry;
+    @Autowired private AbbreviatedSchemaChunkTranslator abbreviatedChunkTranslator;
 
     @Autowired(required = false)
     @org.springframework.beans.factory.annotation.Qualifier("sqlChatClient")
@@ -280,6 +281,15 @@ public class SQLGenerationService {
                 } catch (Exception e) {
                     log.warn("Could not reload schema JSON for '{}': {}", databaseName, e.getMessage());
                 }
+                // Load abbreviated mapper for the switched database
+                try {
+                    abbreviatedChunkTranslator.isAbbreviated(databaseName); // triggers auto-load from disk
+                    if (abbreviatedChunkTranslator.isAbbreviated(databaseName)) {
+                        log.info("Abbreviated schema mapper loaded for switched database '{}'", databaseName);
+                    }
+                } catch (Exception e) {
+                    log.debug("No abbreviated mapper for '{}': {}", databaseName, e.getMessage());
+                }
             } else {
                 log.warn("No persisted vector index found for database '{}' (user='{}') "
                         + "— search will use currently loaded index '{}'",
@@ -342,6 +352,19 @@ public class SQLGenerationService {
             return tierMissError(nlQuery);
         }
 
+        // ── Step 1e: Abbreviated schema enrichment ─────────────────────────
+        // If the schema uses abbreviated names (e.g. sch_dtl → school_details),
+        // enrich chunk text with descriptive glossary alongside the originals.
+        // The LLM is explicitly instructed to use the ORIGINAL abbreviated names
+        // in the SQL, so no reverse translation is needed after the LLM response.
+        boolean isAbbreviatedSchema = abbreviatedChunkTranslator.isAbbreviated(databaseName);
+        List<ScoredChunk> promptChunks = isAbbreviatedSchema
+                ? abbreviatedChunkTranslator.enrichChunksWithDescriptiveContext(databaseName, scoredChunks)
+                : scoredChunks;
+        if (isAbbreviatedSchema) {
+            log.info("Abbreviated schema detected — chunks enriched with descriptive glossary for LLM");
+        }
+
         // ── Step 2: extract metadata from retrieved chunks ────────────────────
         LinkedHashSet<String> tableSet  = new LinkedHashSet<>();
         LinkedHashSet<String> columnSet = new LinkedHashSet<>();
@@ -363,8 +386,8 @@ public class SQLGenerationService {
         // the uploaded SQL schema (or live JDBC schema) set when RAG was last
         // initialised, NOT a fresh extraction which may fall back to the sample.
         DatabaseSchema schema = ragInitializationService.getActiveSchema();
-        String schemaContext  = buildSchemaContext(scoredChunks);
-        log.info("Sending sanitized query to LLM with top-{} schema chunks", scoredChunks.size());
+        String schemaContext  = buildSchemaContext(promptChunks);
+        log.info("Sending sanitized query to LLM with top-{} schema chunks", promptChunks.size());
 
         // ── Resolve database type for SQL dialect in prompt Rule 2 ────────────
         String databaseType = request.getDatabaseType();
@@ -460,6 +483,7 @@ public class SQLGenerationService {
 
         String sql = extractSQL(rawLLMResponse);
         log.info("◀ LLM generated SQL:\n══════════════════════════════\n{}\n══════════════════════════════", sql);
+
 
         // ── Step 4b: detect prose response (LLM returned text instead of SQL) ─
         // If the extracted "SQL" doesn't start with a recognised SQL keyword,
@@ -1257,8 +1281,19 @@ public class SQLGenerationService {
             } else {
                 // ── Normal TABLE / COLUMN block (existing logic) ──────────────
                 sb.append("  TABLE   : ").append(meta.getOrDefault("table_name", c.getTableName())).append("\n");
+
+                // ── Abbreviated schema: show descriptive name for context ────
+                String descriptiveTable = meta.get("descriptive_table");
+                if (descriptiveTable != null && !descriptiveTable.isBlank()) {
+                    sb.append("  MEANING : ").append(descriptiveTable).append("\n");
+                }
+
                 if (meta.containsKey("column_name") && !meta.get("column_name").isBlank()) {
                     sb.append("  COLUMN  : ").append(meta.get("column_name")).append("\n");
+                    String descriptiveCol = meta.get("descriptive_column");
+                    if (descriptiveCol != null && !descriptiveCol.isBlank()) {
+                        sb.append("  COL MEANING : ").append(descriptiveCol).append("\n");
+                    }
                     sb.append("  TYPE    : ").append(meta.getOrDefault("data_type", "?")).append("\n");
                     if ("true".equals(meta.get("is_primary_key")))
                         sb.append("  ROLE    : PRIMARY KEY\n");
@@ -1598,6 +1633,11 @@ public class SQLGenerationService {
 
         String eavRules    = eavPresent ? buildEavRules(eavAttrs) : "";
 
+        // ── Abbreviated schema instruction ───────────────────────────────────
+        // If the schema uses abbreviated names, inject an explicit instruction
+        // telling the LLM to use the original abbreviated names in the SQL.
+        String abbreviationNotice = abbreviatedChunkTranslator.buildAbbreviationPromptInstruction(dbName);
+
         // ── Dynamically set the SQL dialect in Rule 2 ────────────────────────
         // Replace any occurrence of "compatible with PostgreSQL" or similar
         // with the actual database type from the request / schema.
@@ -1613,6 +1653,7 @@ public class SQLGenerationService {
         return systemInstruction + "\n\n" +
                 "RULES FOR SQL GENERATION:\n" + resolvedRules + "\n" +
                 eavRules + "\n" +
+                abbreviationNotice +
                 "Database: " + dbName + "\n\n" +
                 "--- RETRIEVED SCHEMA CHUNKS (ranked by semantic similarity) ---\n" +
                 schemaContext + "\n" +

@@ -1,6 +1,7 @@
 package com.nlp.rag.seek.controller;
 
 import com.nlp.rag.seek.model.DatabaseConnectRequest;
+import com.nlp.rag.seek.service.AbbreviatedSchemaDetectionService;
 import com.nlp.rag.seek.service.DatabaseSchemaExportService;
 import com.nlp.rag.seek.service.DynamicDataSourceRegistry;
 import com.nlp.rag.seek.service.EcommerceJdbcService;
@@ -65,6 +66,9 @@ public class DatabaseAdminController {
 
     @Autowired
     private DynamicDataSourceRegistry dynamicDataSourceRegistry;
+
+    @Autowired
+    private AbbreviatedSchemaDetectionService abbreviatedSchemaDetectionService;
 
     // Reads the default ecommerce DB config from application.properties
     @Value("${spring.datasource.secondary.url:jdbc:postgresql://localhost:5432/ecommerce}")
@@ -287,7 +291,8 @@ public class DatabaseAdminController {
      * Accepts a multipart/form-data request with:
      *   file          — the .sql DDL file
      *   databaseName  — logical name used in the JSON filename  (form param)
-     *   userName      — the logged-in genQry user name             (form param)
+     *   databaseType  — database type, e.g. "postgresql", "mysql" (form param, optional, defaults to "SQL_FILE")
+     *   userName      — the logged-in SEEK user name             (form param)
      *
      * Pipeline:
      *  1. Validate the .sql file (extension, size, syntax, balanced parens)
@@ -298,16 +303,18 @@ public class DatabaseAdminController {
      * curl -X POST http://localhost:9095/api/v1/admin/database/schema/upload-sql \
      *      -F "file=@schema.sql" \
      *      -F "databaseName=mydb" \
+     *      -F "databaseType=postgresql" \
      *      -F "userName=AshokSekar"
      */
     @PostMapping(value = "/schema/upload-sql", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Map<String, Object>> uploadSql(
             @RequestPart("file")                          MultipartFile file,
             @RequestParam("databaseName")                 String databaseName,
+            @RequestParam(value = "databaseType", required = false, defaultValue = "SQL_FILE") String databaseType,
             @RequestParam(value = "userName", required = false) String userName) {
 
-        log.info("POST /database/schema/upload-sql — file='{}' databaseName='{}' userName='{}'",
-                file.getOriginalFilename(), databaseName,
+        log.info("POST /database/schema/upload-sql — file='{}' databaseName='{}' databaseType='{}' userName='{}'",
+                file.getOriginalFilename(), databaseName, databaseType,
                 userName != null ? userName : "(default)");
 
         // ── Step 1: Read bytes ONCE — MultipartFile InputStream is single-use ─
@@ -334,7 +341,7 @@ public class DatabaseAdminController {
         String savedTo;
         try {
             savedTo = schemaExportService.buildAndWriteSchemaFromSql(
-                    databaseName, parseResult, userName);
+                    databaseName, parseResult, userName, databaseType);
             log.info("Schema JSON written → {}", savedTo);
         } catch (Exception e) {
             log.error("Failed to write schema JSON: {}", e.getMessage(), e);
@@ -349,7 +356,7 @@ public class DatabaseAdminController {
         // zero JDBC, zero live-database connection.
         com.nlp.rag.seek.model.DatabaseSchema schema;
         try {
-            schema = schemaExtractionService.buildSchemaFromSqlResult(databaseName, parseResult);
+            schema = schemaExtractionService.buildSchemaFromSqlResult(databaseName, parseResult, databaseType);
             log.info("DatabaseSchema built from uploaded SQL: '{}' — {} table(s)",
                     databaseName, schema.getTables().size());
         } catch (Exception e) {
@@ -368,7 +375,21 @@ public class DatabaseAdminController {
                     "Schema saved but RAG indexing failed: " + e.getMessage());
         }
 
-        // ── Step 5: Response ──────────────────────────────────────────────────
+        // ── Step 6: Detect abbreviated schema and build mapper ───────────────
+        boolean isAbbreviated = false;
+        try {
+            isAbbreviated = abbreviatedSchemaDetectionService.detectAndMap(schema, userName);
+            if (isAbbreviated) {
+                log.info("Schema '{}' detected as ABBREVIATED — mapper file created", databaseName);
+            } else {
+                log.info("Schema '{}' is descriptive — no abbreviation mapping needed", databaseName);
+            }
+        } catch (Exception e) {
+            log.warn("Abbreviated schema detection failed (non-fatal): {}", e.getMessage());
+            // Non-fatal — the pipeline still works without abbreviation mapping
+        }
+
+        // ── Step 7: Response ──────────────────────────────────────────────────
         String schemaFileNameOnly = savedTo != null
                 ? Paths.get(savedTo).getFileName().toString()
                 : databaseName + "_schema.json";
@@ -385,6 +406,7 @@ public class DatabaseAdminController {
         resp.put("totalColumns",  parseResult.getTotalColumns());
         resp.put("totalIndexes",  parseResult.getTotalIndexes());
         resp.put("ragReIndexed",  true);
+        resp.put("isAbbreviated", isAbbreviated);
         resp.put("tableNames",
                 parseResult.getTables().stream()
                         .map(TableExtract::getTableName)
@@ -510,6 +532,21 @@ public class DatabaseAdminController {
                         request.getDatabaseName(), e.getMessage());
             }
 
+            // ── Detect abbreviated schema ───────────────────────────────────
+            boolean isAbbreviated = false;
+            if (ragIndexed) {
+                try {
+                    com.nlp.rag.seek.model.DatabaseSchema activeSchema =
+                            ragInitializationService.getActiveSchema();
+                    String userName = request.hasSeekUserName() ? request.getSeekUserName() : null;
+                    isAbbreviated = abbreviatedSchemaDetectionService.detectAndMap(activeSchema, userName);
+                    log.info("Connect: abbreviated detection for '{}' → {}",
+                            request.getDatabaseName(), isAbbreviated);
+                } catch (Exception e) {
+                    log.warn("Abbreviated detection failed (non-fatal): {}", e.getMessage());
+                }
+            }
+
             Map<String, Object> resp = new LinkedHashMap<>();
             resp.put("status",       "success");
             resp.put("databaseName", request.getDatabaseName());
@@ -518,6 +555,7 @@ public class DatabaseAdminController {
             resp.put("schemaFile",   schemaFileName);
             resp.put("savedTo",      savedTo);
             resp.put("ragIndexed",   ragIndexed);
+            resp.put("isAbbreviated", isAbbreviated);
             if (request.hasSeekUserName()) {
                 resp.put("userName", request.getSeekUserName());
             }

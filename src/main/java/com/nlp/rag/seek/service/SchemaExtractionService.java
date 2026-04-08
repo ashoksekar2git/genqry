@@ -200,7 +200,8 @@ public class SchemaExtractionService {
      */
     public DatabaseSchema buildSchemaFromSqlResult(
             String databaseName,
-            SqlFileSchemaExtractorService.SqlSchemaResult parseResult) {
+            SqlFileSchemaExtractorService.SqlSchemaResult parseResult,
+            String databaseType) {
 
         log.info("Building DatabaseSchema from parsed SQL result — db='{}', tables={}",
                 databaseName, parseResult.getTotalTables());
@@ -249,7 +250,7 @@ public class SchemaExtractionService {
 
         DatabaseSchema schema = DatabaseSchema.builder()
                 .databaseName(databaseName)
-                .databaseType("SQL_FILE")
+                .databaseType(databaseType != null && !databaseType.isBlank() ? databaseType : "SQL_FILE")
                 .description("Schema parsed from uploaded SQL file: "
                         + parseResult.getFileName())
                 .tables(tables)

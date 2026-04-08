@@ -1,0 +1,53 @@
+#!/usr/bin/expect -f
+# fix-nginx2.exp — Create missing SSL files and reload Nginx
+
+set timeout 30
+
+spawn ssh root@204.168.209.177
+
+expect {
+    "Enter passphrase*" {
+        send "hezkey\r"
+        exp_continue
+    }
+    "$ " {}
+    "# " {}
+}
+
+# Create the missing options-ssl-nginx.conf
+send "cat > /etc/letsencrypt/options-ssl-nginx.conf << 'SSLCONF'\r"
+send "ssl_session_cache shared:le_nginx_SSL:10m;\r"
+send "ssl_session_timeout 1440m;\r"
+send "ssl_session_tickets off;\r"
+send "ssl_protocols TLSv1.2 TLSv1.3;\r"
+send "ssl_prefer_server_ciphers off;\r"
+send "ssl_ciphers \"ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384\";\r"
+send "SSLCONF\r"
+expect "# "
+
+# Check if ssl-dhparams.pem exists, create if not
+send "ls /etc/letsencrypt/ssl-dhparams.pem 2>/dev/null || openssl dhparam -out /etc/letsencrypt/ssl-dhparams.pem 2048 2>&1\r"
+expect -timeout 120 "# "
+
+# Test config
+send "nginx -t 2>&1\r"
+expect "# "
+
+# Reload nginx
+send "systemctl reload nginx 2>&1 || systemctl restart nginx 2>&1\r"
+expect "# "
+
+# Check ports
+send "ss -tlnp | grep -E '443|80'\r"
+expect "# "
+
+# Test HTTPS
+send "curl -sk -o /dev/null -w 'HTTPS=%{http_code}\\n' https://localhost\r"
+expect "# "
+
+send "echo ALLDONE\r"
+expect "# "
+
+send "exit\r"
+expect eof
+

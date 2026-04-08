@@ -54,6 +54,7 @@ public class RAGInitializationService {
     @Autowired private DatabaseSchemaExportService schemaExportService;
     @Autowired private MetadataDirectoryResolver   dirResolver;
     @Autowired private com.nlp.rag.seek.config.SecretStore secretStore;
+    @Autowired private AbbreviatedSchemaDetectionService abbreviatedSchemaDetectionService;
 
     private final ObjectMapper objectMapper =
             new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
@@ -207,6 +208,16 @@ public class RAGInitializationService {
                             e.getMessage());
                     log.info("═══ RAG pipeline ready (restored from disk: '{}', {} chunks) ═══",
                             savedDb, vectorStoreService.indexSize());
+                }
+
+                // Load abbreviated schema mapper if it was persisted
+                try {
+                    boolean isAbbrev = abbreviatedSchemaDetectionService.loadExisting(savedDb, null);
+                    if (isAbbrev) {
+                        log.info("Abbreviated schema mapper loaded for '{}' on startup", savedDb);
+                    }
+                } catch (Exception e) {
+                    log.debug("No abbreviated mapper for '{}': {}", savedDb, e.getMessage());
                 }
                 return;
             }

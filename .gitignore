@@ -69,7 +69,7 @@ create_*.sql
 **/*_BKP.*
 **/*_backup.*
 *.bak
-
+**/src/main/resources/static/*
 ### Notes/txt files that are not application resources ###
 # (rules.txt under src/main/resources is needed; root-level txt is not)
 /*.txt
@@ -80,6 +80,7 @@ seek-ui/.next/
 seek-ui/next-env.d.ts
 seek-ui/.idea/
 src/main/resources/supportingFiles/*/
+src/main/resources/supportingFiles/vector_index_ecommerce.json
 
 
 
