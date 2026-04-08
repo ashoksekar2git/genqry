@@ -10,9 +10,9 @@
 	</parent>
 
 	<groupId>com.nlp.rag</groupId>
-	<artifactId>seek</artifactId>
+	<artifactId>genqry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>seek</name>
+	<name>genqry</name>
 	<description>RAG-based NL to SQL pipeline using Pinecone + OpenAI</description>
 
 	<properties>

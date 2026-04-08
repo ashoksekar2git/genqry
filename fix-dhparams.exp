@@ -1,0 +1,29 @@
+#!/usr/bin/expect -f
+set timeout 180
+
+spawn ssh root@204.168.209.177
+
+expect {
+    "passphrase*" { send "hezkey\r"; exp_continue }
+    "# " {}
+}
+
+# Generate proper DH params (or download from certbot)
+send "openssl dhparam -out /etc/letsencrypt/ssl-dhparams.pem 2048\r"
+expect -timeout 180 "# "
+
+send "nginx -t 2>&1\r"
+expect "# "
+
+send "systemctl restart nginx 2>&1\r"
+expect "# "
+
+send "ss -tlnp | grep nginx\r"
+expect "# "
+
+send "curl -sk -o /dev/null -w 'HTTPS=%{http_code}\\n' https://localhost\r"
+expect "# "
+
+send "exit\r"
+expect eof
+
