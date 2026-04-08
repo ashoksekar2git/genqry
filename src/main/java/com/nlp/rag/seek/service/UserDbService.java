@@ -44,7 +44,7 @@ public class UserDbService {
     @Autowired
     private FernetEncryptionService fernetService;
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     // =========================================================================
@@ -109,7 +109,7 @@ public class UserDbService {
      * otherwise creates a new one.
      *
      * username = safeIp  (sanitised IP, e.g. "192_168_1_1")
-     * email    = guest_<safeIp>@seek.temp
+     * email    = guest_<safeIp>@genqry.temp
      * user_type = Temp, account_status = Active, is_verified = true
      *
      * @param ipAddress  client IP address
@@ -120,7 +120,7 @@ public class UserDbService {
 
         if (!repo.isAvailable()) {
             log.warn("DB unavailable — guest user not persisted");
-            return new GuestUserResult(-1, safeIp, "guest_" + safeIp + "@seek.temp", true);
+            return new GuestUserResult(-1, safeIp, "guest_" + safeIp + "@genqry.temp", true);
         }
 
         // Check if a Temp user for this IP already exists (exact username match)
@@ -134,7 +134,7 @@ public class UserDbService {
         }
 
         // No existing guest — create a new one using just the IP as username
-        String email = "guest_" + safeIp + "@seek.temp";
+        String email = "guest_" + safeIp + "@genqry.temp";
 
         int newId = repo.insertUser(
                 safeIp, email, null,

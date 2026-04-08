@@ -1,5 +1,5 @@
--- SEEK database schema migration
--- Run once against the seek PostgreSQL database
+-- genQry database schema migration
+-- Run once against the genQry PostgreSQL database
 
 -- ── users table additions ────────────────────────────────────────────────────
 ALTER TABLE users

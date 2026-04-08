@@ -44,8 +44,8 @@ public class SqlSchemaController {
     @Autowired
     private SchemaExtractionService schemaExtractionService;
 
-    /** Maximum allowed file size in MB — configured via seek.upload.max-file-size-mb */
-    @Value("${seek.upload.max-file-size-mb:1}")
+    /** Maximum allowed file size in MB — configured via genqry.upload.max-file-size-mb */
+    @Value("${genqry.upload.max-file-size-mb:1}")
     private long maxFileSizeMb;
 
     // =========================================================================

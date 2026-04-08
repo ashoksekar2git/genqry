@@ -62,19 +62,19 @@ public class UserRegistrationService {
     private static final DateTimeFormatter DATE_FMT =
             DateTimeFormatter.ofPattern("MMddyyyy").withZone(ZoneOffset.UTC);
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
-    @Value("${seek.auth.base-url:http://localhost:3000}")
+    @Value("${genqry.auth.base-url:http://localhost:3000}")
     private String baseUrl;
 
-    @Value("${seek.auth.token.ttl-hours:24}")
+    @Value("${genqry.auth.token.ttl-hours:24}")
     private long tokenTtlHours;
 
-    @Value("${seek.auth.mail.from:SEEK <no-reply@seek.local>}")
+    @Value("${genqry.auth.mail.from:genQry <no-reply@genqry.local>}")
     private String mailFrom;
 
-    @Value("${seek.auth.mail.enabled:true}")
+    @Value("${genqry.auth.mail.enabled:true}")
     private boolean mailEnabled;
 
     @Autowired
@@ -121,7 +121,7 @@ public class UserRegistrationService {
     }
 
     /**
-     * Returns true when a filename looks like a SEEK user profile file.
+     * Returns true when a filename looks like a genQry user profile file.
      * Accepts BOTH the new format  ({email}_{db}_{mmddyyyy}.json)
      * and the legacy format ({email}_DBSchema_{yyyyMMdd_HHmmss}.json)
      * so existing accounts are not broken.
@@ -217,7 +217,7 @@ public class UserRegistrationService {
         objectMapper.writeValue(profileFile.toFile(), profile);
         log.info("User profile written → {}", profileFile);
 
-        // ── 7. Persist user to seek DB ────────────────────────────────────────
+        // ── 7. Persist user to genQry DB ────────────────────────────────────────
         int dbUserId = userDbService.persistRegisteredUser(
                 safeUsername, safeEmail, password,
                 verificationToken, expiresAt);
@@ -510,7 +510,7 @@ public class UserRegistrationService {
         // Pattern: anything_gmail_com_*.json  or  anything_ecommerce_*.json
         if (lower.endsWith(".json") && (lower.contains("_gmail_") || lower.contains("_yahoo_")
                 || lower.contains("_outlook_") || lower.contains("_hotmail_")
-                || lower.contains("_ecommerce_") || lower.contains("_seek_")
+                || lower.contains("_ecommerce_") || lower.contains("_genqry_")
                 || isProfileFile(fileName))) return true;
         // Profile JSON pattern: <email>_<mmddyyyy>.json  (8-digit date suffix)
         if (lower.endsWith(".json")) {
@@ -773,7 +773,7 @@ public class UserRegistrationService {
             MimeMessageHelper helper = new MimeMessageHelper(msg, true, "UTF-8");
             helper.setFrom(mailFrom);
             helper.setTo(toEmail);
-            helper.setSubject("Welcome to SEEK — Verify your email address");
+            helper.setSubject("Welcome to genQry — Verify your email address");
             helper.setText(buildEmailHtml(username.toUpperCase(), verificationLink), true);
             mailSender.send(msg);
             log.info("Verification email sent to '{}'", toEmail);
@@ -796,7 +796,7 @@ public class UserRegistrationService {
             MimeMessageHelper helper = new MimeMessageHelper(msg, true, "UTF-8");
             helper.setFrom(mailFrom);
             helper.setTo(toEmail);
-            helper.setSubject("SEEK — Reset your password");
+            helper.setSubject("genQry — Reset your password");
             helper.setText(buildPasswordResetEmailHtml(username.toUpperCase(), resetLink), true);
             mailSender.send(msg);
             log.info("Password reset email sent to '{}'", toEmail);
@@ -821,7 +821,7 @@ public class UserRegistrationService {
                           <td style="background:linear-gradient(135deg,#ea580c 0%%,#dc2626 100%%);
                                      padding:28px 32px;text-align:center">
                             <h1 style="margin:0;color:#fff;font-size:26px;letter-spacing:2px;
-                                       font-weight:700;text-transform:uppercase">SEEK</h1>
+                                       font-weight:700;text-transform:uppercase">genQry</h1>
                             <p style="margin:4px 0 0;color:rgba(255,255,255,.75);font-size:12px;
                                       letter-spacing:1px">Natural Language → SQL</p>
                           </td>
@@ -897,7 +897,7 @@ public class UserRegistrationService {
                           <td style="background:linear-gradient(135deg,#ea580c 0%%,#dc2626 100%%);
                                      padding:28px 32px;text-align:center">
                             <h1 style="margin:0;color:#fff;font-size:26px;letter-spacing:2px;
-                                       font-weight:700;text-transform:uppercase">SEEK</h1>
+                                       font-weight:700;text-transform:uppercase">genQry</h1>
                             <p style="margin:4px 0 0;color:rgba(255,255,255,.75);font-size:12px;
                                       letter-spacing:1px">Natural Language → SQL</p>
                           </td>
@@ -906,11 +906,11 @@ public class UserRegistrationService {
                         <tr>
                           <td style="padding:32px">
                             <h2 style="color:#f1f5f9;margin:0 0 8px;font-size:20px">
-                              Welcome to SEEK, %s!
+                              Welcome to genQry, %s!
                             </h2>
                             <p style="color:#94a3b8;font-size:14px;line-height:1.6;margin:0 0 24px">
                               Thanks for registering. Please verify your email address to activate
-                              your account and start using SEEK.
+                              your account and start using genQry.
                             </p>
                             <!-- CTA Button -->
                             <table width="100%%" cellpadding="0" cellspacing="0">
@@ -937,7 +937,7 @@ public class UserRegistrationService {
                           <td style="background:#0f172a;padding:16px 32px;
                                      border-top:1px solid #334155;text-align:center">
                             <p style="color:#475569;font-size:11px;margin:0">
-                              This link expires in %d hour(s). If you did not create a SEEK account,
+                              This link expires in %d hour(s). If you did not create a genQry account,
                               you can safely ignore this email.
                             </p>
                           </td>

@@ -28,7 +28,7 @@ public class DatabaseConnectRequest {
     @Schema(description = "Database type (PostgreSQL|MySQL|H2)", example = "PostgreSQL")
     private String databaseType;
 
-    @Schema(description = "Logged-in SEEK application user", example = "AshokSekar")
+    @Schema(description = "Logged-in genQry application user", example = "AshokSekar")
     private String seekUserName;
 
     public DatabaseConnectRequest() {}
@@ -49,7 +49,7 @@ public class DatabaseConnectRequest {
     public void setDatabaseType(String v) { this.databaseType = v; }
     public void setSeekUserName(String v) { this.seekUserName = v; }
 
-    /** Returns true when the SEEK application userName is supplied. */
+    /** Returns true when the genQry application userName is supplied. */
     public boolean hasSeekUserName() {
         return seekUserName != null && !seekUserName.isBlank();
     }

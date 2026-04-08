@@ -9,7 +9,7 @@ import java.util.List;
  * A single entry stored in the Redis semantic cache.
  *
  * Layout in Redis:
- *   key   →  seek:cache:<uuid>          (String key)
+ *   key   →  genqry:cache:<uuid>          (String key)
  *   value →  JSON-serialised CacheEntry (via RedisTemplate<String,CacheEntry>)
  *   TTL   →  configured via cache.semantic.ttl-seconds
  *

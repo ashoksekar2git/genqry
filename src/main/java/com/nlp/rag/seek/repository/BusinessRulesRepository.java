@@ -19,7 +19,7 @@ import java.time.Instant;
 import java.util.List;
 
 /**
- * JDBC repository for the {@code business_rules} table in the seek DB.
+ * JDBC repository for the {@code business_rules} table in the genQry DB.
  */
 @Repository
 public class BusinessRulesRepository {

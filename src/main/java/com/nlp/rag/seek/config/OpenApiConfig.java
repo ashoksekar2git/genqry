@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 /**
- * OpenAPI / Swagger-UI configuration for the SEEK NL2SQL application.
+ * OpenAPI / Swagger-UI configuration for the genQry NL2SQL application.
  *
  * Swagger UI   : http://localhost:9095/swagger-ui.html
  * OpenAPI JSON  : http://localhost:9095/v3/api-docs
@@ -26,10 +26,10 @@ import java.util.List;
 public class OpenApiConfig {
 
     @Bean
-    public OpenAPI seekOpenAPI() {
+    public OpenAPI genQryOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("SEEK — NL2SQL RAG API")
+                        .title("genQry — NL2SQL RAG API")
                         .description(
                                 "Natural Language to SQL conversion pipeline powered by RAG (Retrieval-Augmented Generation).\n\n" +
                                 "**Authentication**: Most endpoints require a JWT Bearer token. " +
@@ -38,11 +38,11 @@ public class OpenApiConfig {
                                 "**Public endpoints** (no token needed): `/api/v1/auth/*`")
                         .version("1.0.0")
                         .contact(new Contact()
-                                .name("SEEK Team")
+                                .name("genQry Team")
                                 .email("ragdataseek@gmail.com"))
                         .license(new License()
                                 .name("Private")
-                                .url("https://seekingbots.com")))
+                                .url("https://genqry.com")))
                 .components(new Components()
                         .addSecuritySchemes("bearerAuth",
                                 new SecurityScheme()

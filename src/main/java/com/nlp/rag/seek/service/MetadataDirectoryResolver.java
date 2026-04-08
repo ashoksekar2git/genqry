@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *  RESOLUTION ORDER (per user)
  * ══════════════════════════════════════════════════════════════════════
  *  1. Per-user directory  — supportingFiles/{userName}/
- *  2. seek.metadata.save-dir property  — global external override.
+ *  2. genqry.metadata.save-dir property  — global external override.
  *  3. ClassPathResource("metadata")    — default (resolves to
  *     target/classes/metadata when running via spring-boot:run).
  *
@@ -37,10 +37,10 @@ public class MetadataDirectoryResolver {
 
     private static final String METADATA_SUBDIR = "metadata";
 
-    @Value("${seek.metadata.save-dir:}")
+    @Value("${genqry.metadata.save-dir:}")
     private String externalSaveDir;
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     /** Default directory — used when no per-user directory is applicable. */
@@ -98,7 +98,7 @@ public class MetadataDirectoryResolver {
      * Resolves the per-user directory: supportingFiles/{sanitizedUserName}/
      * Creates the directory if it does not exist.
      *
-     * @param userName  the SEEK application user name (will be sanitised)
+     * @param userName  the genQry application user name (will be sanitised)
      * @return absolute path to the user's directory
      */
     public Path resolveUserDir(String userName) {

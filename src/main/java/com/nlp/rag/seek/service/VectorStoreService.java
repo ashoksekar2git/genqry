@@ -39,7 +39,7 @@ public class VectorStoreService {
     /** Tracks which database is currently indexed — used for persistence. */
     private volatile String currentDatabaseName;
 
-    /** Tracks which SEEK user triggered the current index — used for persistence path. */
+    /** Tracks which genQry user triggered the current index — used for persistence path. */
     private volatile String currentUserName;
 
     /** Returns true only when a real (non-placeholder) API key is configured */

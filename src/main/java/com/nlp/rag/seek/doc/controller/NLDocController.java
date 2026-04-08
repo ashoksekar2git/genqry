@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * REST controller for document-grounded natural language queries.
  *
- * Serves: POST /api/v1/seekDoc
+ * Serves: POST /api/v1/genQryDoc
  *
  * Flow:
  *  1. Receive the user's natural language question + userName (+ optional docId / topK)
@@ -60,7 +60,7 @@ public class NLDocController {
     private DocumentRagService documentRagService;
 
     // =========================================================================
-    // POST /api/v1/seekDoc
+    // POST /api/v1/genQryDoc
     // =========================================================================
 
     /**
@@ -70,8 +70,8 @@ public class NLDocController {
      * vector store, builds a grounded prompt, and calls the LLM for a
      * plain-text answer. No SQL is generated at any stage.
      */
-    @PostMapping("/seekDoc")
-    public ResponseEntity<?> seekDoc(@RequestBody NLDocQueryRequest request) {
+    @PostMapping("/genQryDoc")
+    public ResponseEntity<?> genQryDoc(@RequestBody NLDocQueryRequest request) {
 
         // ── Validate ──────────────────────────────────────────────────────────
         if (request.getUserName() == null || request.getUserName().isBlank()) {
@@ -83,7 +83,7 @@ public class NLDocController {
                     .body(Map.of("error", "question is required"));
         }
 
-        log.info("seekDoc request: user='{}' documentName='{}' docId='{}' topK={} query='{}'",
+        log.info("genQryDoc request: user='{}' documentName='{}' docId='{}' topK={} query='{}'",
                 request.getUserName(),
                 request.getDocumentName() != null ? request.getDocumentName() : "(none)",
                 request.getDocId()        != null ? request.getDocId()        : "(none)",
@@ -95,17 +95,17 @@ public class NLDocController {
             return ResponseEntity.ok(response);
 
         } catch (Exception e) {
-            log.error("seekDoc failed for user='{}': {}", request.getUserName(), e.getMessage(), e);
+            log.error("genQryDoc failed for user='{}': {}", request.getUserName(), e.getMessage(), e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(Map.of("error", "Document query failed: " + e.getMessage()));
         }
     }
 
     // =========================================================================
-    // GET /api/v1/seekDoc/health
+    // GET /api/v1/genQryDoc/health
     // =========================================================================
 
-    @GetMapping("/seekDoc/health")
+    @GetMapping("/genQryDoc/health")
     public ResponseEntity<Map<String, String>> health() {
         return ResponseEntity.ok(Map.of(
                 "status",  "UP",

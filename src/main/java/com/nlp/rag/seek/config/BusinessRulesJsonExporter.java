@@ -64,7 +64,7 @@ public class BusinessRulesJsonExporter implements ApplicationRunner {
     @Autowired
     private SecretStore secretStore;
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     private final ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);

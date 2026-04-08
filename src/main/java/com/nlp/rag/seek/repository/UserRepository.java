@@ -19,11 +19,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * JDBC repository for the seek database user tables:
+ * JDBC repository for the genQry database user tables:
  *   users, webauthn_credentials, user_activity_logs,
  *   schema_details, transcript_details
  *
- * Uses the primary (seek) datasource exclusively.
+ * Uses the primary (genQry) datasource exclusively.
  */
 @Repository
 public class UserRepository {
@@ -715,7 +715,7 @@ public class UserRepository {
     // Helpers
     // =========================================================================
 
-    /** Returns true if the seek DB is reachable and the users table exists. */
+    /** Returns true if the genQry DB is reachable and the users table exists. */
     public boolean isAvailable() {
         try {
             jdbc.queryForObject(

@@ -80,7 +80,7 @@ public class DatabaseAdminController {
     @Value("${spring.datasource.primary.password:root}")
     private String primaryPassword;
 
-    @Value("${seek.supporting-files.dir:src/main/resources/supportingFiles}")
+    @Value("${genqry.supporting-files.dir:src/main/resources/supportingFiles}")
     private String supportingFilesDir;
 
     // =========================================================================
@@ -460,7 +460,7 @@ public class DatabaseAdminController {
      * Request:
      * {
      *   "databaseName": "ecommerce",
-     *   "host":         "db.invinciblebots.com",
+     *   "host":         "db.genqry.com",
      *   "port":         5432,
      *   "username":     "postgres",
      *   "password":     "root",

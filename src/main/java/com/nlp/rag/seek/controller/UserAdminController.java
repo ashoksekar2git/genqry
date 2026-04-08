@@ -40,13 +40,13 @@ public class UserAdminController {
     @Autowired(required = false)
     private JavaMailSender mailSender;
 
-    @Value("${seek.auth.mail.from:SEEK <ragdataseek@gmail.com>}")
+    @Value("${genqry.auth.mail.from:genQry <ragdataseek@gmail.com>}")
     private String mailFrom;
 
-    @Value("${seek.auth.mail.enabled:true}")
+    @Value("${genqry.auth.mail.enabled:true}")
     private boolean mailEnabled;
 
-    @Value("${seek.auth.base-url:http://localhost:3000}")
+    @Value("${genqry.auth.base-url:http://localhost:3000}")
     private String baseUrl;
 
     // =========================================================================
@@ -54,7 +54,7 @@ public class UserAdminController {
     // =========================================================================
 
     /**
-     * Returns all users from the seek DB users table.
+     * Returns all users from the genQry DB users table.
      * Intended for Root/Admin users only (frontend enforces via userType).
      *
      * Response (200):
@@ -100,12 +100,12 @@ public class UserAdminController {
     // =========================================================================
 
     /**
-     * Sends an invite email to a friend to check out the SEEK application.
+     * Sends an invite email to a friend to check out the genQry application.
      *
      * Request body:
      * {
      *   "email":     "friend@example.com",
-     *   "message":   "Hey, check out SEEK — it converts natural language to SQL!",
+     *   "message":   "Hey, check out genQry — it converts natural language to SQL!",
      *   "invitedBy": "AshokSekar"
      * }
      *
@@ -125,7 +125,7 @@ public class UserAdminController {
 
         String email     = body.get("email") != null ? body.get("email").toString().trim() : "";
         String message   = body.get("message") != null ? body.get("message").toString().trim() : "";
-        String invitedBy = body.get("invitedBy") != null ? body.get("invitedBy").toString().trim() : "A SEEK user";
+        String invitedBy = body.get("invitedBy") != null ? body.get("invitedBy").toString().trim() : "A genQry user";
 
         log.info("POST /api/v1/admin/users/invite — email='{}' invitedBy='{}'", email, invitedBy);
 
@@ -146,7 +146,7 @@ public class UserAdminController {
             MimeMessageHelper helper = new MimeMessageHelper(msg, true, "UTF-8");
             helper.setFrom(mailFrom);
             helper.setTo(email);
-            helper.setSubject("You're Invited to Try SEEK — Natural Language to SQL");
+            helper.setSubject("You're Invited to Try genQry — Natural Language to SQL");
             helper.setText(buildInviteEmailHtml(invitedBy, message, email), true);
 
             mailSender.send(msg);
@@ -173,7 +173,7 @@ public class UserAdminController {
     private String buildInviteEmailHtml(String invitedBy, String personalMessage, String recipientEmail) {
         String signUpUrl = baseUrl + "/register";
         String safeMessage = personalMessage.isBlank()
-                ? "I've been using SEEK and thought you'd love it. It converts natural language questions into SQL queries using AI — give it a try!"
+                ? "I've been using genQry and thought you'd love it. It converts natural language questions into SQL queries using AI — give it a try!"
                 : personalMessage.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
 
         return String.format("""
@@ -191,7 +191,7 @@ public class UserAdminController {
                           <td style="background:linear-gradient(135deg,#ea580c 0%%,#dc2626 100%%);
                                      padding:28px 32px;text-align:center">
                             <h1 style="margin:0;color:#fff;font-size:26px;letter-spacing:2px;
-                                       font-weight:700;text-transform:uppercase">SEEK</h1>
+                                       font-weight:700;text-transform:uppercase">genQry</h1>
                             <p style="margin:4px 0 0;color:rgba(255,255,255,.75);font-size:12px;
                                       letter-spacing:1px">Natural Language → SQL &amp; Document Intelligence</p>
                           </td>
@@ -203,7 +203,7 @@ public class UserAdminController {
                               You've Been Invited! 🎉
                             </h2>
                             <p style="color:#94a3b8;font-size:14px;line-height:1.6;margin:0 0 16px">
-                              <strong style="color:#f1f5f9">%s</strong> thinks you'd enjoy SEEK:
+                              <strong style="color:#f1f5f9">%s</strong> thinks you'd enjoy genQry:
                             </p>
                             <div style="background:#0f172a;border-left:3px solid #ea580c;
                                         padding:12px 16px;border-radius:4px;margin:0 0 24px">
@@ -212,7 +212,7 @@ public class UserAdminController {
                               </p>
                             </div>
                             <p style="color:#94a3b8;font-size:14px;line-height:1.6;margin:0 0 8px">
-                              <strong style="color:#f1f5f9">What is SEEK?</strong>
+                              <strong style="color:#f1f5f9">What is genQry?</strong>
                             </p>
                             <ul style="color:#94a3b8;font-size:13px;line-height:1.8;margin:0 0 24px;padding-left:20px">
                               <li>Ask questions in plain English — get SQL queries instantly</li>
@@ -233,7 +233,7 @@ public class UserAdminController {
                                                            font-weight:700;font-size:14px;
                                                            letter-spacing:1px;text-transform:uppercase;
                                                            display:inline-block">
-                                          Get Started with SEEK
+                                          Get Started with genQry
                                         </a>
                                       </td>
                                     </tr>
@@ -251,7 +251,7 @@ public class UserAdminController {
                           <td style="background:#0f172a;padding:16px 32px;
                                      border-top:1px solid #334155;text-align:center">
                             <p style="color:#475569;font-size:11px;margin:0">
-                              This invite was sent by %s via SEEK.
+                              This invite was sent by %s via genQry.
                               If you didn't expect this, you can safely ignore it.
                             </p>
                           </td>
