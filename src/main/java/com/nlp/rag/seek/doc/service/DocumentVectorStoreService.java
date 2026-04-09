@@ -35,6 +35,12 @@ public class DocumentVectorStoreService {
     @Autowired
     private DocumentVectorIndexPersistenceService persistenceService;
 
+    @Autowired
+    private com.nlp.rag.seek.config.SecretStore secretStore;
+
+    @Autowired
+    private com.nlp.rag.seek.config.AIConfig aiConfig;
+
     @Value("${spring.ai.openai.api-key:NOT_SET}")
     private String openAiApiKey;
 
@@ -287,10 +293,12 @@ public class DocumentVectorStoreService {
     }
 
     private float[] embed(String text) {
-        if (embeddingModel == null) return null;
+        EmbeddingModel model = aiConfig != null && aiConfig.getEmbeddingModel() != null
+                ? aiConfig.getEmbeddingModel() : embeddingModel;
+        if (model == null) return null;
         if (!isApiKeyValid()) return null;
         try {
-            List<Double> doubles = embeddingModel.embed(text);
+            List<Double> doubles = model.embed(text);
             float[] vec = new float[doubles.size()];
             for (int i = 0; i < doubles.size(); i++) vec[i] = doubles.get(i).floatValue();
             return vec;
@@ -301,6 +309,11 @@ public class DocumentVectorStoreService {
     }
 
     private boolean isApiKeyValid() {
+        // Check SecretStore first (populated after bootstrap in secretsfree mode)
+        String storeKey = secretStore != null ? secretStore.get(com.nlp.rag.seek.config.SecretStore.OPENAI_API_KEY) : null;
+        if (storeKey != null && !storeKey.isBlank() && !"NOT_SET".equalsIgnoreCase(storeKey) && storeKey.startsWith("sk-")) {
+            return true;
+        }
         return openAiApiKey != null
                 && !openAiApiKey.isBlank()
                 && !openAiApiKey.equals("NOT_SET")

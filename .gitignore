@@ -82,5 +82,12 @@ seek-ui/.idea/
 src/main/resources/supportingFiles/*/
 src/main/resources/supportingFiles/vector_index_ecommerce.json
 
+### Database migration dumps ###
+db_migration_dumps/
+migrate-db-*.log
+
+### Expect helper scripts ###
+fix-*.exp
+deploy-remote.sh
 
 

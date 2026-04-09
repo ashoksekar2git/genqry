@@ -1,4 +1,42 @@
 [ {
+  "id" : 1181,
+  "user_id" : 1000,
+  "created_at" : "2026-04-08 21:44:31",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3565,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-04-08 21:44:31",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the products",
+    "explanation" : "This query retrieves a list of all products from the database, including details such as the product ID, name, description, category ID, price, stock quantity, SKU, whether the product is active, and the dates it was created and last updated. There are no filters or conditions applied, meaning it pulls information for every product available in the database. The results are not specifically ordered or grouped. The purpose of this query is likely to provide a comprehensive overview of the entire product inventory, which can be useful for inventory management, auditing, or reporting purposes.",
+    "llmResponse" : "SELECT productid, name, description, categoryid, price, stockqty, sku, isactive, createdat, updatedat FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
+  "id" : 1180,
+  "user_id" : 1000,
+  "created_at" : "2026-04-08 17:57:41",
+  "status" : "SUCCESS",
+  "remarks" : null,
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.3565,
+  "error_code" : null,
+  "data_source" : "ecommerce",
+  "updated_at" : "2026-04-08 17:57:41",
+  "transcriptDetails" : {
+    "userPrompt" : "list all the products",
+    "explanation" : "This query retrieves a list of all products from the database, including details such as the product ID, name, description, category ID, price, stock quantity, SKU, whether the product is active, and the dates it was created and last updated. There are no specific filters or conditions applied, meaning it pulls information for every product available in the database. The results are not ordered or grouped in any particular way. The purpose of this query is likely to provide a comprehensive overview of all products, which could be useful for inventory management, product catalog updates, or general business analysis.",
+    "llmResponse" : "SELECT productid, name, description, categoryid, price, stockqty, sku, isactive, createdat, updatedat FROM products;",
+    "remarks" : "",
+    "retry" : false
+  }
+}, {
   "id" : 1143,
   "user_id" : 1000,
   "created_at" : "2026-03-26 09:17:14",
