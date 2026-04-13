@@ -30,6 +30,12 @@ public class VectorStoreService {
     @Autowired
     private VectorIndexPersistenceService persistenceService;
 
+    @Autowired
+    private com.nlp.rag.seek.config.SecretStore secretStore;
+
+    @Autowired
+    private com.nlp.rag.seek.config.AIConfig aiConfig;
+
     @Value("${spring.ai.openai.api-key:NOT_SET}")
     private String openAiApiKey;
 
@@ -44,11 +50,23 @@ public class VectorStoreService {
 
     /** Returns true only when a real (non-placeholder) API key is configured */
     private boolean isApiKeyValid() {
+        // Check SecretStore first (populated after bootstrap in secretsfree mode)
+        String storeKey = secretStore != null ? secretStore.get(com.nlp.rag.seek.config.SecretStore.OPENAI_API_KEY) : null;
+        if (storeKey != null && !storeKey.isBlank() && !"NOT_SET".equalsIgnoreCase(storeKey) && storeKey.startsWith("sk-")) {
+            return true;
+        }
+        // Fall back to @Value injected at startup
         return openAiApiKey != null
                 && !openAiApiKey.isBlank()
                 && !openAiApiKey.equals("NOT_SET")
                 && !openAiApiKey.startsWith("sk-placeholder")
                 && openAiApiKey.startsWith("sk-");
+    }
+
+    /** Returns the live EmbeddingModel — prefers the post-bootstrap reinitialised instance. */
+    private EmbeddingModel getActiveEmbeddingModel() {
+        EmbeddingModel fromAiConfig = aiConfig != null ? aiConfig.getEmbeddingModel() : null;
+        return fromAiConfig != null ? fromAiConfig : embeddingModel;
     }
 
     // =========================================================================
@@ -214,10 +232,11 @@ public class VectorStoreService {
 
     /** Calls the embedding model; returns null if model unavailable or call fails. */
     private float[] embed(String text) {
-        if (embeddingModel == null) return null;
+        EmbeddingModel model = getActiveEmbeddingModel();
+        if (model == null) return null;
         if (!isApiKeyValid()) return null;   // skip HTTP call — no valid key
         try {
-            List<Double> doubles = embeddingModel.embed(text);
+            List<Double> doubles = model.embed(text);
             float[] vec = new float[doubles.size()];
             for (int i = 0; i < doubles.size(); i++) vec[i] = doubles.get(i).floatValue();
             return vec;

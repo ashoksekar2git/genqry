@@ -1,0 +1,62 @@
+#!/usr/bin/expect -f
+set timeout 120
+
+spawn ssh-add /Users/ashoksekar/.ssh/id_ed25519
+expect "Enter passphrase"
+send "hezkey\r"
+expect eof
+
+spawn ssh root@46.62.167.213
+expect {
+    "passphrase*" { send "hezkey\r"; exp_continue }
+    "# " {}
+}
+
+# Step 1: Find and kill ALL java processes individually (avoid killing SSH)
+send "for pid in \$(pgrep java); do echo \"Killing PID \$pid\"; kill -9 \$pid 2>/dev/null; done; sleep 3; pgrep java && echo 'STILL_RUNNING' || echo 'ALL_KILLED'\r"
+expect "ALL_KILLED"
+expect "# "
+
+# Step 2: Swap JAR if .new exists, otherwise just verify JAR is there
+send "test -f /opt/genqry/genqry-0.0.1-SNAPSHOT.jar.new && mv /opt/genqry/genqry-0.0.1-SNAPSHOT.jar.new /opt/genqry/genqry-0.0.1-SNAPSHOT.jar && echo 'JAR_SWAPPED' || echo 'USING_EXISTING_JAR'\r"
+expect "# "
+
+# Step 3: Verify JAR contains the CORS fix
+send "python3 -c \"import zipfile; z=zipfile.ZipFile('/opt/genqry/genqry-0.0.1-SNAPSHOT.jar'); c=z.read('BOOT-INF/classes/application-secretsfree.properties').decode(); print('CORS_FIX_PRESENT' if 'genqry.com,https://www.genqry.com' in c else 'CORS_FIX_MISSING')\"\r"
+expect "CORS_FIX_PRESENT"
+expect "# "
+
+# Step 4: Clear log and start with all env vars
+send "truncate -s 0 /opt/genqry/genqry.log\r"
+expect "# "
+send "cd /opt/genqry && nohup env DB_HOST=l0h9.your-database.de DB_PORT=5432 NEXT_PUBLIC_APP_URL=https://genqry.com /usr/bin/java -jar genqry-0.0.1-SNAPSHOT.jar --spring.profiles.active=secretsfree > genqry.log 2>&1 &\r"
+expect "# "
+send "sleep 2 && echo PID=\$(pgrep java)\r"
+expect "# "
+
+# Step 5: Wait for port 9095
+send "for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; do sleep 5; ss -tlnp 2>/dev/null | grep -q 9095 && echo 'PORT_UP after '\$((i*5))'s' && break; echo 'waiting...'\$((i*5))'s'; done\r"
+expect -timeout 120 "PORT_UP"
+expect "# "
+
+# Step 6: Bootstrap — trigger if not initialized
+send "curl -s --max-time 10 http://localhost:9095/api/v1/bootstrap/9f8e7d6c5b4a/status | python3 -c \"import sys,json; d=json.load(sys.stdin); print('INIT=' + str(d.get('initialized',False)), 'UPLOADED=' + str(d.get('secretsFileUploaded',False)))\"\r"
+expect "# "
+send "curl -s --max-time 120 -X POST http://localhost:9095/api/v1/bootstrap/9f8e7d6c5b4a/trigger | python3 -c \"import sys,json; d=json.load(sys.stdin); print('BOOTSTRAP:', 'OK' if d.get('initialized') else 'FAILED'); \[print(f'  {k}: {v}') for k,v in d.items()\]\"\r"
+expect -timeout 130 "# "
+
+# Step 7: Test guest login (CORS validation)
+send "curl -s --max-time 10 -X POST http://localhost:9095/api/v1/auth/guest | head -c 300\r"
+expect "# "
+
+# Step 8: Check for CORS errors
+send "grep -c 'allowedOrigins' /opt/genqry/genqry.log 2>/dev/null; echo 'CORS_ERRORS='\$(grep -c 'allowedOrigins' /opt/genqry/genqry.log 2>/dev/null || echo 0)\r"
+expect "# "
+
+send "echo 'ALL_DONE'\r"
+expect "ALL_DONE"
+expect "# "
+
+send "exit\r"
+expect eof
+

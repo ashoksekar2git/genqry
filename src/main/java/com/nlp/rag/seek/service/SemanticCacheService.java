@@ -325,7 +325,15 @@ public class SemanticCacheService {
         } catch (Exception e) { return false; }
     }
 
+    @Autowired(required = false)
+    private com.nlp.rag.seek.config.SecretStore secretStore;
+
     private boolean isApiKeyValid() {
+        // Check SecretStore first (populated after bootstrap in secretsfree mode)
+        String storeKey = secretStore != null ? secretStore.get(com.nlp.rag.seek.config.SecretStore.OPENAI_API_KEY) : null;
+        if (storeKey != null && !storeKey.isBlank() && !"NOT_SET".equalsIgnoreCase(storeKey) && storeKey.startsWith("sk-")) {
+            return true;
+        }
         return openAiApiKey != null
                 && !openAiApiKey.isBlank()
                 && !openAiApiKey.equals("NOT_SET")

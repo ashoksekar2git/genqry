@@ -1,4 +1,23 @@
 [ {
+  "id" : 1185,
+  "user_id" : 1001,
+  "created_at" : "2026-04-09 23:29:30",
+  "status" : "FAILURE",
+  "remarks" : "LLM not configured (no API key). Showing most relevant document excerpts.",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.2045,
+  "error_code" : null,
+  "data_source" : "AshokkumarSeka.docx",
+  "updated_at" : "2026-04-09 23:29:30",
+  "transcriptDetails" : {
+    "userPrompt" : "Which year this candidate graduated",
+    "explanation" : "Doc RAG | confidence=LOW (0.2045) | chunks=3 | hallucinated=false | cached=false",
+    "llmResponse" : "Most relevant content found in the document:\n\n• [AshokkumarSeka.docx / chunk 5]\n  complex relational databases. Designed for secure, scalable and context aware query generation. Wayfinder combines deterministic schema analysis with advanced LLMS to deliver accurate, workflow-ready SQL for business users and developers. This project provided the foundation for AI driven software a\n\n• [AshokkumarSeka.docx / chunk 4]\n  Caching & NoSQL DB: Redis and ElasticSearch Log Aggregation & Data Analytics: Splunk, Dynatrace New relic, Datadog and Grafana EDUCATION Bachelor of Technology in Information Technology, University of Madras, India Experience: Virtusa Tenure: Sep 2024 to Till Date Client: Fidelity Investments Projec\n\n• [AshokkumarSeka.docx / chunk 0]\n  Ashok Sekar itsmeashoksekar@gmail.com +1 484-252-3003 ____________________________________________________________________________________ SUMMARY • Over 18 years of IT experience in design, development and implementation of monolithic web applications, soap and rest microservices using Java and JEE",
+    "remarks" : "LLM not configured (no API key). Showing most relevant document excerpts.",
+    "retry" : false
+  }
+}, {
   "id" : 1012,
   "user_id" : 1001,
   "created_at" : "2026-03-20 11:32:51",

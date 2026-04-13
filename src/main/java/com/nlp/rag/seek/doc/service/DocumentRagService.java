@@ -13,7 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -63,9 +62,13 @@ public class DocumentRagService {
     private UserDbService userDbService;
 
     /** Doc-specific ChatClient — system prompt forbids SQL, answers from context only. */
-    @Autowired(required = false)
-    @Qualifier("docChatClient")
-    private ChatClient docChatClient;
+    @Autowired
+    private com.nlp.rag.seek.config.AIConfig aiConfig;
+
+    /** Returns the live docChatClient — picks up post-bootstrap reinitialised instance. */
+    private ChatClient getDocChatClient() {
+        return aiConfig.getDocChatClient();
+    }
 
     // ── Business-rules loaded from JSON ──────────────────────────────────────
     private String docSystemInstruction = "You are a helpful assistant that answers questions strictly from provided document excerpts.\n";
@@ -366,9 +369,10 @@ public class DocumentRagService {
         log.info("══════════════ DOC PROMPT SENT TO LLM ══════════════\n{}\n══════════════ END OF DOC PROMPT ══════════════", prompt);
 
         // ── 6. Call LLM ───────────────────────────────────────────────────────
-        if (docChatClient != null) {
+        ChatClient docClient = getDocChatClient();
+        if (docClient != null) {
             try {
-                String answer = docChatClient.prompt()
+                String answer = docClient.prompt()
                         .user(prompt)
                         .call()
                         .content();

@@ -63,10 +63,12 @@ public class SQLGenerationService {
     @Autowired private TranscriptService        transcriptService;
     @Autowired private DynamicDataSourceRegistry dynamicDataSourceRegistry;
     @Autowired private AbbreviatedSchemaChunkTranslator abbreviatedChunkTranslator;
+    @Autowired private com.nlp.rag.seek.config.AIConfig aiConfig;
 
-    @Autowired(required = false)
-    @org.springframework.beans.factory.annotation.Qualifier("sqlChatClient")
-    private ChatClient chatClient;
+    /** Returns the live ChatClient — picks up post-bootstrap reinitialised instance. */
+    private ChatClient getChatClient() {
+        return aiConfig.getSqlChatClient();
+    }
 
     // ── Business rules loaded from BusinessRulesForPrompts.json ─────────────
     private static final String BUSINESS_RULES_JSON = "supportingFiles/BusinessRulesForPrompts.json";
@@ -664,14 +666,15 @@ public class SQLGenerationService {
 
     private String callLLM(String nlQuery, String schemaContext, String dbName,
                            List<ScoredChunk> scoredChunks, String databaseType) {
-        if (chatClient == null) {
+        ChatClient client = getChatClient();
+        if (client == null) {
             log.warn("ChatClient not wired — no OPENAI_API_KEY set?");
             return null;
         }
         String prompt = buildPrompt(nlQuery, schemaContext, dbName, scoredChunks, databaseType);
         try {
             log.info("══════════════ PROMPT SENT TO LLM ══════════════\n{}\n══════════════ END OF PROMPT ══════════════", prompt);
-            String response = chatClient.prompt(new Prompt(new UserMessage(prompt))).call().content();
+            String response = client.prompt(new Prompt(new UserMessage(prompt))).call().content();
             log.info("══════════════ LLM RESPONSE ══════════════\n{}\n══════════════ END OF LLM RESPONSE ══════════════", response);
             return response;
         } catch (Exception e) {

@@ -3,59 +3,52 @@ package com.nlp.rag.seek.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Global CORS configuration.
+ * Global CORS configuration — shared by both Spring MVC and Spring Security.
  *
- * Allowed origins are driven by the {@code genqry.cors.allowed-origins} property,
- * which is set per Spring profile:
+ * Produces a {@link CorsConfigurationSource} bean that
+ * {@code SecurityConfig.cors(Customizer.withDefaults())} picks up automatically.
  *
+ * Allowed origins are driven by the {@code genqry.cors.allowed-origins} property:
  *   default (no profile) → * (all origins — suitable for local dev)
- *   dev  profile         → https://dev.genqry.com
- *   prod profile         → https://genqry.com
- *
- * Activate a profile at startup:
- *   java -jar genQry.jar --spring.profiles.active=dev
- *   SPRING_PROFILES_ACTIVE=prod java -jar genQry.jar
+ *   secretsfree / prod   → https://genqry.com, https://www.genqry.com
  */
 @Configuration
 public class CorsConfig {
 
-    /**
-     * Comma-separated list of allowed origins.
-     * Defaults to "*" so local development works without any extra config.
-     */
     @Value("${genqry.cors.allowed-origins:*}")
     private String allowedOriginsRaw;
 
     @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                List<String> origins = Arrays.stream(allowedOriginsRaw.split(","))
-                        .map(String::trim)
-                        .filter(s -> !s.isBlank())
-                        .toList();
+    public CorsConfigurationSource corsConfigurationSource() {
+        List<String> origins = Arrays.stream(allowedOriginsRaw.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isBlank())
+                .toList();
 
-                String[] originsArray = origins.contains("*")
-                        ? new String[]{"*"}
-                        : origins.toArray(new String[0]);
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setMaxAge(3600L);
+        config.setAllowCredentials(true);
 
-                registry.addMapping("/api/**")
-                        .allowedOrigins(originsArray)
-                        .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
-                        .allowedHeaders("*")
-                        // credentials cannot be combined with wildcard origin
-                        .allowCredentials(!origins.contains("*"))
-                        .maxAge(3600);
-            }
-        };
+        if (origins.contains("*")) {
+            // allowedOriginPatterns supports wildcard + credentials
+            config.setAllowedOriginPatterns(List.of("*"));
+        } else {
+            config.setAllowedOrigins(origins);
+        }
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/api/**", config);
+        return source;
     }
 }
 
