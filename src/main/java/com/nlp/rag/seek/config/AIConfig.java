@@ -15,6 +15,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+import jakarta.annotation.PostConstruct;
+
 /**
  * Configuration for AI and RAG pipeline.
  *
@@ -65,11 +67,45 @@ public class AIConfig {
     @Value("${spring.ai.openai.embedding.options.model:text-embedding-3-small}")
     private String embeddingModelName;
 
+    @Value("${spring.ai.openai.api-key:NOT_SET}")
+    private String openAiApiKey;
+
+    @Value("${genqry.bootstrap.mode:local}")
+    private String bootstrapMode;
+
     // ── Mutable holders — updated by reinitialize() ─────────────────────────
     private volatile ChatClient sqlChatClientInstance;
     private volatile ChatClient docChatClientInstance;
     private volatile ChatModel chatModelInstance;
     private volatile EmbeddingModel embeddingModelInstance;
+
+    /**
+     * In LOCAL mode, auto-initialize AI clients at startup if a valid API key
+     * is available from application-local.properties or OPENAI_API_KEY env var.
+     * In secretsfree mode, clients stay null until bootstrap calls reinitialize().
+     */
+    @PostConstruct
+    public void init() {
+        boolean isLocal = !"secretsfree".equalsIgnoreCase(bootstrapMode)
+                       && !"cloud".equalsIgnoreCase(bootstrapMode);
+        if (isLocal && isValidApiKey(openAiApiKey)) {
+            log.info("AIConfig: LOCAL mode — auto-initializing OpenAI clients at startup");
+            reinitialize(openAiApiKey);
+        } else if (isLocal) {
+            log.warn("AIConfig: LOCAL mode but OPENAI_API_KEY is missing or invalid ('{}') — "
+                   + "LLM features will be unavailable. Set the OPENAI_API_KEY env variable.",
+                     openAiApiKey != null ? openAiApiKey.substring(0, Math.min(6, openAiApiKey.length())) + "..." : "null");
+        } else {
+            log.info("AIConfig: SECRETSFREE mode — AI clients will be initialised during bootstrap");
+        }
+    }
+
+    private boolean isValidApiKey(String key) {
+        return key != null && !key.isBlank()
+            && !"NOT_SET".equalsIgnoreCase(key)
+            && !key.startsWith("sk-placeholder")
+            && key.startsWith("sk-");
+    }
 
     // ── Beans exposed to the rest of the application ─────────────────────────
 

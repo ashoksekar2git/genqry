@@ -1,4 +1,61 @@
 [ {
+  "id" : 1184,
+  "user_id" : 1000,
+  "created_at" : "2026-04-09 23:27:40",
+  "status" : "FAILURE",
+  "remarks" : "NO_CHUNKS_RETRIEVED",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : null,
+  "data_source" : "ashoksekar_ashokkumarseka",
+  "updated_at" : "2026-04-09 23:27:40",
+  "transcriptDetails" : {
+    "userPrompt" : "which client this candidate worked for",
+    "explanation" : "Doc RAG | confidence=LOW (0.0000) | chunks=0 | hallucinated=false | cached=false",
+    "llmResponse" : "No relevant content found in your uploaded documents for this question. Please make sure the document has been uploaded and indexed.",
+    "remarks" : "NO_CHUNKS_RETRIEVED",
+    "retry" : false
+  }
+}, {
+  "id" : 1183,
+  "user_id" : 1000,
+  "created_at" : "2026-04-09 23:27:17",
+  "status" : "FAILURE",
+  "remarks" : "NO_CHUNKS_RETRIEVED",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : null,
+  "data_source" : "ashoksekar_ashokkumarseka",
+  "updated_at" : "2026-04-09 23:27:17",
+  "transcriptDetails" : {
+    "userPrompt" : "which client this candidate worked for",
+    "explanation" : "Doc RAG | confidence=LOW (0.0000) | chunks=0 | hallucinated=false | cached=false",
+    "llmResponse" : "No relevant content found in your uploaded documents for this question. Please make sure the document has been uploaded and indexed.",
+    "remarks" : "NO_CHUNKS_RETRIEVED",
+    "retry" : false
+  }
+}, {
+  "id" : 1182,
+  "user_id" : 1000,
+  "created_at" : "2026-04-09 23:26:29",
+  "status" : "FAILURE",
+  "remarks" : "NO_CHUNKS_RETRIEVED",
+  "user_feedback" : null,
+  "feedback_type" : null,
+  "confidence_score" : 0.0000,
+  "error_code" : null,
+  "data_source" : "ashoksekar_ashokkumarseka",
+  "updated_at" : "2026-04-09 23:26:29",
+  "transcriptDetails" : {
+    "userPrompt" : "which year this candidate graduated",
+    "explanation" : "Doc RAG | confidence=LOW (0.0000) | chunks=0 | hallucinated=false | cached=false",
+    "llmResponse" : "No relevant content found in your uploaded documents for this question. Please make sure the document has been uploaded and indexed.",
+    "remarks" : "NO_CHUNKS_RETRIEVED",
+    "retry" : false
+  }
+}, {
   "id" : 1181,
   "user_id" : 1000,
   "created_at" : "2026-04-08 21:44:31",

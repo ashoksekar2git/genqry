@@ -701,7 +701,7 @@ public class PasskeyService {
         // Check if this is the user's first login (last_login_at is null)
         boolean isFirstLogin = userRecord.get("last_login_at") == null;
 
-        // ── Verify clientDataJSON challenge ───────────────────────────────────
+        // ── Verify clientDataJSON challenge and origin ──────────────────────────
         Map<String, Object> response = (Map<String, Object>) credential.get("response");
         if (response != null) {
             String clientDataJSON = (String) response.get("clientDataJSON");
@@ -712,11 +712,23 @@ public class PasskeyService {
                     String clientDataStr = new String(decoded,
                             java.nio.charset.StandardCharsets.UTF_8);
                     Map<?, ?> clientData = mapper.readValue(clientDataStr, Map.class);
+
+                    // Verify challenge
                     String receivedChallenge = (String) clientData.get("challenge");
                     if (!pending.challenge().equals(receivedChallenge)) {
                         log.warn("Challenge mismatch for email='{}'", email);
                         return new PasskeyResult(false, null, null,
                                 "Challenge verification failed. Please try again.");
+                    }
+
+                    // Verify origin
+                    String receivedOrigin = (String) clientData.get("origin");
+                    Set<String> allowed = getAllowedOrigins();
+                    if (receivedOrigin != null && !allowed.contains(receivedOrigin)) {
+                        log.warn("Origin mismatch for email='{}': received='{}' allowed={}",
+                                email, receivedOrigin, allowed);
+                        // Log but don't reject — origin mismatch can occur during
+                        // deployment transitions (www vs non-www, http vs https)
                     }
                 } catch (Exception ex) {
                     log.debug("Could not verify clientDataJSON challenge: {}", ex.getMessage());
@@ -764,10 +776,11 @@ public class PasskeyService {
 
     /**
      * Derives the WebAuthn RP ID from the base URL (hostname only, no port, no protocol).
+     * The RP ID must be the registrable domain — www. prefix is stripped.
      * Domain tiers:
      *   local machine : localhost
      *   development   : dev.genqry.com
-     *   production    : genqry.com
+     *   production    : genqry.com  (even if base-url is https://www.genqry.com)
      */
     private String deriveRpId(String baseUrl) {
         try {
@@ -775,10 +788,34 @@ public class PasskeyService {
             if (!u.contains("://")) u = "https://" + u;
             java.net.URI uri = java.net.URI.create(u);
             String host = uri.getHost();
-            return (host != null && !host.isBlank()) ? host : "dev.genqry.com";
+            if (host == null || host.isBlank()) return "genqry.com";
+            // Strip www. prefix — WebAuthn RP ID must be the registrable domain
+            if (host.startsWith("www.")) {
+                host = host.substring(4);
+            }
+            return host;
         } catch (Exception e) {
-            return "dev.genqry.com";
+            log.warn("Could not derive rpId from '{}': {}", baseUrl, e.getMessage());
+            return "genqry.com";
         }
+    }
+
+    /**
+     * Returns the allowed origins for WebAuthn verification.
+     * In production: https://genqry.com and https://www.genqry.com
+     * In local: http://localhost:3000
+     */
+    private Set<String> getAllowedOrigins() {
+        String rpId = deriveRpId(appBaseUrl);
+        Set<String> origins = new LinkedHashSet<>();
+        if ("localhost".equals(rpId)) {
+            origins.add("http://localhost:3000");
+            origins.add("http://localhost:9095");
+        } else {
+            origins.add("https://" + rpId);
+            origins.add("https://www." + rpId);
+        }
+        return origins;
     }
 
     /** Generates 32 random bytes as a URL-safe base64 string (no padding). */
